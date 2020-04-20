@@ -1,0 +1,154 @@
+body {
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif;
+  font-size: 1.1em;
+  line-height: 1.5em;
+  max-width: 42em;
+  margin: auto;
+  padding: 0 2%;
+  overflow-wrap: break-word;
+}
+
+a[href^="http"]:after
+{
+content: '⤴'; '⇗';
+}
+
+nav {
+  margin-top: 1em;
+  margin-bottom: 1em;
+}
+
+nav a, nav span {
+  font-size: medium;
+  margin-right: 1em;
+}
+
+nav a:first-child {
+  font-weight: bold;
+}
+
+nav a:last-child {
+  margin-right: 0;
+}
+
+hr {
+  max-width: 44em;
+  margin: 1em auto;
+  border: 0;
+  border-bottom: thin solid #ccc;
+}
+
+pre {
+  border-left: 2.5px solid black;
+  padding-left: 1.5em;
+}
+
+.hero {
+  display: flex;
+  flex-flow: row nowrap;
+  align-items: center;
+}
+
+.hero figure {
+  min-width: 30%;
+}
+
+main img {
+  max-width: 100%;
+  display: block;
+  margin: .75em auto;
+}
+
+section {
+  margin-bottom: 2em;
+}
+
+/* Colors */
+body,
+h1 a:link, h1 a:visited,
+h2 a:link, h2 a:visited,
+h3 a:link, h3 a:visited,
+h4 a:link, h4 a:visited,
+h5 a:link, h5 a:visited,
+h6 a:link, h6 a:visited,
+.links a:link, .links a:visited,
+.posts a:link, .posts a:visited,
+nav a:first-child:link, nav a:first-child:visited
+{
+  color: #333;
+}
+
+h1 a:hover, h1 a:active,
+h2 a:hover, h2 a:active,
+h3 a:hover, h3 a:active,
+h4 a:hover, h4 a:active,
+h5 a:hover, h5 a:active,
+h6 a:hover, h6 a:active,
+.links a:hover, .links a:active,
+.posts a:hover, .posts a:active,
+nav a:first-child:hover, nav a:first-child:active
+{
+  color: #555;
+}
+
+a:link, a:visited {
+  text-decoration: none
+}
+
+a:hover, a:active {
+  text-decoration: underline
+}
+
+.links a {
+  font-size: small;
+  font-weight: bold;
+  margin-right: 1em;
+}
+
+.links a:last-child {
+  margin-right: 0;
+}
+
+/* Footer */
+footer .links a {
+  font-size: medium;
+  font-weight: normal;
+  margin-top: 1em;
+  margin-bottom: 1em;
+}
+
+footer .links, footer .icons {
+  margin-top: 1em;
+  margin-bottom: 1em;
+}
+
+footer .icons a {
+  margin-right: 0.5em;
+}
+
+footer .icons a:last-child {
+  margin-right: 0;
+}
+
+footer .icons img {
+  height: 1.25em;
+  margin: auto;
+}
+
+/* Link colors */
+a:link, a:visited {
+  color: #03c;
+}
+
+a:hover, a:active {
+  color: #03f;
+}
+
+/* Social media icon colors */
+.icons img {
+  opacity: 0.8; /* 1 - 0x33 / 0xff */
+}
+
+.icons img:hover {
+  opacity: 0.6; /* 1 - 0x66 / 0xff */
+}
