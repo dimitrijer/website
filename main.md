@@ -9,7 +9,7 @@ nocite: '@*'
 
 :::: {.intro}
 
-Hi, my name is Dimitrije, and I'm a backend engineer.
+Hi, my name is Dimitrije[^1], and I'm a backend engineer.
 
 I have 8 years of professional experience of designing, developing, deploying
 and maintaining backend services. I'm currently working at [Nordeus](https://nordeus.com).
@@ -34,8 +34,8 @@ You can find everything at the [archive](./archive.html).
 
 I hang out at various places online.
 
-- [Twitter](https://twitter.com/dradojevic)
 - [Github](https://github.com/dimitrijer)
+- [Twitter](https://twitter.com/dradojevic)
 - [LinkedIn](https://www.linkedin.com/in/dimitrijer/)
 - [Reddit](https://www.reddit.com/user/dimitrijer89)
 
@@ -43,3 +43,5 @@ I hang out at various places online.
 
 ::: {.refs}
 :::
+
+[^1]: as in _dim-it-rhee-ye_
