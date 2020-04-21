@@ -39,6 +39,17 @@ hr {
   border-bottom: thin solid #ccc;
 }
 
+footer {
+  font-size: medium;
+  margin-top: 1em;
+  margin-bottom: 1em;
+  line-height: 1em;
+}
+
+footer .pgp, footer .license {
+  margin: 0;
+}
+
 pre {
   border-left: 2.5px solid black;
   padding-left: 1.5em;
@@ -72,8 +83,8 @@ h3 a:link, h3 a:visited,
 h4 a:link, h4 a:visited,
 h5 a:link, h5 a:visited,
 h6 a:link, h6 a:visited,
-.links a:link, .links a:visited,
-.posts a:link, .posts a:visited,
+.pgp a:link, .pgp a:visited,
+.license a:link, .license a:visited,
 nav a:first-child:link, nav a:first-child:visited
 {
   color: #333;
@@ -85,8 +96,8 @@ h3 a:hover, h3 a:active,
 h4 a:hover, h4 a:active,
 h5 a:hover, h5 a:active,
 h6 a:hover, h6 a:active,
-.links a:hover, .links a:active,
-.posts a:hover, .posts a:active,
+.pgp a:hover, .pgp a:active,
+.license a:hover, .license a:active,
 nav a:first-child:hover, nav a:first-child:active
 {
   color: #555;
@@ -100,42 +111,6 @@ a:hover, a:active {
   text-decoration: underline
 }
 
-.links a {
-  font-size: small;
-  font-weight: bold;
-  margin-right: 1em;
-}
-
-.links a:last-child {
-  margin-right: 0;
-}
-
-/* Footer */
-footer .links a {
-  font-size: medium;
-  font-weight: normal;
-  margin-top: 1em;
-  margin-bottom: 1em;
-}
-
-footer .links, footer .icons {
-  margin-top: 1em;
-  margin-bottom: 1em;
-}
-
-footer .icons a {
-  margin-right: 0.5em;
-}
-
-footer .icons a:last-child {
-  margin-right: 0;
-}
-
-footer .icons img {
-  height: 1.25em;
-  margin: auto;
-}
-
 /* Link colors */
 a:link, a:visited {
   color: #03c;
@@ -143,15 +118,6 @@ a:link, a:visited {
 
 a:hover, a:active {
   color: #03f;
-}
-
-/* Social media icon colors */
-.icons img {
-  opacity: 0.8; /* 1 - 0x33 / 0xff */
-}
-
-.icons img:hover {
-  opacity: 0.6; /* 1 - 0x66 / 0xff */
 }
 
 .footnotes hr {
@@ -163,4 +129,8 @@ a:hover, a:active {
   content: "⁂";
   color: #333;
   display: inline;
+}
+
+footer address {
+  font-style: normal;
 }
