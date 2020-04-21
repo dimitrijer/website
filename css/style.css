@@ -10,7 +10,8 @@ body {
 
 a[href^="http"]:after
 {
-content: '⤴'; '⇗';
+  content: '⤴'; '⇗';
+  display: inline-block;
 }
 
 nav {
@@ -151,4 +152,15 @@ a:hover, a:active {
 
 .icons img:hover {
   opacity: 0.6; /* 1 - 0x66 / 0xff */
+}
+
+.footnotes hr {
+  border: 0;
+  text-align: center;
+}
+
+.footnotes hr:after {
+  content: "⁂";
+  color: #333;
+  display: inline;
 }
