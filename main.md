@@ -20,7 +20,7 @@ Mochiko.
 
 ::::
 
-<figure><img src="images/portrait.png" alt="Pencil drawing of my face"></figure>
+<figure><img src="/images/portrait.png" alt="Pencil drawing of my face"></figure>
 
 :::
 
@@ -28,7 +28,7 @@ Mochiko.
 
 I write a bit, very rarely though.
 
-You can find all posts at the [archive](./archive.html).
+You can find all posts at the [archives](./archive.html).
 
 # Profiles
 

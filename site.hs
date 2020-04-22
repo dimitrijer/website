@@ -8,6 +8,9 @@ import           Text.Pandoc
 
 
 --------------------------------------------------------------------------------
+root :: String
+root = "https://dimitrije.website"
+
 html5WriterOptions :: WriterOptions
 html5WriterOptions = defaultHakyllWriterOptions
     { writerSectionDivs = True
@@ -42,26 +45,25 @@ main = hakyll $ do
     --         >>= loadAndApplyTemplate "templates/default.html" defaultContext
     --         >>= relativizeUrls
 
-    -- match "posts/*" $ do
-    --     route $ setExtension "html"
-    --     compile $ pandocCompiler
-    --         >>= loadAndApplyTemplate "templates/post.html"    postCtx
-    --         >>= loadAndApplyTemplate "templates/default.html" postCtx
-    --         >>= relativizeUrls
+    match "posts/*" $ do
+        route $ setExtension "html"
+        compile $ pandocCompiler
+            >>= loadAndApplyTemplate "templates/post.html"    postCtx
+            >>= loadAndApplyTemplate "templates/default.html" postCtx
+            >>= relativizeUrls
 
-    -- create ["archive.html"] $ do
-    --     route idRoute
-    --     compile $ do
-    --         posts <- recentFirst =<< loadAll "posts/*"
-    --         let archiveCtx =
-    --                 listField "posts" postCtx (return posts) `mappend`
-    --                 constField "title" "Archives"            `mappend`
-    --                 defaultContext
+    create ["archive.html"] $ do
+        route idRoute
+        compile $ do
+            posts <- recentFirst =<< loadAll "posts/*"
+            let archiveCtx =
+                    listField "posts" postCtx (return posts) `mappend`
+                    constField "htmltitle" "Archives"        `mappend`
+                    defaultContext
 
-    --         makeItem ""
-    --             >>= loadAndApplyTemplate "templates/archive.html" archiveCtx
-    --             >>= loadAndApplyTemplate "templates/default.html" archiveCtx
-    --             >>= relativizeUrls
+            makeItem ""
+                >>= loadAndApplyTemplate "templates/archive.html" archiveCtx
+                >>= loadAndApplyTemplate "templates/default.html" archiveCtx
 
     match "contact.md" $ do
         route   $ setExtension "html"
@@ -75,12 +77,25 @@ main = hakyll $ do
             >>= loadAndApplyTemplate "templates/default.html" defaultContext
             >>= relativizeUrls
 
+    create ["sitemap.xml"] $ do
+            route idRoute
+            compile $ do
+                posts <- recentFirst =<< loadAll "posts/*"
+                singlePages <- loadAll (fromList ["contact.md", "main.md"])
+                let pages = posts <> singlePages
+                    sitemapCtx =
+                        constField "root" root <> -- here
+                        listField "pages" postCtx (return pages)
+                makeItem ""
+                    >>= loadAndApplyTemplate "templates/sitemap.xml" sitemapCtx
+
     match "templates/*" $ compile templateCompiler
 
 
 --------------------------------------------------------------------------------
 postCtx :: Context String
 postCtx =
+    constField "root" root `mappend`
     dateField "date" "%B %e, %Y" `mappend`
     defaultContext
 
