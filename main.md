@@ -26,9 +26,9 @@ Mochiko.
 
 # Posts
 
-Sometimes I write a bit.
+I write a bit, very rarely though.
 
-You can find everything at the [archive](./archive.html).
+You can find all posts at the [archive](./archive.html).
 
 # Profiles
 
