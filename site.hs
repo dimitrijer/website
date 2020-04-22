@@ -73,9 +73,21 @@ main = hakyll $ do
 
     match "main.md" $ do
         route   $ customRoute $ (\x -> "index.html")
-        compile $ pandocBiblioCompilerWith "csl/ieee-with-url.csl" "bib/refs.bib" html5WriterOptions
-            >>= loadAndApplyTemplate "templates/default.html" defaultContext
-            >>= relativizeUrls
+        compile $ do
+            csl <- load $ fromFilePath "csl/ieee-with-url.csl"
+            bib <- load $ fromFilePath "bib/refs.bib"
+            posts <- fmap (take 3) . recentFirst =<< loadAll "posts/*"
+
+            let indexCtx =
+                    listField "posts" postCtx (return posts) `mappend`
+                    defaultContext
+
+            getResourceBody
+                >>= applyAsTemplate indexCtx
+                >>= readPandocBiblio defaultHakyllReaderOptions csl bib
+                >>= return . writePandocWith html5WriterOptions
+                >>= loadAndApplyTemplate "templates/default.html" indexCtx
+                >>= relativizeUrls
 
     create ["sitemap.xml"] $ do
             route idRoute

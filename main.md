@@ -27,8 +27,7 @@ Mochiko.
 # Posts
 
 I write a bit, very rarely though.
-
-You can find all posts at the [archives](./archive.html).
+$partial("templates/post-recent-list.html")$
 
 # Profiles
 
