@@ -67,7 +67,7 @@ main = hakyll $ do
 
     match "contact.md" $ do
         route   $ setExtension "html"
-        compile $ pandocCompiler
+        compile $ pandocCompilerWith defaultHakyllReaderOptions html5WriterOptions
             >>= loadAndApplyTemplate "templates/default.html" defaultContext
             >>= relativizeUrls
 
