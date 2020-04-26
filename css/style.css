@@ -69,12 +69,20 @@ pre {
   .hero {
       flex-flow: column-reverse nowrap;
   }
+
+  .hero figure {
+      margin-bottom: -0.5em;
+  }
 }
 
 /* Phone */
 @media all and (max-width: 480px) { 
   .hero {
       flex-flow: column-reverse nowrap;
+  }
+
+  .hero figure {
+      margin-bottom: -0.5em;
   }
 }
 
@@ -84,8 +92,8 @@ pre {
 }
 
 .hero figure {
-  min-width: 30%;
   max-width: 30%;
+  min-width: 200px;
 }
 
 main img {
