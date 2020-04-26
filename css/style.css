@@ -50,9 +50,6 @@ pre {
   padding-left: 1.5em;
 }
 
-@media all and (max-width: 480px) {
-}
-
 /* Desktops/laptops */
 @media all and (min-width: 1024px) and (max-width: 1280px) {
   .hero {
@@ -70,14 +67,14 @@ pre {
 /* Tablet */
 @media all and (min-width: 480px) and (max-width: 768px) {
   .hero {
-      flex-flow: column nowrap;
+      flex-flow: column-reverse nowrap;
   }
 }
 
 /* Phone */
 @media all and (max-width: 480px) { 
   .hero {
-      flex-flow: column nowrap;
+      flex-flow: column-reverse nowrap;
   }
 }
 
