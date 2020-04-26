@@ -26,8 +26,14 @@ pandocBiblioCompilerWith cslFileName bibFileName writerOpts = do
     liftM (writePandocWith writerOpts)
         (getResourceBody >>= readPandocBiblio defaultHakyllReaderOptions csl bib)
 
+config :: Configuration
+config = defaultConfiguration
+    { previewHost = "0.0.0.0"
+    , previewPort = 8080
+    }
+
 main :: IO ()
-main = hakyll $ do
+main = hakyllWith config $ do
     match "images/*" $ do
         route   idRoute
         compile copyFileCompiler
