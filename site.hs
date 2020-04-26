@@ -65,7 +65,7 @@ main = hakyll $ do
                 >>= loadAndApplyTemplate "templates/archive.html" archiveCtx
                 >>= loadAndApplyTemplate "templates/default.html" archiveCtx
 
-    match "contact.md" $ do
+    match (fromList ["contact.md", "about.md"]) $ do
         route   $ setExtension "html"
         compile $ pandocCompilerWith defaultHakyllReaderOptions html5WriterOptions
             >>= loadAndApplyTemplate "templates/default.html" defaultContext
@@ -80,6 +80,7 @@ main = hakyll $ do
 
             let indexCtx =
                     listField "posts" postCtx (return posts) `mappend`
+                    boolField "somePosts" (return $ (length posts) > 0) `mappend`
                     defaultContext
 
             getResourceBody
