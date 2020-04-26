@@ -9,10 +9,19 @@
 	>
 <url>
 	<loc>$root$</loc>
+	<lastmod>$updated$</lastmod>
 	<changefreq>daily</changefreq>
 	<priority>1.0</priority>
 </url>
-	$for(pages)$
+	$for(singlePages)$
+<url>
+	<loc>$root$$url$</loc>
+	<lastmod>$if(updated)$$updated$$else$$if(date)$$date$$endif$$endif$</lastmod>
+	<changefreq>weekly</changefreq>
+	<priority>0.8</priority>
+</url>
+	$endfor$
+	$for(posts)$
 <url>
 	<loc>$root$$url$</loc>
 	<lastmod>$if(updated)$$updated$$else$$if(date)$$date$$endif$$endif$</lastmod>

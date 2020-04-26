@@ -5,7 +5,7 @@ import           Control.Monad (liftM)
 import           Hakyll
 import           Hakyll.Web.Pandoc
 import           Text.Pandoc
-
+import           Data.Time
 
 --------------------------------------------------------------------------------
 root :: String
@@ -46,12 +46,6 @@ main = hakyllWith config $ do
     match "bib/*" $ compile biblioCompiler
     match "csl/*" $ compile cslCompiler
 
-    -- match (fromList ["main.md"]) $ do
-    --     route   $ setExtension "html"
-    --     compile $ pandocCompiler
-    --         >>= loadAndApplyTemplate "templates/default.html" defaultContext
-    --         >>= relativizeUrls
-
     match "posts/*" $ do
         route $ setExtension "html"
         compile $ pandocCompiler
@@ -63,9 +57,13 @@ main = hakyllWith config $ do
         route idRoute
         compile $ do
             posts <- recentFirst =<< loadAll "posts/*"
-            let archiveCtx =
+            mostRecentPostDate <- getItemModificationTime (itemIdentifier $ head posts)
+           
+            let archiveCtx = 
+                    constField "root" root `mappend`
+                    constField "updated" (formatTime defaultTimeLocale "%Y-%m-%d" mostRecentPostDate) `mappend`
                     listField "posts" postCtx (return posts) `mappend`
-                    constField "htmltitle" "Archives"        `mappend`
+                    constField "htmltitle" "Archives" `mappend`
                     defaultContext
 
             makeItem ""
@@ -75,7 +73,7 @@ main = hakyllWith config $ do
     match (fromList ["contact.md", "about.md"]) $ do
         route   $ setExtension "html"
         compile $ pandocCompilerWith defaultHakyllReaderOptions html5WriterOptions
-            >>= loadAndApplyTemplate "templates/default.html" defaultContext
+            >>= loadAndApplyTemplate "templates/default.html" singlePageCtx
             >>= relativizeUrls
 
     match "main.md" $ do
@@ -101,11 +99,20 @@ main = hakyllWith config $ do
             route idRoute
             compile $ do
                 posts <- recentFirst =<< loadAll "posts/*"
-                singlePages <- loadAll (fromList ["contact.md", "main.md"])
-                let pages = posts <> singlePages
-                    sitemapCtx =
-                        constField "root" root <> -- here
-                        listField "pages" postCtx (return pages)
+                singlePages <- loadAll (fromList ["contact.md", "about.md"])
+
+                timeZone <- unsafeCompiler Data.Time.getCurrentTimeZone
+                currentTime <- unsafeCompiler Data.Time.getCurrentTime
+
+                mostRecentPostDate <- getItemModificationTime (itemIdentifier $ head posts)
+
+                let localTime = utcToZonedTime timeZone currentTime
+                let sitemapCtx =
+                        constField "root" root `mappend`
+                        constField "updated" (formatTime defaultTimeLocale "%Y-%m-%d" localTime) `mappend`
+                        constField "mostRecentPostDate" (formatTime defaultTimeLocale "%Y-%m-%d" mostRecentPostDate) `mappend`
+                        listField "posts" postCtx (return posts) `mappend`
+                        listField "singlePages" singlePageCtx (return singlePages)
                 makeItem ""
                     >>= loadAndApplyTemplate "templates/sitemap.xml" sitemapCtx
 
@@ -116,6 +123,11 @@ main = hakyllWith config $ do
 postCtx :: Context String
 postCtx =
     constField "root" root `mappend`
-    dateField "date" "%B %e, %Y" `mappend`
+    dateField "date" "%Y-%m-%d" `mappend`
     defaultContext
 
+singlePageCtx :: Context String
+singlePageCtx =
+    constField "root" root `mappend`
+    modificationTimeField "updated" "%Y-%m-%d" `mappend`
+    defaultContext

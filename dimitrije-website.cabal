@@ -19,4 +19,5 @@ executable site
   ghc-options:        -threaded
   build-depends:      base >= 4.7 && < 5,
                       hakyll >= 4.13,
-                      pandoc >= 2.7
+                      pandoc >= 2.7,
+                      time
