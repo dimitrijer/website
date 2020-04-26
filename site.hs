@@ -28,7 +28,8 @@ pandocBiblioCompilerWith cslFileName bibFileName writerOpts = do
 
 config :: Configuration
 config = defaultConfiguration
-    { previewHost = "0.0.0.0"
+    { deployCommand = "rsync -av _site/* dimitrije.website:/srv/http"
+    , previewHost = "0.0.0.0"
     , previewPort = 8080
     }
 
