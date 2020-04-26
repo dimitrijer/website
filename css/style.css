@@ -70,7 +70,6 @@ section {
   margin-bottom: 2em;
 }
 
-/* Colors */
 body,
 h1 a:link, h1 a:visited,
 h2 a:link, h2 a:visited,
@@ -106,7 +105,6 @@ a:hover, a:active {
   text-decoration: underline
 }
 
-/* Link colors */
 a:link, a:visited {
   color: #03c;
 }
