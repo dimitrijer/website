@@ -1,9 +1,7 @@
 --------------------------------------------------------------------------------
 {-# LANGUAGE OverloadedStrings #-}
 import           Data.Monoid (mappend)
-import           Control.Monad (liftM)
 import           Hakyll
-import           Hakyll.Web.Pandoc
 import           Text.Pandoc
 import           Data.Time
 
@@ -18,13 +16,6 @@ html5WriterOptions = defaultHakyllWriterOptions
     , writerTopLevelDivision = TopLevelSection
     , writerCiteMethod = Citeproc
     }
-
-pandocBiblioCompilerWith :: String -> String -> WriterOptions -> Compiler (Item String)
-pandocBiblioCompilerWith cslFileName bibFileName writerOpts = do
-    csl <- load $ fromFilePath cslFileName
-    bib <- load $ fromFilePath bibFileName
-    liftM (writePandocWith writerOpts)
-        (getResourceBody >>= readPandocBiblio defaultHakyllReaderOptions csl bib)
 
 config :: Configuration
 config = defaultConfiguration
@@ -77,7 +68,7 @@ main = hakyllWith config $ do
             >>= relativizeUrls
 
     match "main.md" $ do
-        route   $ customRoute $ (\x -> "index.html")
+        route   $ customRoute $ (\_ -> "index.html")
         compile $ do
             csl <- load $ fromFilePath "csl/ieee-with-url.csl"
             bib <- load $ fromFilePath "bib/refs.bib"
