@@ -54,6 +54,7 @@ main = hakyllWith config $ do
                     constField "root" root `mappend`
                     constField "updated" (formatTime defaultTimeLocale "%Y-%m-%d" mostRecentPostDate) `mappend`
                     listField "posts" postCtx (return posts) `mappend`
+                    boolField "somePosts" (return $ (length posts) > 0) `mappend`
                     constField "htmltitle" "Archives" `mappend`
                     defaultContext
 

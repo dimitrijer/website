@@ -5,11 +5,13 @@ title: Main
 nocite: '@*'
 ---
 
+<section id="hi">
+
 ::: {.hero}
 
 :::: {.intro}
 
-# Hi!
+# Hi there!
 
 My name is Dimitrije[^1], and I'm a backend engineer.
 
@@ -23,9 +25,11 @@ Mochiko.
 
 ::::
 
-<figure><img src="/images/portrait.png" alt="Pencil drawing of my face"></figure>
+<figure><img src="/images/portrait-transparent.png" alt="Pencil drawing of my face"></figure>
 
 :::
+
+</section>
 
 # Posts
 
