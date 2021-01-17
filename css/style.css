@@ -143,10 +143,6 @@ blockquote {
   .hero {
       flex-flow: column-reverse nowrap;
   }
-
-  .hero figure {
-      margin-bottom: -0.5em;
-  }
 }
 
 .hero {
