@@ -1,0 +1,96 @@
+%!TEX TS-program = xelatex
+%!TEX encoding = UTF-8 Unicode
+
+\documentclass[11pt, a4paper]{article}
+\usepackage{fontspec} 
+
+% DOCUMENT LAYOUT
+\usepackage[margin=1.2in]{geometry} 
+\setlength\parindent{0cm}
+\setlength\parskip{0.3cm}
+
+% fix for pandoc 1.14
+\providecommand{\tightlist}{%
+  \setlength{\itemsep}{0pt}\setlength{\parskip}{0pt}}
+
+% Reduce spacing in itemize, enumerate and titles
+\usepackage{multicol}
+
+% LINKS
+\usepackage[colorlinks,allcolors=blue]{hyperref}
+
+% FONTS
+\defaultfontfeatures{Path = /usr/local/texlive/2020basic/texmf-dist/fonts/opentype/public/fontawesome/}
+\usepackage{fontawesome}
+\usepackage{xunicode}
+\usepackage{xltxtra}
+\defaultfontfeatures{Mapping=tex-text} % converts LaTeX specials (quotes'' --- dashes etc.) to unicode
+
+% \setromanfont[Ligatures={Common}, Numbers={OldStyle}]{Palatino}
+% \setmonofont[Scale=1.0]{Monaco} 
+% \setsansfont[Scale=1.0]{Optima Regular} 
+
+% HEADINGS and TITLES
+\usepackage{sectsty}
+\usepackage[normalem]{ulem}
+\sectionfont{\sffamily\mdseries\large\underline} % Underlines headings
+\setcounter{secnumdepth}{-1} % Removes the numbers before sections
+\subsectionfont{\rmfamily\mdseries\scshape\normalsize}
+\subsubsectionfont{\rmfamily\bfseries\upshape\normalsize}
+
+% Math symbols
+\usepackage{amssymb}
+\usepackage{enumitem}
+\setenumerate{nolistsep}
+\setitemize{nolistsep}
+% Nested itemize symbols
+\setlist[itemize,2]{label=\raise 0.1em\hbox{\tiny$$\blacktriangleright$$}}
+
+% Header/footer
+\usepackage{fancyhdr}
+\pagestyle{fancy}
+\fancyhf{}
+\rhead{$phone$, $email$, $city$, $countrycode$}
+\lhead{Dimitrije Radojević}
+\rfoot{Page \thepage}
+
+\usepackage{titling}
+\usepackage{graphicx}
+\setlength{\droptitle}{-90pt} % The negative number moves the title closer to the top of the page
+
+\title{\textsc{Curriculum Vitae} \\ \Huge{$title$}}
+\date{$if(date)$$date$\\$endif$}
+\author{\href{https://github.com/$github$}{$github$} \faGithub \, \textbar{} \href{https://twitter.com/@$twitter$}{@$twitter$} \faTwitter \, \textbar{} \href{https://www.linkedin.com/in/$linkedin$}{$linkedin$} \faLinkedin}
+
+\preauthor{\begin{flushleft}}
+\postauthor{\par\end{flushleft}}
+\predate{\begin{flushleft}$street$ \textbar{} $postcode$ $city$, $country$\\%
+$phone$ \textbar{} $email$ \\ \vspace{0.5cm}}
+\postdate{\par\end{flushleft}}
+
+\usepackage{wrapfig}
+% set up \maketitle to accept a new item
+\pretitle{\begin{flushleft}}
+\posttitle{\par\end{flushleft}}
+
+\newcommand{\published}[1]{%
+    \gdef\puB{#1}}
+\newcommand{\puB}{}
+\renewcommand{\maketitlehooka}{%
+    \par\noindent \puB}
+
+\published{%
+    \begin{wrapfigure}[10]{r}{5cm}%
+        %\rule{4cm}{5cm}%
+        \includegraphics[width=4cm]{cv-profile}%
+    \end{wrapfigure}}
+
+
+% BEGIN DOCUMENT
+\begin{document}
+\maketitle
+\thispagestyle{empty}
+\begin{raggedright}
+$body$
+\end{raggedright}
+\end{document}
