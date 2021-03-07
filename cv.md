@@ -7,7 +7,7 @@ nocite: '@*'
 
 # Curriculum Vitae
 
-_(this page is also available for [download in PDF form](static/cv.pdf))_
+_(this page is also available for [download in PDF form](/files/cv.pdf))_
 
 I am a software engineer with more than eight years of professional experience
 in backend architecture and development, video game development, infrastructure
@@ -61,7 +61,7 @@ wonderful company of my Shih-Tzu Mochi.
       functions, and reinforcement learning to develop several iterations of AI
       bots for [Heroic: Magic Duel](https://www.heroicgame.com/).
 
-- Feb 2012 - March 2018: *Software Development Engineer*, [Nordeus](https://nordeus.com)
+- February 2012 - March 2018: *Software Development Engineer*, [Nordeus](https://nordeus.com)
 
     * Worked as a video game developer on four different game projects,
       including Nordeus' most successful game, [Top
@@ -73,15 +73,15 @@ wonderful company of my Shih-Tzu Mochi.
     * Was a part of the effort to convert a legacy, monolithic backend service
       to microservice architecture.
     * Designed and built a proxy that allowed WebSocket frontends to
-      communicate with backend services in proprietary binary protocol,
-      eventually taking over as the main edge service.
+      communicate with backend services in proprietary binary protocol. This
+      service eventually became the edge service for all clients.
     * Introduced several significant concepts to backend teams over the years,
-      including observability, in terms of ubiquitous metrics and distributed
-      tracing, modern build tools and CI/CD pipeline, continuous code quality
-      and centralized linting, and message queues serving as central events
-      pipeline.
-
-- Oct 2009 - May 2014: *Junior Teaching Assistant*, Seminar of Astronomy,
+      including key-value stores, message queues, observability in terms of
+      ubiquitous metrics and distributed tracing, modern build tools and CI/CD
+      pipeline, continuous code quality and code health metrics and centralized
+      linting.
+      
+- October 2009 - May 2014: *Junior Teaching Assistant*, Seminar of Astronomy,
   [Petnica Science Center](http://petnica.rs)
 
     * Taught basics of programming to high-school students at the seminar, i.e.
@@ -148,8 +148,10 @@ wonderful company of my Shih-Tzu Mochi.
 
 # Education
 
-- Oct 2009 - Oct 2016: *BSc in Computer Science*, University of Electrotechnics, Belgrade, Serbia
-- Sep 2005 - Jun 2009: *High School Degree*, Mathematics Dpt., Gymnasium Uzice, Serbia
+- October 2009 - October 2016: *BSc in Computer Science*, University of
+  Electrotechnics, Belgrade, Serbia
+- September 2005 - Jun 2009: *High School Degree*, Mathematics Dpt., Gymnasium
+  Užice, Serbia
 
 # Languages
 
