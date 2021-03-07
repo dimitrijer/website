@@ -92,6 +92,7 @@ main = hakyllWith config $ do
       let indexCtx =
             listField "posts" postCtx (return posts)
               `mappend` boolField "somePosts" (return $ (length posts) > 0)
+              `mappend` modificationTimeField "updated" "%Y-%m-%d"
               `mappend` defaultContext
 
       getResourceBody
