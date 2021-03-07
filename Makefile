@@ -1,10 +1,10 @@
 .PHONY: site preview
 
-site:
-	stack run build
+run:
+	stack run watch
 
-preview:
-	stack run preview
+build:
+	stack run build
 
 cv: cv.md
 	pandoc -s -f markdown-auto_identifiers \
