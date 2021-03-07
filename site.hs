@@ -52,11 +52,9 @@ main = hakyllWith config $ do
     route idRoute
     compile $ do
       posts <- recentFirst =<< loadAll "posts/*"
-      mostRecentPostDate <- getItemModificationTime (itemIdentifier $ head posts)
 
       let archiveCtx =
             constField "root" root
-              `mappend` constField "updated" (formatTime defaultTimeLocale "%Y-%m-%d" mostRecentPostDate)
               `mappend` listField "posts" postCtx (return posts)
               `mappend` boolField "somePosts" (return $ (length posts) > 0)
               `mappend` constField "htmltitle" "Archives"
