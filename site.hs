@@ -69,7 +69,6 @@ main = hakyllWith config $ do
           csl <- load $ fromFilePath "csl/ieee-with-url.csl"
           bib <- load $ fromFilePath "bib/refs.bib"
           getResourceBody
-                >>= applyAsTemplate singlePageCtx
                 >>= readPandocBiblio defaultHakyllReaderOptions csl bib
                 >>= return . writePandocWith html5WriterOptions
                 >>= loadAndApplyTemplate "templates/default.html" singlePageCtx
