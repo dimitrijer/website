@@ -1,7 +1,3 @@
----
-htmltitle: Main
----
-
 <section id="hi">
 
 ::: {.hero}
