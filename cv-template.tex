@@ -26,10 +26,6 @@
 \usepackage{xltxtra}
 \defaultfontfeatures{Mapping=tex-text} % converts LaTeX specials (quotes'' --- dashes etc.) to unicode
 
-% \setromanfont[Ligatures={Common}, Numbers={OldStyle}]{Palatino}
-% \setmonofont[Scale=1.0]{Monaco} 
-% \setsansfont[Scale=1.0]{Optima Regular} 
-
 % HEADINGS and TITLES
 \usepackage{sectsty}
 \usepackage[normalem]{ulem}
@@ -50,7 +46,7 @@
 \usepackage{fancyhdr}
 \pagestyle{fancy}
 \fancyhf{}
-\rhead{$phone$, $email$, $city$, $countrycode$}
+\rhead{$email$}
 \lhead{Dimitrije Radojević}
 \rfoot{Page \thepage}
 
@@ -60,12 +56,18 @@
 
 \title{\textsc{Curriculum Vitae} \\ \Huge{$title$}}
 \date{$if(date)$$date$\\$endif$}
-\author{\href{https://github.com/$github$}{$github$} \faGithub \, \textbar{} \href{https://twitter.com/@$twitter$}{@$twitter$} \faTwitter \, \textbar{} \href{https://www.linkedin.com/in/$linkedin$}{$linkedin$} \faLinkedin}
+\author{
+    \href{https://dimitrije.website}{$website$} \faGlobe \, \textbar{}
+    \href{mailto:me@dimitrije.website}{$email$} \faEnvelopeSquare \\ % new line here
+    \href{https://github.com/$github$}{$github$} \faGithub \, \textbar{}
+    \href{https://twitter.com/@$twitter$}{@$twitter$} \faTwitter \, \textbar{}
+    \href{https://www.linkedin.com/in/$linkedin$}{$linkedin$} \faLinkedin
+}
 
+% Left text horizontal adjustment for author and date
 \preauthor{\begin{flushleft}}
 \postauthor{\par\end{flushleft}}
-\predate{\begin{flushleft}$street$ \textbar{} $postcode$ $city$, $country$\\%
-$phone$ \textbar{} $email$ \\ \vspace{0.5cm}}
+\predate{\begin{flushleft}}
 \postdate{\par\end{flushleft}}
 
 \usepackage{wrapfig}

@@ -1,5 +1,12 @@
 ---
 htmltitle: Curriculum Vitae
+title: 'Dimitrije Radojević'
+twitter: dradojevic
+github: dimitrijer
+linkedin: dimitrijer
+website: dimitrije.website
+email: me@dimitrije.website
+date: \today
 ---
 ---
 nocite: '@*'
