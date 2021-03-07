@@ -14,7 +14,7 @@ nocite: '@*'
 
 # Curriculum Vitae
 
-_(this page is also available for [download in PDF form](/files/cv.pdf))_
+_(this page is also available for [download in PDF](/files/cv.pdf))_
 
 I am a software engineer with more than eight years of professional experience
 in backend architecture and development, video game development, infrastructure

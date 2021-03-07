@@ -1,4 +1,4 @@
-.PHONY: run build clean
+.PHONY: all watch build clean deploy
 
 CV  := cv.md
 PDF := files/cv.pdf
@@ -6,7 +6,9 @@ CSL := csl/ieee-with-url.csl
 BIB := bib/refs.bib
 TPL := cv-template.tex
 
-run:
+all: clean cv build
+
+watch:
 	stack run watch
 
 build:
@@ -14,6 +16,7 @@ build:
 
 clean:
 	stack run clean
+	rm -f "$(PDF)"
 
 deploy:
 	stack run deploy
