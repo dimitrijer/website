@@ -66,7 +66,7 @@ main = hakyllWith config $ do
         >>= loadAndApplyTemplate "templates/archive.html" archiveCtx
         >>= loadAndApplyTemplate "templates/default.html" archiveCtx
 
-  match "about.md" $ do
+  match "cv.md" $ do
     route $ setExtension "html"
     compile $ do
       csl <- load $ fromFilePath "csl/ieee-with-url.csl"
@@ -105,7 +105,7 @@ main = hakyllWith config $ do
     route idRoute
     compile $ do
       posts <- recentFirst =<< loadAll "posts/*"
-      singlePages <- loadAll (fromList ["contact.md", "about.md"])
+      singlePages <- loadAll (fromList ["contact.md", "cv.md"])
 
       timeZone <- unsafeCompiler Data.Time.getCurrentTimeZone
       currentTime <- unsafeCompiler Data.Time.getCurrentTime
