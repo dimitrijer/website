@@ -62,7 +62,20 @@ main = hakyllWith config $ do
                 >>= loadAndApplyTemplate "templates/archive.html" archiveCtx
                 >>= loadAndApplyTemplate "templates/default.html" archiveCtx
 
-    match (fromList ["contact.md", "about.md"]) $ do
+
+    match "about.md" $ do
+      route $ setExtension "html"
+      compile $ do
+          csl <- load $ fromFilePath "csl/ieee-with-url.csl"
+          bib <- load $ fromFilePath "bib/refs.bib"
+          getResourceBody
+                >>= applyAsTemplate singlePageCtx
+                >>= readPandocBiblio defaultHakyllReaderOptions csl bib
+                >>= return . writePandocWith html5WriterOptions
+                >>= loadAndApplyTemplate "templates/default.html" singlePageCtx
+                >>= relativizeUrls
+
+    match "contact.md" $ do
         route   $ setExtension "html"
         compile $ pandocCompilerWith defaultHakyllReaderOptions html5WriterOptions
             >>= loadAndApplyTemplate "templates/default.html" singlePageCtx
@@ -71,8 +84,6 @@ main = hakyllWith config $ do
     match "main.md" $ do
         route   $ customRoute $ (\_ -> "index.html")
         compile $ do
-            csl <- load $ fromFilePath "csl/ieee-with-url.csl"
-            bib <- load $ fromFilePath "bib/refs.bib"
             posts <- fmap (take 3) . recentFirst =<< loadAll "posts/*"
 
             let indexCtx =
@@ -82,7 +93,7 @@ main = hakyllWith config $ do
 
             getResourceBody
                 >>= applyAsTemplate indexCtx
-                >>= readPandocBiblio defaultHakyllReaderOptions csl bib
+                >>= readPandocWith defaultHakyllReaderOptions
                 >>= return . writePandocWith html5WriterOptions
                 >>= loadAndApplyTemplate "templates/default.html" indexCtx
                 >>= relativizeUrls

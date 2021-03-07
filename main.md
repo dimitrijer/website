@@ -1,8 +1,5 @@
 ---
-title: Main
----
----
-nocite: '@*'
+htmltitle: Main
 ---
 
 <section id="hi">
@@ -44,10 +41,5 @@ I hang out at various places online.
 - [Twitter](https://twitter.com/dradojevic)
 - [LinkedIn](https://www.linkedin.com/in/dimitrijer/)
 - [Reddit](https://www.reddit.com/user/dimitrijer89)
-
-# Publications
-
-::: {.refs}
-:::
 
 [^1]: as in _dim-it-rhee-ye_
