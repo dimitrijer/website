@@ -15,6 +15,9 @@ build:
 clean:
 	stack run clean
 
+deploy:
+	stack run deploy
+
 $(PDF): $(CV) $(CSL) $(BIB) $(TPL)
 	pandoc -s -f markdown-auto_identifiers \
 	"$(CV)" \
