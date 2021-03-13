@@ -14,6 +14,9 @@ watch:
 build:
 	stack run build
 
+rebuild:
+	stack run rebuild
+
 clean:
 	stack run clean
 	rm -f "$(PDF)"
