@@ -1,7 +1,7 @@
 .PHONY: all watch build clean deploy
 
 CV  := cv.md
-PDF := files/cv.pdf
+PDF := files/CV_Dimitrije_Radojevic.pdf
 CSL := csl/ieee-with-url.csl
 BIB := bib/refs.bib
 TPL := cv-template.tex
