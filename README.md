@@ -21,3 +21,11 @@ up-to-date CTAN mirror with:
 $ sudo tlmgr option repository "https://packages.oth-regensburg.de/ctan/systems/texlive/tlnet"
 $ sudo tlmgr update --self
 ```
+
+Also, you will need the following line in the TeX file:
+
+```
+\defaultfontfeatures{Path = /usr/local/texlive/2021basic/texmf-dist/fonts/opentype/public/fontawesome/}
+```
+
+Make sure that the path is correct.
