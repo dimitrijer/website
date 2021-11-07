@@ -1,6 +1,6 @@
 let
   pkgs = import ./nix/default.nix { };
-  site = pkgs.haskellPackages.callPackage ./nix/site.nix {};
+  site = pkgs.haskellPackages.callPackage ./nix/site.nix { };
 in
 pkgs.mkShell {
   # GNU ls has different CLI options than Darwin ls.
@@ -15,6 +15,8 @@ pkgs.mkShell {
 
   buildInputs = [
     pkgs.ghc
+    pkgs.haskell-language-server
+    pkgs.nixpkgs-fmt
     site
   ];
 }

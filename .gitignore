@@ -25,3 +25,8 @@ _site/
 
 ### Direnv ###
 .envrc
+
+### Hakyll ###
+_posts
+_cache
+_site

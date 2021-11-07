@@ -2,5 +2,5 @@
 
 import sources.nixpkgs {
   overlays = [ (import ./overlays.nix) ];
-  config = {};
+  config = { };
 }
