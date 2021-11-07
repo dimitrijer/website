@@ -19,3 +19,9 @@ cabal.sandbox.config
 .stack-work/
 _cache/
 _site/
+
+### OS X ###
+.DS_Store
+
+### Direnv ###
+.envrc

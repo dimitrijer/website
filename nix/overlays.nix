@@ -1,0 +1,16 @@
+self: super: {
+  # Make ghc8107 the default package set for Haskell.
+  haskellPackages = super.haskell.packages.ghc8107.override {
+    overrides = self: super: { };
+  };
+  # Override ghc with specific version. Add dependencies so they show up in the
+  # shell -- they don't need to explicitly be specified for the site, as deps
+  # are explicitly specified in the derivation.
+  ghc = self.haskellPackages.ghcWithPackages (
+    ps: with ps; [
+      ormolu
+      pandoc
+      hakyll
+    ]
+  );
+}
