@@ -9,20 +9,20 @@ TPL := cv-template.tex
 all: clean cv build
 
 watch:
-	stack run watch
+	site watch
 
 build:
-	stack run build
+	site build
 
 rebuild:
-	stack run rebuild
+	site rebuild
 
 clean:
-	stack run clean
+	site clean
 	rm -f "$(PDF)"
 
 deploy:
-	stack run deploy
+	site deploy
 
 $(PDF): $(CV) $(CSL) $(BIB) $(TPL)
 	pandoc -s -f markdown-auto_identifiers \
