@@ -3,14 +3,17 @@ self: super: {
   haskellPackages = super.haskell.packages.ghc8107.override {
     overrides = self: super: { };
   };
+  haskell-language-server = super.haskell-language-server.override {
+    supportedGhcVersions = [ "8107" ];
+  };
   # Override ghc with specific version. Add dependencies so they show up in the
   # shell -- they don't need to explicitly be specified for the site, as deps
   # are explicitly specified in the derivation.
   ghc = self.haskellPackages.ghcWithPackages (
     ps: with ps; [
-      ormolu
       pandoc
       hakyll
+      time
     ]
   );
 }

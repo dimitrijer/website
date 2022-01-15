@@ -1,6 +1,13 @@
 let
   pkgs = import ./nix/default.nix { };
   site = pkgs.haskellPackages.callPackage ./nix/site.nix { };
+  sources = import ./nix/sources.nix;
+  nixfiles = import sources.nixfiles { };
+  neovim = nixfiles.neovim {
+    pkgs = pkgs;
+    withHaskell = true;
+    withWriting = true;
+  };
 in
 pkgs.mkShell {
   # GNU ls has different CLI options than Darwin ls.
@@ -17,6 +24,8 @@ pkgs.mkShell {
     pkgs.ghc
     pkgs.haskell-language-server
     pkgs.nixpkgs-fmt
+    pkgs.ormolu
     site
+    neovim
   ];
 }
