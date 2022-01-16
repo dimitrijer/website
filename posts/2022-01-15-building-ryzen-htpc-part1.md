@@ -2,7 +2,7 @@
 title: Building a Low-power Ryzen HTPC, Part I
 ---
 
-It's a little embarassing, really. I've used computers in various shapes and
+It's a little embarrassing, really. I've used computers in various shapes and
 forms since I was 7, yet I've never built one. Given I had some free time and a
 a bit of cash on the side, I decided to build a home HTPC / NAS.
 
@@ -10,7 +10,7 @@ Not that I needed one -- so far I've been using a RPi 2 running Kodi for my HTPC
 needs. I had plugged a 2 TB portable HDD into the Pi to serve as data
 storage and backup. Sure, it was lacking in speed and data redundancy, but it was
 good enough for me. I also ran a Pihole instance there. What bothered me about
-the Pi was that its SD card had a habbit of giving out. It had died on me a couple of times already, and I, being a
+the Pi was that its SD card had a habit of giving out. It had died on me a couple of times already, and I, being a
 lazy person, had to set up everything from scratch each time, rather than
 restoring root and boot partitions from backup.
 
@@ -30,7 +30,7 @@ No point in trying to feel better about splurging, so here's a list of my requir
 
 * It needs to be able to do **4K @ 60fps**, meaning HDMI 2.0 at least.
 
-  This is supposed to be an *upgrade* over RPi. The fact that I don't own a 4K TV doesn't matter right now. Nonpertinent. Irrelevant.
+  This is supposed to be an *upgrade* over RPi. The fact that I don't own a 4K TV doesn't matter right now. Non pertinent. Irrelevant.
 
 * **Small form factor** that fits in my [Fjällbo TV unit](https://www.ikea.com/us/en/p/fjaellbo-tv-unit-black-90339290/).
 
@@ -100,14 +100,14 @@ OEM only, meaning that, unlike retail CPUs, it doesn't come in a box and usually
 # The Board
 
 Okay, now I needed to find a mini-ITX AM4 motherboard. Many choices tick
-all the boxes there, so I opted for one that looked pretty: [ASRock Fatal1ty B450 Gaming-ITX/ac](https://www.asrock.com/mb/amd/fatal1ty%20b450%20gaming-itxac/). Up to 64 GB of DDR4 RAM, four SATA III connectors, one M.2 connector (PCIe x4 in this case), HDMI 2.0, 1Gbps ethernet, integrated WLAN and Bluetooth (might come in handy for controllers/keyboards). The whole kit and caboodle at a reasonable price, and plenty of expansion options for the future.
+all the boxes there, so I opted for one that looked pretty: [ASRock Fatal1ty B450 Gaming-ITX/ac](https://www.asrock.com/mb/amd/fatal1ty%20b450%20gaming-itxac/). Up to 64 GB of DDR4 RAM, four SATA III connectors, one M.2 connector (PCIe x4 in this case), HDMI 2.0, 1Gbps Ethernet, integrated WLAN and Bluetooth (might come in handy for controllers/keyboards). The whole kit and caboodle at a reasonable price, and plenty of expansion options for the future.
 
 # The Case and the Fan
 
 Now this was a tough choice, mostly because of size restrictions. At first I
 was trying to find a silent, fanless case, such as [Akasa Maxwell
 Pro](https://www.akasa.com.tw/update.php?tpl=product/product.detail.tpl&no=181&type=Fanless%20Chassis&type_sub=Fanless%20Mini%20ITX&model=A-ITX48-M1B),
-which has an interesting heatsink design that fully replaces CPU fan. Very
+which has an interesting heat sink design that fully replaces CPU fan. Very
 expensive, though. However, after reading about *silent* fans, especially
 [Noctua L9a](https://noctua.at/en/nh-l9a-am4), I figured that I could live with
 a tiny bit of noise traded for better thermal performance.
@@ -164,14 +164,14 @@ A couple of notes:
   of packaging foam underneath the DC-DC board to keep it in place and make it a
   bit more stable, and left it at that.
  
-* Cable management was a pain. Even with zipties, there's so little room and so
+* Cable management was a pain. Even with zip ties, there's so little room and so
   little manoeuvring space when everything is crammed inside the case. I wish I
   could get rid of extra power connectors that I did not use (a molex and a SATA
   connector), but I did not want to risk damaging isolation on the cables that I
   do use. Additionally, SATA data cables that I purchased are 0.5m long, whereas
   I only need about 10cm. This slack makes things even worse.
 
-* A couple of words on thermals: there is only a few milimeters of space
+* A couple of words on thermals: there is only a few millimeters of space
   between the bottom of HDD drives and the top of the CPU fan (which is, by the
   way, the only fan in the case). This looked like it would hurt the thermals,
   but I haven't really tested the limits of the CPU yet. The way I use it --
