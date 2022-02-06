@@ -29,3 +29,29 @@ Also, you will need the following line in the TeX file:
 ```
 
 Make sure that the path is correct.
+
+## Syntax Highlighting with Pygments
+
+Take a look at https://gist.github.com/scturtle/9236b7208aab9985a3af0d319bdb4041#file-pygments-hs. Also disable Pandoc's syntax higlighting in writerOptions.
+
+```haskell
+pygmentizePandocCompiler :: Compiler (Item String)
+pygmentizePandocCompiler = pandocCompilerWithTransformM defaultHakyllReaderOptions html5WriterOptions pygmentize
+
+html5WriterOptions :: WriterOptions
+html5WriterOptions = defaultHakyllWriterOptions { writerHighlightStyle = Nothing }
+
+pygmentize :: Pandoc -> Compiler Pandoc
+pygmentize (Pandoc meta bs) = Pandoc meta <$> mapM highlight bs
+
+highlight :: Block -> Compiler Block
+highlight (CodeBlock (_, options, _) code) =
+  RawBlock "html" <$> unsafeCompiler (pack <$> pygments (unpack code) (unpack <$> options))
+highlight x = return x
+
+pygments :: String -> [String] -> IO String
+pygments code options =
+  case options of
+    (lang : _) -> readProcess "pygmentize" ["-l", toLower <$> lang, "-f", "html"] code
+    _ -> return $ "<div class =\"highlight\"><pre>" ++ code ++ "</pre></div>"
+```

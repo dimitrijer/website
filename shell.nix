@@ -14,6 +14,7 @@ pkgs.mkShell {
   shellHooks = ''
     alias ll='ls -alh --color=auto'
     alias ls='ls -ah --color=auto'
+    alias vim='nvim'
   '';
 
   # Set UTF-8 locale.
@@ -25,7 +26,7 @@ pkgs.mkShell {
     pkgs.haskell-language-server
     pkgs.nixpkgs-fmt
     pkgs.ormolu
-    site
     neovim
+    site
   ];
 }

@@ -14,6 +14,11 @@ self: super: {
       pandoc
       hakyll
       time
+      text
+      process
+      skylighting
+      skylighting-core
+      containers
     ]
   );
 }
