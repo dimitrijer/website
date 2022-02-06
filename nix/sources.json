@@ -12,16 +12,8 @@
         "url_template": "https://github.com/<owner>/<repo>/archive/<rev>.tar.gz"
     },
     "nixfiles": {
-        "branch": "main",
-        "description": "My nixfiles",
-        "homepage": null,
-        "owner": "dimitrijer",
-        "repo": "nixfiles",
-        "rev": "bc9a05fbfe01d4dcd4ae5beb37a9061148ca0a5a",
-        "sha256": "0ampcycpyjzpa4f32p6v0c18zaandrbkg1cab819bjaqmnb1z2s5",
-        "type": "tarball",
-        "url": "https://github.com/dimitrijer/nixfiles/archive/bc9a05fbfe01d4dcd4ae5beb37a9061148ca0a5a.tar.gz",
-        "url_template": "https://github.com/<owner>/<repo>/archive/<rev>.tar.gz"
+        "path": "/Users/dimitrijer/git/nixfiles",
+        "type": "local"
     },
     "nixpkgs": {
         "branch": "21.11",
