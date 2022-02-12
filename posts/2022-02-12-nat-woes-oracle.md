@@ -183,7 +183,8 @@ root# sysctl -w net.ipv4.ip_forward=1
 Next, I add a `POSTROUTING` rule that masquerades packets, which will replace source IP address of packets leaving primary interface `enp0s3` with IP address of the interface (`192.168.1.19`) on their way out:
 
 ```bash
-root# firewall-cmd --permanent --direct --add-rule ipv4 nat POSTROUTING 0 -o enp0s3
+root# firewall-cmd --permanent --direct --add-rule ipv4 nat POSTROUTING 0 \
+  -o enp0s3 -j MASQUERADE
 ```
 
 Since default policy in the `FORWARD` iptables chain is accept, I don't really need to 
