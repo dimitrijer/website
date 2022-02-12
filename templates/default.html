@@ -10,6 +10,17 @@
         <link rel="stylesheet" type="text/css" href="/css/style.css"/>
         <link rel="stylesheet" type="text/css" href="/css/syntax.css"/>
 
+        <meta name="twitter:card" content="summary" />
+        <meta name="twitter:site" content="@dradojevic" />
+        <meta name="twitter:creator" content="@dradojevic" />
+$if(description)$
+        <meta property="og:url" content="$root$$url$" />
+        <meta property="og:title" content="$title$" />
+        <meta property="og:description" content="$description$" />
+$if(cover_image)$
+        <meta property="og:image" content="$root$$cover_image$" />
+$endif$
+$endif$
         <title>Dimitrije's Website$if(htmltitle)$ - $htmltitle$$endif$</title>
     </head>
     <body>

@@ -133,6 +133,7 @@ runHakyll sm =
         let indexCtx =
               listField "posts" postCtx (return posts)
                 `mappend` boolField "somePosts" (return $ not (null posts))
+                `mappend` constField "root" root
                 `mappend` modificationTimeField "updated" "%Y-%m-%d"
                 `mappend` defaultContext
 
