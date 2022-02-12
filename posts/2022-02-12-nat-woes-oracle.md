@@ -416,7 +416,7 @@ I still don't understand a couple of things here:
   /usr/sbin/ip rule add from 192.168.1.250 lookup ort3
   ```
 
-  This table contains only one route, the default one, which is the same route
+  This table contains only one route, the default one, which is similar to the route
   I had to add to default routing table. In addition, this routing table is
   only used for packets coming from `192.168.1.250`. I wonder if this proves
   that my previous point was how all of this was intended to work out?
