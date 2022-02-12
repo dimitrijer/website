@@ -1,5 +1,6 @@
 ---
 title: Building a Low-power Ryzen HTPC, Part I
+htmltitle: Building a Low-power Ryzen HTPC, Part I
 ---
 
 It's a little embarrassing, really. I've used computers in various shapes and

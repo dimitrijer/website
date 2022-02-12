@@ -1,5 +1,6 @@
 ---
 title: TIL that clear also nukes scrollback
+htmltitle: TIL that clear also nukes scrollback
 ---
 
 I often use `clear` to, well, clear my terminal screen. It's in my muscle

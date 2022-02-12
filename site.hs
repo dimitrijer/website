@@ -115,14 +115,14 @@ runHakyll sm =
         getResourceBody
           >>= readPandocBiblio defaultHakyllReaderOptions csl bib
           >>= return . writePandocWith html5WriterOptions
-          >>= loadAndApplyTemplate "templates/default.html" singlePageCtx
+          >>= loadAndApplyTemplate "templates/default.html" (singlePageCtx `mappend` constField "htmltitle" "Curriculum Vitae")
           >>= relativizeUrls
 
     match "contact.md" $ do
       route $ setExtension "html"
       compile $
         pandocCompilerWith defaultHakyllReaderOptions html5WriterOptions
-          >>= loadAndApplyTemplate "templates/default.html" singlePageCtx
+          >>= loadAndApplyTemplate "templates/default.html" (singlePageCtx `mappend` constField "htmltitle" "Contact")
           >>= relativizeUrls
 
     match "main.md" $ do

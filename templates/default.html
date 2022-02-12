@@ -17,11 +17,12 @@ $if(description)$
         <meta property="og:url" content="$root$$url$" />
         <meta property="og:title" content="$title$" />
         <meta property="og:description" content="$description$" />
+        <meta property="og:type" content="article" />
 $if(cover_image)$
         <meta property="og:image" content="$root$$cover_image$" />
 $endif$
 $endif$
-        <title>Dimitrije's Website$if(htmltitle)$ - $htmltitle$$endif$</title>
+        <title>$if(htmltitle)$$htmltitle$ - $endif$Dimitrije's Website</title>
     </head>
     <body>
         <header>

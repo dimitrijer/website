@@ -1,8 +1,9 @@
 ---
 title: NAT Woes in Oracle Cloud Land
+htmltitle: NAT Woes in Oracle Cloud Land
 subtitle: Setting up NAT on a Compute Instance
 description: How to set up NAT on a Compute Instance in Oracle Cloud
-cover_image: /images/oracle_cloud.svg
+cover_image: /images/oracle_cloud.png
 ---
 
 _The code referenced in this post is available freely [here](https://github.com/dimitrijer/infra-oracle)._
