@@ -87,6 +87,10 @@ article header h3 {
 
 article section h1 {
   font-size: x-large;
+  text-decoration: underline;
+  text-decoration-color: #902000;
+  text-decoration-skip: edges;
+  text-decoration-thickness: 0.12em;
 }
 
 article section h2 {
