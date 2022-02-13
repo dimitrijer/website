@@ -47,7 +47,7 @@ wonderful company of my Shih-Tzu Mochi.
  
 # Experiences
 
-- January 2020 - present: _Systems Engineer, SRE_, [Google](https://about.google.com)
+- January 2021 - present: _Systems Engineer, SRE_, [Google](https://about.google.com)
 
 - March 2018 - October 2020: *Machine Learning Engineer*, [Nordeus](https://nordeus.com)
 
