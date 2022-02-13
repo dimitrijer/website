@@ -26,6 +26,8 @@ pkgs.mkShell {
     pkgs.haskell-language-server
     pkgs.nixpkgs-fmt
     pkgs.ormolu
+    # For converting images
+    pkgs.imagemagick
     neovim
     site
   ];
