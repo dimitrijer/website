@@ -17,9 +17,8 @@ About the same time, I was looking into open-source versions of internal tools
 used at Google, specifically Blaze vs. Bazel and Borg vs. k8s. I needed
 a couple of VMs to test stuff out, so I signed up.
 
-After some experimentation, I came up with the following (I'm using
-Oracle Cloud terms here, but I assume there are similar concepts with other
-cloud providers):
+After some experimentation, I came up with the following (I'm using OCI terms
+here, but I assume there are similar concepts with other cloud providers):
 
 <img src="/images/oracle_cloud.svg" alt="All components on a desk"/>
 
@@ -419,7 +418,7 @@ I still don't understand a couple of things here:
   ```
 
   This table contains only one route, the default one, which is similar to the route
-  I had to add to default routing table. In addition, this routing table is
+  I had to add to main routing table. In addition, this routing table is
   only used for packets coming from `192.168.1.250`. I wonder if this proves
   that my previous point was how all of this was intended to work out?
 
