@@ -8,7 +8,7 @@
 
 My name is Dimitrije[^1], and I'm a backend engineer.
 
-I have 8 years of professional experience of designing, building, deploying
+I have 10 years of professional experience of designing, building, deploying
 and maintaining backend services. I currently work at Google as an SRE. If you
 want to learn more, check out my [CV](/cv).
 
