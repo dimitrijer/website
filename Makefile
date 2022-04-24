@@ -30,6 +30,7 @@ $(PDF): $(CV) $(CSL) $(BIB) $(TPL)
 	-o "$(PDF)" \
 	--template="$(TPL)" \
 	--bibliography="$(BIB)" \
+	--citeproc \
 	--csl="$(CSL)" \
 	--pdf-engine=xelatex
 
