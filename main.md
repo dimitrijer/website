@@ -25,7 +25,7 @@ Mochiko.
 
 # Posts
 
-I write a bit, very rarely though.
+I write a bit, rarely though.
 $partial("templates/post-recent-list.html")$
 
 # Profiles
