@@ -66,7 +66,7 @@ wonderful company of my wife and my dog.
 
 - March 2018 - October 2020: *Machine Learning Engineer*, [Nordeus](https://nordeus.com)
 
-    * Part of ML/AI team with the mission of using bleeding edge machine
+    * Part of ML/AI team with the mission to use bleeding edge machine
       learning algorithms for building unique and novel features in our games.
 
     * I was responsible for integrating proof-of-concept and prototype projects
@@ -97,28 +97,28 @@ wonderful company of my wife and my dog.
     * Supported development of various game features on both backend and
       frontend side.
 
-    * Designed and developed distributed login service that at its peak had ~7
-      million unique daily logins.
+    * Designed and developed distributed login service that had ~7
+      million unique daily logins at its peak.
 
-    * Was a part of the effort to convert a legacy, monolithic backend service
+    * Took part in the effort to convert a legacy, monolithic backend service
       to microservice architecture.
 
     * Designed and built a proxy that allowed WebSocket frontends to
       communicate with backend services in proprietary binary protocol. This
-      service eventually became the edge service for all clients.
+      service eventually became the main edge frontend for all clients.
 
-    * Introduced several significant concepts to backend teams over the years,
-      including key-value stores, message queues, observability in terms of
-      ubiquitous metrics and distributed tracing, modern build tools and CI/CD
-      pipeline, continuous code quality and code health metrics and centralized
-      linting.
+    * Introduced several significant concepts and technologies to backend teams
+      over the years, including key-value stores, message queues, observability
+      in terms of ubiquitous metrics and distributed tracing, modern build
+      tools and CI/CD pipeline, continuous code quality, code health metrics
+      and centralized linting.
 
 - October 2009 - May 2014: *Junior Teaching Assistant*, Seminar of Astronomy,
   [Petnica Science Center](http://petnica.rs)
 
     * Taught basics of programming to high-school students at the seminar, i.e.
       introduction to programming with C and Python, version control, working
-      in terminal, writing data mining scrapers etc. Petnica Science
+      within a terminal, writing data mining scrapers, etc. Petnica Science
       Center is an independent and nonprofit organization for
       extracurricular, formal and informal science education.
 
