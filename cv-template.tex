@@ -13,9 +13,7 @@
 \providecommand{\tightlist}{%
   \setlength{\itemsep}{0pt}\setlength{\parskip}{0pt}}
 
-% Reduce spacing in itemize, enumerate and titles
-\usepackage{multicol}
-
+% Taken from pandoc default template.
 $if(csl-refs)$
 \newlength{\cslhangindent}
 \setlength{\cslhangindent}{1.5em}
@@ -41,6 +39,9 @@ $if(csl-refs)$
 \newcommand{\CSLRightInline}[1]{\parbox[t]{\linewidth - \csllabelwidth}{#1}\break}
 \newcommand{\CSLIndent}[1]{\hspace{\cslhangindent}#1}
 $endif$
+
+% Reduce spacing in itemize, enumerate and titles
+\usepackage{multicol}
 
 % LINKS
 \usepackage[colorlinks,allcolors=blue]{hyperref}

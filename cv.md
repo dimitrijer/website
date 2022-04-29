@@ -154,12 +154,6 @@ wonderful company of my wife and my dog.
   am familiar with primitives that make up containers, like namespaces,
   cgroups, and overlay filesystems.
 
-- Versatile and under-the-hood knowledge of UNIX systems, especially GNU/Linux:
-  usage, configuration and administration.
-
-- Shell scripting, and broad knowledge of a plethora of command line utilities
-  for manipulating and transforming data.
-
 - Networking: understanding of L3/L4 protocols like TCP/IP and UDP, and higher
   level protocols like HTTP, HTTPS, HTTP/2, WebSockets, QUIC, DNS etc.
   Knowledge of low-level networking facilities like sockets, blocking and
@@ -193,6 +187,12 @@ wonderful company of my wife and my dog.
     caching.
 
   * Aerospike, CouchDB, Cassandra, MongoDB, memcached - basic proficiency.
+
+- Versatile and under-the-hood knowledge of UNIX systems, especially GNU/Linux:
+  usage, configuration and administration.
+
+- Shell scripting, and broad knowledge of a plethora of command line utilities
+  for manipulating and transforming data.
 
 - Machine learning frameworks and libraries, such as numpy, scipy,
   scikit-learn, Keras and Tensorflow.
