@@ -30,3 +30,6 @@ _site/
 _posts
 _cache
 _site
+
+### CV templating ###
+cv-template.tex_subst

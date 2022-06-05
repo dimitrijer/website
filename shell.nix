@@ -8,6 +8,15 @@ let
     withHaskell = true;
     withWriting = true;
   };
+  tex = (pkgs.texlive.combine {
+    inherit (pkgs.texlive)
+      scheme-small
+      fontawesome
+      sectsty
+      enumitem
+      titling
+      wrapfig;
+  });
 in
 pkgs.mkShell {
   # GNU ls has different CLI options than Darwin ls.
@@ -17,18 +26,18 @@ pkgs.mkShell {
     alias vim='nvim'
   '';
 
-  # Set UTF-8 locale.
-  LANG = "C";
-  LC_CTYPE = "UTF-8";
-
   buildInputs = [
     pkgs.ghc
-    pkgs.haskell-language-server
-    pkgs.nixpkgs-fmt
-    pkgs.ormolu
     # For converting images
     pkgs.imagemagick
+    # For development
+    pkgs.haskell-language-server
     neovim
+    pkgs.nixpkgs-fmt
+    pkgs.haskellPackages.ormolu
+    # For CV
+    tex
+    # Main site package
     site
   ];
 }
