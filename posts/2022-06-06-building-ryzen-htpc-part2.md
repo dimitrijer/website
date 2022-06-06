@@ -117,7 +117,7 @@ bit more out of this.
 PPT 25W
 =======
 idle power draw (mains/PPT): 16.9 W /  4.6 W
-max power draw (mains/PPT):  48.0 W / 25.0 W
+max power draw  (mains/PPT): 48.0 W / 25.0 W
 max CPU temp:                87 C
 max CPU freq:                3604 Mhz
 ```
