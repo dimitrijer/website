@@ -176,7 +176,7 @@ instance.
 First of all, IP forwarding needs to be enabled on the frontend instance:
 
 ```bash
-root# sysctl -w net.ipv4.ip_forward=1
+sysctl -w net.ipv4.ip_forward=1
 ```
 
 Next, I add a `POSTROUTING` rule that masquerades packets, which will replace
@@ -184,7 +184,7 @@ source IP address of packets leaving primary interface `enp0s3` with IP address
 of the interface (`192.168.1.119`) on their way out:
 
 ```bash
-root# firewall-cmd --permanent --direct --add-rule ipv4 nat POSTROUTING 0 \
+firewall-cmd --permanent --direct --add-rule ipv4 nat POSTROUTING 0 \
   -o enp0s3 -j MASQUERADE
 ```
 
@@ -194,11 +194,11 @@ VNIC) to `enp0s3` (primary VNIC), but I'm listing the commands here for
 completeness:
 
 ```bash
-root# firewall-cmd --permanent --direct --add-rule ipv4 filter FORWARD 0 \
+firewall-cmd --permanent --direct --add-rule ipv4 filter FORWARD 0 \
   -i enp1s0 -o enp0s3 -m state --state RELATED,ESTABLISHED -j ACCEPT
-root# firewall-cmd --permanent --direct --add-rule ipv4 filter FORWARD 0 \
+firewall-cmd --permanent --direct --add-rule ipv4 filter FORWARD 0 \
   -i enp1s0 -o enp0s3 -j ACCEPT
-root# firewall-cmd --reload
+firewall-cmd --reload
 ```
 
 At some point I realise I can enable masquerading with `firewall-cmd`, and
@@ -210,9 +210,9 @@ seen with `nft list table ip firewalld`. Having only ever used `iptables`, I rea
 out of my depth here, and I decide to leave it at that.
 
 ```bash
-root# firewall-cmd --permanent --zone public --add-interface enp0s3
-root# firewall-cmd --permanent --zone public --add-masquerade
-root# firewall-cmd --reload
+firewall-cmd --permanent --zone public --add-interface enp0s3
+firewall-cmd --permanent --zone public --add-masquerade
+firewall-cmd --reload
 ```
 
 Phew, I think this is it. Time to test it out.
@@ -233,9 +233,9 @@ instance:
 
 ```bash
 # on the backend instance
-root# ping -c5 www.google.com
+ping -c5 www.google.com
 # on the frontend instance
-root# tcpdump -nni enp1s0 -w ping-in.tcpdump icmp
+tcpdump -nni enp1s0 -w ping-in.tcpdump icmp
 ```
 
 Great, I see 5 packets come in:
@@ -247,17 +247,17 @@ tcpdump: listening on enp1s0, link-type EN10MB (Ethernet), capture size 262144 b
 0 packets dropped by kernel
 ```
 
-Let's inspect them:
+Let's inspect them (timestamps eluded for brevity):
 ```bash
-root# tcpdump -nnr ping-in.tcpdump
+tcpdump -nnr ping-in.tcpdump
 ```
 ```
 reading from file ping.tcpdump, link-type EN10MB (Ethernet)
-16:32:35.402466 IP 192.168.0.70 > 142.250.185.174: ICMP echo request, id 13059, seq 1, length 64
-16:32:36.405535 IP 192.168.0.70 > 142.250.185.174: ICMP echo request, id 13059, seq 2, length 64
-16:32:37.429526 IP 192.168.0.70 > 142.250.185.174: ICMP echo request, id 13059, seq 3, length 64
-16:32:38.453570 IP 192.168.0.70 > 142.250.185.174: ICMP echo request, id 13059, seq 4, length 64
-16:32:39.477574 IP 192.168.0.70 > 142.250.185.174: ICMP echo request, id 13059, seq 5, length 64
+IP 192.168.0.70 > 142.250.185.174: ICMP echo request, id 13059, seq 1, length 64
+IP 192.168.0.70 > 142.250.185.174: ICMP echo request, id 13059, seq 2, length 64
+IP 192.168.0.70 > 142.250.185.174: ICMP echo request, id 13059, seq 3, length 64
+IP 192.168.0.70 > 142.250.185.174: ICMP echo request, id 13059, seq 4, length 64
+IP 192.168.0.70 > 142.250.185.174: ICMP echo request, id 13059, seq 5, length 64
 ```
 
 Okay, so the frontend instance receives ICMP packets on `enp1s0`. Let's see
@@ -265,11 +265,10 @@ if there is any ICMP traffic on primary interface:
 
 ```bash
 # on the backend instance
-root# ping -c5 www.google.com
+ping -c5 www.google.com
 # on the frontend instance
-root# tcpdump -nni enp0s3 -w ping-out.tcpdump icmp
+tcpdump -nni enp0s3 -w ping-out.tcpdump icmp
 ```
-
 ```
 # on the backend instance
 ^C0 packets captured
@@ -321,27 +320,27 @@ will be dropped. Let's try relaxing it to *Loose* mode, which should allow
 packets that can be routed back to _any_ other interface:
 
 ```bash
-root# sysctl -w net.ipv4.conf.all.rp_filter=2
+sysctl -w net.ipv4.conf.all.rp_filter=2
 ```
 
-I repeat my ping experiment, start capturing traffic again with `tcpdump -nni enp0s3 icmp` on primary interface, and -- success:
+I repeat my ping experiment, start capturing traffic again with `tcpdump -nni enp0s3 icmp` on primary interface, and -- success (timestamps eluded for brevity):
 
 ```
-20:17:48.607941 IP 192.168.1.119 > 142.250.185.174: ICMP echo request, id 6750, seq 1, length 64
-20:17:48.608923 IP 142.250.185.174 > 192.168.1.119: ICMP echo reply, id 6750, seq 1, length 64
-20:17:48.608930 IP 142.250.185.174 > 192.168.0.70: ICMP echo reply, id 6750, seq 1, length 64
-20:17:49.630208 IP 192.168.1.119 > 142.250.185.174: ICMP echo request, id 6750, seq 2, length 64
-20:17:49.631166 IP 142.250.185.174 > 192.168.1.119: ICMP echo reply, id 6750, seq 2, length 64
-20:17:49.631173 IP 142.250.185.174 > 192.168.0.70: ICMP echo reply, id 6750, seq 2, length 64
-20:17:50.654229 IP 192.168.1.119 > 142.250.185.174: ICMP echo request, id 6750, seq 3, length 64
-20:17:50.655198 IP 142.250.185.174 > 192.168.1.119: ICMP echo reply, id 6750, seq 3, length 64
-20:17:50.655204 IP 142.250.185.174 > 192.168.0.70: ICMP echo reply, id 6750, seq 3, length 64
-20:17:51.678214 IP 192.168.1.119 > 142.250.185.174: ICMP echo request, id 6750, seq 4, length 64
-20:17:51.679163 IP 142.250.185.174 > 192.168.1.119: ICMP echo reply, id 6750, seq 4, length 64
-20:17:51.679169 IP 142.250.185.174 > 192.168.0.70: ICMP echo reply, id 6750, seq 4, length 64
-20:17:52.702212 IP 192.168.1.119 > 142.250.185.174: ICMP echo request, id 6750, seq 5, length 64
-20:17:52.70.700 IP 142.250.185.174 > 192.168.1.119: ICMP echo reply, id 6750, seq 5, length 64
-20:17:52.70.705 IP 142.250.185.174 > 192.168.0.70: ICMP echo reply, id 6750, seq 5, length 64
+IP 192.168.1.119 > 142.250.185.174: ICMP echo request, id 6750, seq 1, length 64
+IP 142.250.185.174 > 192.168.1.119: ICMP echo reply, id 6750, seq 1, length 64
+IP 142.250.185.174 > 192.168.0.70: ICMP echo reply, id 6750, seq 1, length 64
+IP 192.168.1.119 > 142.250.185.174: ICMP echo request, id 6750, seq 2, length 64
+IP 142.250.185.174 > 192.168.1.119: ICMP echo reply, id 6750, seq 2, length 64
+IP 142.250.185.174 > 192.168.0.70: ICMP echo reply, id 6750, seq 2, length 64
+IP 192.168.1.119 > 142.250.185.174: ICMP echo request, id 6750, seq 3, length 64
+IP 142.250.185.174 > 192.168.1.119: ICMP echo reply, id 6750, seq 3, length 64
+IP 142.250.185.174 > 192.168.0.70: ICMP echo reply, id 6750, seq 3, length 64
+IP 192.168.1.119 > 142.250.185.174: ICMP echo request, id 6750, seq 4, length 64
+IP 142.250.185.174 > 192.168.1.119: ICMP echo reply, id 6750, seq 4, length 64
+IP 142.250.185.174 > 192.168.0.70: ICMP echo reply, id 6750, seq 4, length 64
+IP 192.168.1.119 > 142.250.185.174: ICMP echo request, id 6750, seq 5, length 64
+IP 142.250.185.174 > 192.168.1.119: ICMP echo reply, id 6750, seq 5, length 64
+IP 142.250.185.174 > 192.168.0.70: ICMP echo reply, id 6750, seq 5, length 64
 ```
 
 I see there are 15 packets in total:
@@ -379,7 +378,7 @@ default via 192.168.1.1 dev enp0s3 proto dhcp metric 100
 gets matched to default route, which uses primary interface `enp0s3`. I can fix this easily:
 
 ```bash
-root# ip route add 192.168.0.0/24 via 192.168.1.1 dev enp1s0
+ip route add 192.168.0.0/24 via 192.168.1.1 dev enp1s0
 ```
 
 This will route traffic destined for Backend subnet to default gateway
@@ -413,8 +412,8 @@ I still don't understand a couple of things here:
   and it apparently creates a new routing table called `ort3` during startup:
 
   ```bash
-  /usr/sbin/ip route add default via 192.168.1.1 dev enp1s0 table ort3
-  /usr/sbin/ip rule add from 192.168.1.250 lookup ort3
+  ip route add default via 192.168.1.1 dev enp1s0 table ort3
+  ip rule add from 192.168.1.250 lookup ort3
   ```
 
   This table contains only one route, the default one, which is similar to the route
