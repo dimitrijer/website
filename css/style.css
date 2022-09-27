@@ -223,9 +223,14 @@ a:hover, a:active {
   color: #03f;
 }
 
+.footnotes {
+  font-size: smaller;
+}
+
 .footnotes hr {
   border: 0;
   text-align: center;
+  font-size: medium;
 }
 
 .footnotes hr:after {
