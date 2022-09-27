@@ -13,7 +13,7 @@ TEXLIVE_PATH := $(shell nix-store --query $(LATEX_PATH))
 all: clean cv build
 
 watch:
-	site watch
+	site watch --port 8082
 
 build:
 	site build
