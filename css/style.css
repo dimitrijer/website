@@ -104,13 +104,18 @@ footer {
 }
 
 pre {
-  /* Make sure that block/background is expanded if needed. */
-  display: inline-block;
-  min-width: 95%;
+  display: flex;
+  overflow: auto;
+  /* Reduce spacing between pre lines. */
+  line-height: 1.5em;
   border-left: 2.5px solid black;
+}
+
+pre code {
+  /* Not 100% because of padding.*/
+  min-width: 95%;
+  padding: 0.5em 0.5em 0.5em 1em;
   background-color: #ffffd6;
-  padding-left: 1em;
-  padding-right: 0.5em;
 }
 
 blockquote {
