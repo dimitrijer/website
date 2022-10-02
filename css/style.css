@@ -110,11 +110,10 @@ pre {
   /* Reduce spacing between pre lines. */
   line-height: 1.5em;
   border-left: 2.5px solid black;
+  background-color: #ffffd6;
 }
 
 pre code {
-  /* Not 100% because of padding.*/
-  min-width: 95%;
   padding: 0.5em 0.5em 0.5em 1em;
   background-color: #ffffd6;
 }
