@@ -13,6 +13,7 @@
 	      license="LGPL">
 <highlighting>
 	<list name="path">
+		<item>/</item>
 		<item>ip</item>
 		<item>caps-man</item>
 		<item>system</item>
@@ -20,7 +21,7 @@
 		<item>snmp</item>
 		<item>radius</item>
 		<item>tool</item>
-		<item>/interface</item>
+		<item>interface</item>
 		<item>user</item>
 		<item>aaa</item>
 		<item>access-list</item>
@@ -94,7 +95,6 @@
 		<item>page</item>
 		<item>peer</item>
 		<item>pim</item>
-		<item>ping</item>
 		<item>policy</item>
 		<item>pool</item>
 		<item>port</item>
@@ -160,6 +160,7 @@
 		<item>peers</item>
 	</list>
 	<list name="parameter">
+		<item>count</item>
 		<item>listen-port</item>
 		<item>endpoint-port</item>
 		<item>public-key</item>
@@ -408,6 +409,7 @@
 		<item>netmask</item>
 		<item>network</item>
 		<item>new-connection-mark</item>
+		<item>new-mss</item>
 		<item>new-packet-mark</item>
 		<item>new-routing-mark</item>
 		<item>no-ping-delay</item>
@@ -449,6 +451,7 @@
 		<item>priority</item>
 		<item>profile</item>
 		<item>propagate-ttl</item>
+		<item>proplist</item>
 		<item>proposal-check</item>
 		<item>proposal</item>
 		<item>proprietary-extensions</item>
@@ -559,13 +562,16 @@
 		<item>switch-to-spt</item>
 		<item>syslog-facility</item>
 		<item>syslog-severity</item>
+		<item>table</item>
 		<item>target-scope</item>
 		<item>target</item>
 		<item>tcp-close-timeout</item>
 		<item>tcp-close-wait-timeout</item>
 		<item>tcp-established-timeout</item>
 		<item>tcp-fin-wait-timeout</item>
+		<item>tcp-flags</item>
 		<item>tcp-last-ack-timeout</item>
+		<item>tcp-mss</item>
 		<item>tcp-syn-received-timeout</item>
 		<item>tcp-syn-sent-timeout</item>
 		<item>tcp-syncookie</item>
@@ -747,9 +753,13 @@
 	<contexts>
 		<context name="Normal Text" attribute="Normal Text" lineEndContext="#stay">
 			<keyword String="path" attribute="Path" context="#stay"/>
-			<keyword String="parameter" attribute="Parameter" context="Key Value"/>
-			<keyword String="command" attribute="Command" context="#stay"/>
+			<keyword String="command" attribute="Command" context="Command Context"/>
 			<DetectChar attribute="Comment" char="#" context="Comment"/>
+		</context>
+
+		<context name="Command Context" attribute="Normal Text" lineEndContext="#pop">
+			<keyword String="parameter" attribute="Parameter" context="Key Value"/>
+			<DetectChar char="\" context="Consume Newline"/>
 		</context>
 
 		<context name="Double Quoted String" attribute="String" lineEndContext="#pop">
@@ -776,18 +786,17 @@
 	<itemDatas>
 		<itemData name="Normal Text" defStyleNum="dsNormal"/>
 		<itemData name="Path" defStyleNum="dsVariable"/>
-		<itemData name="Parameter" defStyleNum="dsKeyword"/>
+		<itemData name="Parameter" defStyleNum="dsPreprocessor"/>
 		<itemData name="Command" defStyleNum="dsFunction"/>
 		<itemData name="Comment" defStyleNum="dsComment"/>
 		<itemData name="String" defStyleNum="dsString"/>
-		<itemData name="Operator" defStyleNum="dsOperator"/>
 	</itemDatas>
 </highlighting>
 <general>
 	<comments>
 		<comment name="singleLine" start="#"/>
 	</comments>
-	<keywords weakDeliminator="-/"/>
+	<keywords weakDeliminator="-"/>
 </general>
 </language>
 <!-- kate: replace-tabs off; -->
