@@ -115,7 +115,6 @@ pre {
 
 pre code {
   padding: 0.5em 0.5em 0.5em 1em;
-  background-color: #ffffd6;
 }
 
 blockquote {
@@ -126,7 +125,7 @@ blockquote {
   border-left: 2.5px solid #7e846b;
 }
 
-p code {
+code {
   white-space: nowrap;
   background-color: #ffffd6;
 }
