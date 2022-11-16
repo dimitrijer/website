@@ -58,7 +58,7 @@ had to prioritize market availability first, and then everything else.
 
 Shipping not included:
 
-```
+```txt
 CPU:     Ryzen 3 4300GE (OEM)                    x 1 = 220 EUR
 Cooler:  ID-Cooling IS-30                        x 1 =  39 EUR
 Board:   ASRock Fatal1ty B450 Gaming-ITX/ac      x 1 =  98 EUR

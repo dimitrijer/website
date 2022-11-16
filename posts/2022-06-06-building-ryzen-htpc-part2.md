@@ -57,7 +57,7 @@ undervolting. I took the advice on PPT tweaking and it worked great.
 
 ## Baseline: No underclocking
 
-```
+```txt
 no underclocking
 ================
 idle power draw (mains/PPT): 15.2 W /  4.4 W
@@ -77,7 +77,7 @@ draw was also uncomfortably close to my acceptable limit.
 
 ## Take one: Undervolting and frequency limiting
 
-```
+```txt
 2000 Mhz max freq, 0.95 VID
 ===========================
 idle power draw (mains/PPT): 15.5 W /  4.2 W
@@ -94,7 +94,7 @@ and editing, but falls short when it comes to compiling.
 
 ## Take two: PPT 20 W
 
-```
+```txt
 PPT 20W
 =======
 idle power draw (mains/PPT): 16.4 W /  4.2 W
@@ -113,7 +113,7 @@ bit more out of this.
 
 ## Final take: PPT 25W
 
-```
+```txt
 PPT 25W
 =======
 idle power draw (mains/PPT): 16.9 W /  4.6 W
