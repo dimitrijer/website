@@ -239,7 +239,7 @@ tcpdump -nni enp1s0 -w ping-in.tcpdump icmp
 ```
 
 Great, I see 5 packets come in:
-```
+```txt
 dropped privs to tcpdump
 tcpdump: listening on enp1s0, link-type EN10MB (Ethernet), capture size 262144 bytes
 ^C5 packets captured
@@ -251,7 +251,7 @@ Let's inspect them (timestamps eluded for brevity):
 ```bash
 tcpdump -nnr ping-in.tcpdump
 ```
-```
+```txt
 reading from file ping.tcpdump, link-type EN10MB (Ethernet)
 IP 192.168.0.70 > 142.250.185.174: ICMP echo request, id 13059, seq 1, length 64
 IP 192.168.0.70 > 142.250.185.174: ICMP echo request, id 13059, seq 2, length 64
@@ -269,7 +269,7 @@ ping -c5 www.google.com
 # on the frontend instance
 tcpdump -nni enp0s3 -w ping-out.tcpdump icmp
 ```
-```
+```txt
 # on the backend instance
 ^C0 packets captured
 0 packets received by filter
@@ -282,7 +282,7 @@ packet count. This is where I would expect to see a change after a packet has
 been routed. However, when I look at the NAT table with `iptables -t nat -nvL`,
 I notice that packet counter **does increase** for the `PREROUTING` chain:
 
-```
+```txt
 Chain PREROUTING (policy ACCEPT 325 packets, 25368 bytes)
                                 ^^^ this number increases by 5
 ```
@@ -299,7 +299,7 @@ changes (`watch -d -n1` helps a lot). And, sure enough, I do notice that one of
 various displayed stats is changing in increments of 5 every time I run the
 ping command:
 
-```
+```txt
 IPReversePathFilter: 325
 ```
 
@@ -310,7 +310,7 @@ forwarding packets that are not really routable -- for example, a packet from
 Reading a bit about it [here](https://www.theurbanpenguin.com/rp_filter-and-lpic-3-linux-security/), I
 check to see if it is active on the frontend instance with `sysctl net.ipv4.conf.all.rp_filter`:
 
-```
+```txt
 net.ipv4.conf.all.rp_filter = 1
 ```
 
@@ -325,7 +325,7 @@ sysctl -w net.ipv4.conf.all.rp_filter=2
 
 I repeat my ping experiment, start capturing traffic again with `tcpdump -nni enp0s3 icmp` on primary interface, and -- success (timestamps eluded for brevity):
 
-```
+```txt
 IP 192.168.1.119 > 142.250.185.174: ICMP echo request, id 6750, seq 1, length 64
 IP 142.250.185.174 > 192.168.1.119: ICMP echo reply, id 6750, seq 1, length 64
 IP 142.250.185.174 > 192.168.0.70: ICMP echo reply, id 6750, seq 1, length 64
@@ -364,7 +364,7 @@ I see there are 15 packets in total:
 This obviously has something to do with routing. So I take a look at the
 routing table with `ip route`:
 
-```
+```txt
 default via 192.168.1.1 dev enp0s3
 default via 192.168.1.1 dev enp0s3 proto dhcp metric 100
 169.254.0.0/16 dev enp0s3 scope link
