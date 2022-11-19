@@ -129,9 +129,9 @@ runHakyll sm =
           >>= relativizeUrls
 
     match "pages/main.md" $ do
-      route $ customRoute $ const "index.html"
+      route $ constRoute "index.html"
       compile $ do
-        posts <- fmap (take 3) . recentFirst =<< loadAll "posts/*"
+        posts <- fmap (take 5) . recentFirst =<< loadAll "posts/*"
 
         let indexCtx =
               listField "posts" postCtx (return posts)
