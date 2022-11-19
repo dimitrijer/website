@@ -5,7 +5,7 @@ This is source of https://dimitrije.website. The website is built with
 
 ## Building and serving
 
-You will need Nix:
+You will need [Nix](https://github.com/NixOS/nix) package manager:
 
 ```bash
 $ nix-shell
@@ -18,3 +18,9 @@ detected, rebuilt and served.
 To build CV PDF, run `make cv`.
 
 To deploy, run `make deploy`.
+
+## Licensing
+
+Source code is released under [LGPL-3.0](https://www.gnu.org/licenses/lgpl-3.0.en.html).
+
+Text, images and other non-source code content are released under [CC BY 4.0](https://creativecommons.org/licenses/by/4.0/).
