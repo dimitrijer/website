@@ -26,18 +26,19 @@ pkgs.mkShell {
     alias vim='nvim'
   '';
 
-  buildInputs = [
-    pkgs.ghc
+  buildInputs = with pkgs; [
+    ghc
     # For converting images
-    pkgs.imagemagick
+    imagemagick
     # For development
-    pkgs.haskell-language-server
+    haskell-language-server
+    nixpkgs-fmt
+    haskellPackages.ormolu
+  ] ++
+  [
     neovim
-    pkgs.nixpkgs-fmt
-    pkgs.haskellPackages.ormolu
-    # For CV
     tex
-    # Main site package
     site
-  ];
+  ]
+  ;
 }
