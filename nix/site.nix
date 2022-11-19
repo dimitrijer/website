@@ -6,11 +6,10 @@ mkDerivation {
     "^.*\\.hs$"
     "^.*\\.cabal$"
     "^LICENSE$"
-    "^LICENSE-CONTENT$"
   ]);
   isLibrary = false;
   isExecutable = true;
   executableHaskellDepends = [ base hakyll pandoc time ];
   homepage = "https://dimitrije.website";
-  license = with lib.licenses; [ lgpl3 cc-by-40 ];
+  license = lib.licenses.lgpl3;
 }

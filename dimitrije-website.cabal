@@ -1,15 +1,15 @@
+cabal-version:       3.4
 name:                dimitrije-website
 version:             0.1.0.0
 homepage:            https://dimitrije.website
-license:             LGPL-3 OR CC-BY-4.0
-license-files:       LICENSE, LICENSE-CONTENT
+license:             LGPL-3.0-only
+license-file:        LICENSE
 author:              Dimitrije Radojević
 maintainer:          me@dimitrije.website
 copyright:           2022 Dimitrije Radojević
 category:            Web
 build-type:          Simple
 extra-source-files:  README.md
-cabal-version:       >= 1.10
 
 executable site
   main-is:            site.hs
