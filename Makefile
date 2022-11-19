@@ -1,10 +1,10 @@
 .PHONY: all watch build clean deploy
 
-CV  := cv.md
+CV  := pages/cv.md
 PDF := files/CV_Dimitrije_Radojevic.pdf
 CSL := csl/ieee-with-url.csl
 BIB := bib/refs.bib
-TPL := cv-template.tex
+TPL := templates/cv-template.tex
 # Get Nix path to Texlive, we need to supply path to the FontAwesome otf file to
 # the CV template.
 LATEX_PATH := $(shell which latex)

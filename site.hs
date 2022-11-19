@@ -107,7 +107,7 @@ runHakyll sm =
           >>= loadAndApplyTemplate "templates/archive.html" archiveCtx
           >>= loadAndApplyTemplate "templates/default.html" archiveCtx
 
-    match "cv.md" $ do
+    match "pages/cv.md" $ do
       route $ setExtension "html"
       compile $ do
         csl <- load $ fromFilePath "csl/ieee-with-url.csl"
@@ -118,14 +118,14 @@ runHakyll sm =
           >>= loadAndApplyTemplate "templates/default.html" (singlePageCtx `mappend` constField "htmltitle" "Curriculum Vitae")
           >>= relativizeUrls
 
-    match "contact.md" $ do
+    match "pages/contact.md" $ do
       route $ setExtension "html"
       compile $
         pandocCompilerWith defaultHakyllReaderOptions html5WriterOptions
           >>= loadAndApplyTemplate "templates/default.html" (singlePageCtx `mappend` constField "htmltitle" "Contact")
           >>= relativizeUrls
 
-    match "main.md" $ do
+    match "pages/main.md" $ do
       route $ customRoute $ const "index.html"
       compile $ do
         posts <- fmap (take 3) . recentFirst =<< loadAll "posts/*"
@@ -148,7 +148,7 @@ runHakyll sm =
       route idRoute
       compile $ do
         posts <- recentFirst =<< loadAll "posts/*"
-        singlePages <- loadAll (fromList ["contact.md", "cv.md"])
+        singlePages <- loadAll (fromList ["pages/contact.md", "pages/cv.md"])
 
         timeZone <- unsafeCompiler Data.Time.getCurrentTimeZone
         currentTime <- unsafeCompiler Data.Time.getCurrentTime
