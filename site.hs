@@ -19,8 +19,8 @@ config :: Configuration
 config =
   defaultConfiguration
     { deployCommand = "rsync -av _site/* dimitrije.website:/srv/http",
-      previewHost = "0.0.0.0",
-      previewPort = 8080
+      previewHost = "127.0.0.1",
+      previewPort = 8082
     }
 
 colorIvory = T.RGB 255 255 245

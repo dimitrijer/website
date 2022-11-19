@@ -1,4 +1,4 @@
-.PHONY: all watch build clean deploy
+.PHONY: all watch build rebuild deploy clean
 
 CV  := pages/cv.md
 PDF := files/CV_Dimitrije_Radojevic.pdf
@@ -12,8 +12,9 @@ TEXLIVE_PATH := $(shell nix-store --query $(LATEX_PATH))
 
 all: clean cv build
 
+# Some aliases for site commands.
 watch:
-	site watch --port 8082
+	site watch
 
 build:
 	site build
@@ -21,12 +22,12 @@ build:
 rebuild:
 	site rebuild
 
+deploy:
+	site deploy
+
 clean:
 	site clean
 	rm -f "$(PDF)" "$(TPL)_subst"
-
-deploy:
-	site deploy
 
 $(TPL)_subst: $(TPL)
 	sed "s#TEXLIVE_PATH#$(TEXLIVE_PATH)#" $(TPL) >$(TPL)_subst
