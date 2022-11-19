@@ -95,12 +95,15 @@ runHakyll sm =
       route idRoute
       compile $ do
         posts <- recentFirst =<< loadAll "posts/*"
+        mostRecentPostDate <- getItemModificationTime (itemIdentifier $ head posts)
 
         let archiveCtx =
               constField "root" root
                 `mappend` listField "posts" postCtx (return posts)
                 `mappend` boolField "somePosts" (return $ not (null posts))
                 `mappend` constField "htmltitle" "Archives"
+                `mappend` constField "updated" (formatTime defaultTimeLocale "%Y-%m-%d" mostRecentPostDate)
+                `mappend` constField "path" "templates/archive.html"
                 `mappend` defaultContext
 
         makeItem ""
@@ -108,7 +111,7 @@ runHakyll sm =
           >>= loadAndApplyTemplate "templates/default.html" archiveCtx
 
     match "pages/cv.md" $ do
-      route $ setExtension "html"
+      route $ constRoute "cv.html"
       compile $ do
         csl <- load $ fromFilePath "csl/ieee-with-url.csl"
         bib <- load $ fromFilePath "bib/refs.bib"
@@ -119,7 +122,7 @@ runHakyll sm =
           >>= relativizeUrls
 
     match "pages/contact.md" $ do
-      route $ setExtension "html"
+      route $ constRoute "contact.html"
       compile $
         pandocCompilerWith defaultHakyllReaderOptions html5WriterOptions
           >>= loadAndApplyTemplate "templates/default.html" (singlePageCtx `mappend` constField "htmltitle" "Contact")
