@@ -3,8 +3,9 @@
  * - fg:     #000000 (Black)
  * - emph:   #902000 (Kobe)
  * - href:   #0033cc (Persian Blue)
- * - unused: #7e846b (Artichoke)
  * - pre:    #ffffd6 (Light Goldenrod Yellow)
+ * - blockquote fg: #7e846b (Artichoke)
+ * - blockquote bg: #f5f6f4 (Cultured)
  */
 body {
   font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif;
@@ -118,11 +119,18 @@ pre code {
 }
 
 blockquote {
+  display: flex;
+  overflow: auto;
+  background-color: #f5f6f4;
+  margin-left: 0em;
+  margin-right: 0em;
+  padding: 0 0 0 1em;
+  border-left: 2.5px solid #7e846b;
+}
+
+blockquote p {
   font-style: italic;
   color: #7e846b;
-  margin-left: 0em;
-  padding-left: 1.25em;
-  border-left: 2.5px solid #7e846b;
 }
 
 code {
