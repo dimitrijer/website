@@ -8,9 +8,10 @@
 
 My name is Dimitrije[^1], and I'm a backend engineer.
 
-I have 10 years of professional experience of designing, building, deploying
-and maintaining backend services. I currently work at Google as an SRE. If you
-want to learn more, check out my [CV](/cv).
+I have 11 years of professional experience in designing, building, deploying
+and maintaining backend services. I currently work at Jane Street as Linux
+Engineer. I've previously worked as SRE at Google. If you want to learn more,
+check out my [CV](/cv).
 
 I like video and board games, science fiction and my beloved Shih Tzu
 Mochiko.

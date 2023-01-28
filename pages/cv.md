@@ -19,8 +19,7 @@ _(this page is also available for [download in PDF](/files/CV_Dimitrije_Radojevi
 
 I am a software engineer with more than ten years of professional experience
 in backend architecture and development, video game development, infrastructure
-and DevOps, machine learning engineering, and, most recently, Site
-Reliability Engineering.
+and DevOps, machine learning engineering and Site Reliability Engineering.
 
 My diverse background provides me with broad knowledge of computer systems,
 from low-level hardware intricacies to high-level software abstractions, from
@@ -48,21 +47,23 @@ wonderful company of my wife and my dog.
  
 # Experiences
 
-- January 2021 - present: _SWE-SRE_, [Google](https://about.google.com)
+- January 2023 - present: Linux Engineer, [Jane Street](https://www.janestreet.com/)
 
-    * My team maintains a platform for automated capacity planning[^1] that is
+- January 2021 - January 2023: _SWE-SRE_, [Google](https://about.google.com)
+
+    * My team maintained a platform for automated capacity planning[^1] that is
       used by many Google services. 
 
-    * The objective is to provision services in line with forecasted
+    * The objective was to provision services in line with forecasted
       demand, so that they fit within available supply, run at desired
       level of reliability, while being resource efficient at the same time.
 
-    * Some of my day-to-day work: core SRE work -- make sure the platform runs
-      reliably by applying best production practices, participate in oncall
-      rotation and take part in incident management[^2], design and develop new
-      features, help customers onboard to the platform, facilitate training and
-      learning sessions on capacity planning in the team and beyond, perform
-      the role of Scrum Master.
+    * Some of my day-to-day work included: core SRE work -- make sure the
+      platform runs reliably by applying best production practices, participate
+      in oncall rotation and take part in incident management[^2], design and
+      develop new features, help customers onboard to the platform, facilitate
+      training and learning sessions on capacity planning in the team and beyond,
+      perform the role of Scrum Master.
 
 - March 2018 - October 2020: *Machine Learning Engineer*, [Nordeus](https://nordeus.com)
 
