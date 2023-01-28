@@ -47,7 +47,7 @@ wonderful company of my wife and my dog.
  
 # Experiences
 
-- January 2023 - present: Linux Engineer, [Jane Street](https://www.janestreet.com/)
+- January 2023 - present: _Linux Engineer_, [Jane Street](https://www.janestreet.com/)
 
 - January 2021 - January 2023: _SWE-SRE_, [Google](https://about.google.com)
 
