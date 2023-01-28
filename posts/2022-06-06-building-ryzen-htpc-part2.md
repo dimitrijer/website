@@ -42,7 +42,7 @@ I also need to make sure I stay within the following constraints:
 For load testing, I used a 30-minute long `stress-ng` load test that combined
 CPU hogs with I/O workers:
 
-```bash
+```bashext
 stress-ng --cpu 6 --io 4 --hdd 2 --vm 2 --vm-bytes 128M --fork 4 --timeout 1800
 ```
 

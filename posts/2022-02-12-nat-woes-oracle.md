@@ -175,7 +175,7 @@ instance.
 
 First of all, IP forwarding needs to be enabled on the frontend instance:
 
-```bash
+```bashext
 sysctl -w net.ipv4.ip_forward=1
 ```
 
@@ -183,7 +183,7 @@ Next, I add a `POSTROUTING` rule that masquerades packets, which will replace
 source IP address of packets leaving primary interface `enp0s3` with IP address
 of the interface (`192.168.1.119`) on their way out:
 
-```bash
+```bashext
 firewall-cmd --permanent --direct --add-rule ipv4 nat POSTROUTING 0 \
   -o enp0s3 -j MASQUERADE
 ```
@@ -193,7 +193,7 @@ add explicit rules that allow forwarded traffic from `enp1s0` (secondary
 VNIC) to `enp0s3` (primary VNIC), but I'm listing the commands here for
 completeness:
 
-```bash
+```bashext
 firewall-cmd --permanent --direct --add-rule ipv4 filter FORWARD 0 \
   -i enp1s0 -o enp0s3 -m state --state RELATED,ESTABLISHED -j ACCEPT
 firewall-cmd --permanent --direct --add-rule ipv4 filter FORWARD 0 \
@@ -209,7 +209,7 @@ realize that the changes it makes are not reflected in `iptables`, but can be
 seen with `nft list table ip firewalld`. Having only ever used `iptables`, I realize I am
 out of my depth here, and I decide to leave it at that.
 
-```bash
+```bashext
 firewall-cmd --permanent --zone public --add-interface enp0s3
 firewall-cmd --permanent --zone public --add-masquerade
 firewall-cmd --reload
@@ -231,7 +231,7 @@ Okay, so what is going on here? I first check if I am seeing any of these
 packets at all on the NAT interface. I fire up `tcpdump` on the frontend
 instance:
 
-```bash
+```bashext
 # on the backend instance
 ping -c5 www.google.com
 # on the frontend instance
@@ -248,7 +248,7 @@ tcpdump: listening on enp1s0, link-type EN10MB (Ethernet), capture size 262144 b
 ```
 
 Let's inspect them (timestamps eluded for brevity):
-```bash
+```bashext
 tcpdump -nnr ping-in.tcpdump
 ```
 ```txt
@@ -263,7 +263,7 @@ IP 192.168.0.70 > 142.250.185.174: ICMP echo request, id 13059, seq 5, length 64
 Okay, so the frontend instance receives ICMP packets on `enp1s0`. Let's see
 if there is any ICMP traffic on primary interface:
 
-```bash
+```bashext
 # on the backend instance
 ping -c5 www.google.com
 # on the frontend instance
@@ -319,7 +319,7 @@ the packet arrived from is not the best route for source address, the packet
 will be dropped. Let's try relaxing it to *Loose* mode, which should allow
 packets that can be routed back to _any_ other interface:
 
-```bash
+```bashext
 sysctl -w net.ipv4.conf.all.rp_filter=2
 ```
 
@@ -377,7 +377,7 @@ default via 192.168.1.1 dev enp0s3 proto dhcp metric 100
 **But of course!** There is no entry for Backend subnet `192.168.0.0/24`. So this
 gets matched to default route, which uses primary interface `enp0s3`. I can fix this easily:
 
-```bash
+```bashext
 ip route add 192.168.0.0/24 via 192.168.1.1 dev enp1s0
 ```
 
@@ -411,7 +411,7 @@ I still don't understand a couple of things here:
 * `ocid` is a daemon that sets up secondary VNIC during boot. I looked its logs,
   and it apparently creates a new routing table called `ort3` during startup:
 
-  ```bash
+  ```bashext
   ip route add default via 192.168.1.1 dev enp1s0 table ort3
   ip rule add from 192.168.1.250 lookup ort3
   ```
