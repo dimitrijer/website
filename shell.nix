@@ -34,6 +34,7 @@ pkgs.mkShell {
     haskell-language-server
     nixpkgs-fmt
     haskellPackages.ormolu
+    ripgrep
   ] ++
   [
     neovim
