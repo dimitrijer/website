@@ -2,7 +2,7 @@
 title: Wireless FOB with MikroTik and Wireguard
 htmltitle: Wireless FOB with MikroTik and Wireguard
 subtitle: ... or how to watch IPTV through DIY VPN for fun
-description: Building a DIY VPN with Wireguard and MikroTik Routerboards
+og_description: Building a DIY VPN with Wireguard and MikroTik Routerboards
 cover_image: /images/network_layout.jpg
 ---
 

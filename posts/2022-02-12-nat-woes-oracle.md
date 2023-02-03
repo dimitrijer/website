@@ -2,7 +2,7 @@
 title: NAT Woes in Oracle Cloud Land
 htmltitle: NAT Woes in Oracle Cloud Land
 subtitle: Setting up NAT on a Compute Instance
-description: How to set up NAT on a Compute Instance in Oracle Cloud
+og_description: How to set up NAT on a Compute Instance in Oracle Cloud
 cover_image: /images/oracle_cloud.jpg
 ---
 
