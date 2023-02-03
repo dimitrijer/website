@@ -60,6 +60,16 @@ html5WriterOptions =
       writerHighlightStyle = Just pandocHighlightStyle
     }
 
+rssFeedConfiguration :: FeedConfiguration
+rssFeedConfiguration =
+  FeedConfiguration
+    { feedTitle = "Dimitrije's Website",
+      feedDescription = "Feed of fresh posts from Dimitrije's Website",
+      feedAuthorName = "Dimitrije Radojević",
+      feedAuthorEmail = "me@dimitrije.website",
+      feedRoot = "https://dimitrije.website"
+    }
+
 runHakyll :: T.SyntaxMap -> IO ()
 runHakyll sm =
   hakyllWith config $ do
@@ -88,6 +98,7 @@ runHakyll sm =
       compile $
         customPandocCompiler
           >>= loadAndApplyTemplate "templates/post.html" postCtx
+          >>= saveSnapshot "content"
           >>= loadAndApplyTemplate "templates/default.html" postCtx
           >>= relativizeUrls
 
@@ -167,6 +178,15 @@ runHakyll sm =
                 `mappend` listField "singlePages" singlePageCtx (return singlePages)
         makeItem ""
           >>= loadAndApplyTemplate "templates/sitemap.xml" sitemapCtx
+
+    create ["rss.xml"] $ do
+      route idRoute
+      compile $ do
+        let feedCtx = postCtx `mappend` bodyField "description"
+        posts <-
+          fmap (take 10) . recentFirst
+            =<< loadAllSnapshots "posts/*" "content"
+        renderRss rssFeedConfiguration feedCtx posts
 
     match "templates/*" $ compile templateCompiler
   where
