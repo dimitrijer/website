@@ -8,6 +8,7 @@ import Hakyll
 import Skylighting.Loader (loadSyntaxesFromDir)
 import Skylighting.Syntax (defaultSyntaxMap)
 import qualified Skylighting.Types as T
+import System.Process (readProcess)
 import Text.Pandoc
 import Text.Pandoc.Highlighting
 
@@ -70,6 +71,11 @@ rssFeedConfiguration =
       feedRoot = "https://dimitrije.website"
     }
 
+beautifyHTML :: Item String -> Compiler (Item String)
+beautifyHTML item = do
+  output <- recompilingUnsafeCompiler (readProcess "js-beautify" ["-f", "-", "--type", "html"] (itemBody item))
+  return $ fmap (const output) item
+
 runHakyll :: T.SyntaxMap -> IO ()
 runHakyll sm =
   hakyllWith config $ do
@@ -120,6 +126,7 @@ runHakyll sm =
         makeItem ""
           >>= loadAndApplyTemplate "templates/archive.html" archiveCtx
           >>= loadAndApplyTemplate "templates/default.html" archiveCtx
+          >>= beautifyHTML
 
     match "pages/cv.md" $ do
       route $ constRoute "cv.html"
@@ -131,6 +138,7 @@ runHakyll sm =
           >>= return . writePandocWith html5WriterOptions
           >>= loadAndApplyTemplate "templates/default.html" (singlePageCtx `mappend` constField "htmltitle" "Curriculum Vitae")
           >>= relativizeUrls
+          >>= beautifyHTML
 
     match "pages/contact.md" $ do
       route $ constRoute "contact.html"
@@ -138,6 +146,7 @@ runHakyll sm =
         pandocCompilerWith defaultHakyllReaderOptions html5WriterOptions
           >>= loadAndApplyTemplate "templates/default.html" (singlePageCtx `mappend` constField "htmltitle" "Contact")
           >>= relativizeUrls
+          >>= beautifyHTML
 
     match "pages/main.md" $ do
       route $ constRoute "index.html"
@@ -157,6 +166,7 @@ runHakyll sm =
           >>= return . writePandocWith html5WriterOptions
           >>= loadAndApplyTemplate "templates/default.html" indexCtx
           >>= relativizeUrls
+          >>= beautifyHTML
 
     create ["sitemap.xml"] $ do
       route idRoute
