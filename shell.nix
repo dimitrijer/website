@@ -35,6 +35,7 @@ pkgs.mkShell {
     nixpkgs-fmt
     haskellPackages.ormolu
     ripgrep
+    nodePackages.js-beautify
   ] ++
   [
     neovim

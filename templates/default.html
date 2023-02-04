@@ -1,51 +1,54 @@
 <!doctype html>
 <html lang="en">
-    <head>
-        <meta charset="utf-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1">
-        <meta name="description" content="Dimitrije's Website">
-        <meta name="author" content="Dimitrije Radojević">
 
-        <link rel="me" href="mailto:me@dimitrije.website">
-        <link rel="stylesheet" type="text/css" href="/css/style.css"/>
-        <link rel="stylesheet" type="text/css" href="/css/syntax.css"/>
-        <link rel="canonical" href="$root$$url$"/>
-        <link rel="alternate" type="application/rss+xml" title="Dimitrije's Website" href="$root$/rss.xml">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="Dimitrije's Website">
+    <meta name="author" content="Dimitrije Radojević">
 
-        <meta name="twitter:card" content="summary" />
-        <meta name="twitter:site" content="@dradojevic" />
-        <meta name="twitter:creator" content="@dradojevic" />
-$if(og_description)$
-        <meta property="og:url" content="$root$$url$" />
-        <meta property="og:title" content="$title$" />
-        <meta property="og:description" content="$og_description$" />
-        <meta property="og:type" content="article" />
-$if(cover_image)$
-        <meta property="og:image" content="$root$$cover_image$" />
-$endif$
-$endif$
-        <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon.png">
-        <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32.png">
-        <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16.png">
-        <link rel="manifest" href="/images/site.webmanifest">
-        <link rel="mask-icon" href="/images/safari-pinned-tab.svg" color="#5bbad5">
-        <link rel="shortcut icon" href="/images/favicon.ico">
-        <meta name="msapplication-TileColor" content="#da532c">
-        <meta name="msapplication-config" content="/images/browserconfig.xml">
-        <meta name="theme-color" content="#fffffe">
-        <title>$if(htmltitle)$$htmltitle$ - $endif$Dimitrije's Website</title>
-    </head>
-    <body>
-        <header>
-            $partial("templates/header.html")$
-        </header>
+    <link rel="me" href="mailto:me@dimitrije.website">
+    <link rel="stylesheet" type="text/css" href="/css/style.css" />
+    <link rel="stylesheet" type="text/css" href="/css/syntax.css" />
+    <link rel="canonical" href="$root$$url$" />
+    <link rel="alternate" type="application/rss+xml" title="Dimitrije's Website" href="$root$/rss.xml">
 
-        <main role="main">
-            $body$
-        </main>
+    <meta name="twitter:card" content="summary" />
+    <meta name="twitter:site" content="@dradojevic" />
+    <meta name="twitter:creator" content="@dradojevic" />
+    $if(og_description)$
+    <meta property="og:url" content="$root$$url$" />
+    <meta property="og:title" content="$title$" />
+    <meta property="og:description" content="$og_description$" />
+    <meta property="og:type" content="article" />
+    $if(cover_image)$
+    <meta property="og:image" content="$root$$cover_image$" />
+    $endif$
+    $endif$
+    <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16.png">
+    <link rel="manifest" href="/images/site.webmanifest">
+    <link rel="mask-icon" href="/images/safari-pinned-tab.svg" color="#5bbad5">
+    <link rel="shortcut icon" href="/images/favicon.ico">
+    <meta name="msapplication-TileColor" content="#da532c">
+    <meta name="msapplication-config" content="/images/browserconfig.xml">
+    <meta name="theme-color" content="#fffffe">
+    <title>$if(htmltitle)$$htmltitle$ - $endif$Dimitrije's Website</title>
+</head>
 
-        <footer>
-            $partial("templates/footer.html")$
-        </footer>
-    </body>
+<body>
+    <header>
+        $partial("templates/header.html")$
+    </header>
+
+    <main role="main">
+        $body$
+    </main>
+
+    <footer>
+        $partial("templates/footer.html")$
+    </footer>
+</body>
+
 </html>

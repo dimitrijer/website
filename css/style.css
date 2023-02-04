@@ -8,251 +8,270 @@
  * - blockquote bg: #f5f6f4 (Cultured)
  */
 body {
-  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif;
-  font-size: 1.1em;
-  line-height: 1.5em;
-  max-width: 42em;
-  margin: auto;
-  padding: 0 2%;
-  overflow-wrap: break-word;
-  background-color: #fffff5;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif;
+    font-size: 1.1em;
+    line-height: 1.5em;
+    max-width: 42em;
+    margin: auto;
+    padding: 0 2%;
+    overflow-wrap: break-word;
+    background-color: #fffff5;
 }
 
-a[href^="http"]:after
-{
-  content: '⤴'; '⇗';
-  display: inline-block;
+a[href^="http"]:after {
+    content: '⤴';
+    '⇗';
+    display: inline-block;
 }
 
 /* Add a bit of space below header. */
 header {
-  margin-bottom: 2em;
+    margin-bottom: 2em;
 }
 
 nav {
-  margin-top: 1em;
-  margin-bottom: 1em;
+    margin-top: 1em;
+    margin-bottom: 1em;
 }
 
-nav a, nav span {
-  font-size: medium;
-  margin-right: 1em;
+nav a,
+nav span {
+    font-size: medium;
+    margin-right: 1em;
 }
 
 nav a:first-child {
-  font-weight: bold;
+    font-weight: bold;
 }
 
 nav a:last-child {
-  margin-right: 0;
+    margin-right: 0;
 }
 
 hr {
-  margin: 1em auto;
-  border: 0;
-  border-bottom: thin solid #ccc;
+    margin: 1em auto;
+    border: 0;
+    border-bottom: thin solid #ccc;
 }
 
 /* Emph color */
 section:first-child h1,
 article header h1,
 strong {
-  color: #902000;
+    color: #902000;
 }
 
-section:first-child h1
-article header h1 {
-  font-size: xx-large;
+section:first-child h1 article header h1 {
+    font-size: xx-large;
 }
 
 /* Add a bit of space below article title. */
 article header {
-  margin-bottom: 1.5em;
+    margin-bottom: 1.5em;
 }
 
 article header h1,
 article header h2,
 article header h3 {
-  margin-bottom: 0;
+    margin-bottom: 0;
 }
 
 article header h2 {
-  margin-top: 0.5em;
-  font-size: large;
+    margin-top: 0.5em;
+    font-size: large;
 }
 
 article header h3 {
-  font-size: medium;
-  font-style: italic;
-  font-weight: normal;
+    font-size: medium;
+    font-style: italic;
+    font-weight: normal;
 }
 
 article section h1 {
-  font-size: x-large;
-  text-decoration: underline;
-  text-decoration-color: #902000;
-  text-decoration-skip-ink: auto;
+    font-size: x-large;
+    text-decoration: underline;
+    text-decoration-color: #902000;
+    text-decoration-skip-ink: auto;
 }
 
 article section h2 {
-  font-size: medium;
+    font-size: medium;
 }
 
 footer {
-  font-size: medium;
-  margin-top: 1em;
-  margin-bottom: 1em;
-  line-height: 1em;
+    font-size: medium;
+    margin-top: 1em;
+    margin-bottom: 1em;
+    line-height: 1em;
 }
 
 pre {
-  display: flex;
-  overflow: auto;
-  /* Reduce spacing between pre lines. */
-  line-height: 1.5em;
-  border-left: 2.5px solid black;
-  background-color: #ffffd6;
+    display: flex;
+    overflow: auto;
+    /* Reduce spacing between pre lines. */
+    line-height: 1.5em;
+    border-left: 2.5px solid black;
+    background-color: #ffffd6;
 }
 
 pre code {
-  padding: 0.5em 0.5em 0.5em 1em;
+    padding: 0.5em 0.5em 0.5em 1em;
 }
 
 blockquote {
-  display: flex;
-  overflow: auto;
-  background-color: #f5f6f4;
-  margin-left: 0em;
-  margin-right: 0em;
-  padding: 0 0 0 1em;
-  border-left: 2.5px solid #7e846b;
+    display: flex;
+    overflow: auto;
+    background-color: #f5f6f4;
+    margin-left: 0em;
+    margin-right: 0em;
+    padding: 0 0 0 1em;
+    border-left: 2.5px solid #7e846b;
 }
 
 blockquote p {
-  font-style: italic;
-  color: #7e846b;
+    font-style: italic;
+    color: #7e846b;
 }
 
 code {
-  white-space: nowrap;
-  background-color: #ffffd6;
+    white-space: nowrap;
+    background-color: #ffffd6;
 }
 
 /* Desktops/laptops */
 @media all and (min-width: 1024px) and (max-width: 1280px) {
-  .hero {
-      flex-flow: row nowrap;
-  }
+    .hero {
+        flex-flow: row nowrap;
+    }
 }
- 
+
 /* Tablet landscape */
 @media all and (min-width: 768px) and (max-width: 1024px) {
-  .hero {
-      flex-flow: row nowrap;
-  }
+    .hero {
+        flex-flow: row nowrap;
+    }
 }
- 
+
 /* Tablet */
 @media all and (min-width: 480px) and (max-width: 768px) {
-  .hero {
-      flex-flow: column-reverse nowrap;
-  }
+    .hero {
+        flex-flow: column-reverse nowrap;
+    }
 
-  .hero figure {
-      margin-bottom: -0.5em;
-  }
+    .hero figure {
+        margin-bottom: -0.5em;
+    }
 }
 
 /* Phone */
-@media all and (max-width: 480px) { 
-  .hero {
-      flex-flow: column-reverse nowrap;
-  }
+@media all and (max-width: 480px) {
+    .hero {
+        flex-flow: column-reverse nowrap;
+    }
 }
 
 .hero {
-  display: flex;
-  align-items: center;
+    display: flex;
+    align-items: center;
 }
 
 /* Get rid of extra vertical space caused by nesting on the main page. */
 .hero h1 {
-  margin-top: 0;
+    margin-top: 0;
 }
 
 .hero figure {
-  max-width: 30%;
-  min-width: 200px;
+    max-width: 30%;
+    min-width: 200px;
 }
 
 main img {
-  max-width: 100%;
-  display: block;
-  margin: .75em auto;
+    max-width: 100%;
+    display: block;
+    margin: .75em auto;
 }
 
 section {
-  margin-bottom: 2em;
+    margin-bottom: 2em;
 }
 
 body,
-h1 a:link, h1 a:visited,
-h2 a:link, h2 a:visited,
-h3 a:link, h3 a:visited,
-h4 a:link, h4 a:visited,
-h5 a:link, h5 a:visited,
-h6 a:link, h6 a:visited,
-.license a:link, .license a:visited,
-nav a:first-child:link, nav a:first-child:visited
-{
-  color: #333;
+h1 a:link,
+h1 a:visited,
+h2 a:link,
+h2 a:visited,
+h3 a:link,
+h3 a:visited,
+h4 a:link,
+h4 a:visited,
+h5 a:link,
+h5 a:visited,
+h6 a:link,
+h6 a:visited,
+.license a:link,
+.license a:visited,
+nav a:first-child:link,
+nav a:first-child:visited {
+    color: #333;
 }
 
-h1 a:hover, h1 a:active,
-h2 a:hover, h2 a:active,
-h3 a:hover, h3 a:active,
-h4 a:hover, h4 a:active,
-h5 a:hover, h5 a:active,
-h6 a:hover, h6 a:active,
-.pgp a:hover, .pgp a:active,
-.license a:hover, .license a:active,
-nav a:first-child:hover, nav a:first-child:active
-{
-  color: #555;
+h1 a:hover,
+h1 a:active,
+h2 a:hover,
+h2 a:active,
+h3 a:hover,
+h3 a:active,
+h4 a:hover,
+h4 a:active,
+h5 a:hover,
+h5 a:active,
+h6 a:hover,
+h6 a:active,
+.pgp a:hover,
+.pgp a:active,
+.license a:hover,
+.license a:active,
+nav a:first-child:hover,
+nav a:first-child:active {
+    color: #555;
 }
 
-a:link, a:visited {
-  text-decoration: none
+a:link,
+a:visited {
+    text-decoration: none
 }
 
-a:hover, a:active {
-  text-decoration: underline
+a:hover,
+a:active {
+    text-decoration: underline
 }
 
-a:link, a:visited {
-  color: #03c;
+a:link,
+a:visited {
+    color: #03c;
 }
 
-a:hover, a:active {
-  color: #03f;
+a:hover,
+a:active {
+    color: #03f;
 }
 
 .footnotes {
-  font-size: smaller;
+    font-size: smaller;
 }
 
 .footnotes hr {
-  border: 0;
-  text-align: center;
-  font-size: medium;
+    border: 0;
+    text-align: center;
+    font-size: medium;
 }
 
 .footnotes hr:after {
-  content: "⁂";
-  color: #333;
-  display: inline;
+    content: "⁂";
+    color: #333;
+    display: inline;
 }
 
 footer address {
-  font-style: normal;
+    font-style: normal;
 }
