@@ -411,6 +411,8 @@
       <item>qmake</item>
       <item>svn</item>
       <item>git</item>
+      <item>dune</item>
+	  <item>tree</item>
       <item>stress-ng</item>
       <item>ip</item>
       <item>tcpdump</item>
