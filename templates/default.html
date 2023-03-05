@@ -16,6 +16,9 @@
     <meta name="twitter:card" content="summary" />
     <meta name="twitter:site" content="@dradojevic" />
     <meta name="twitter:creator" content="@dradojevic" />
+    $if(cover_image)$
+    <meta name="twitter:image" content="$root$$cover_image$" />
+    $endif$
     $if(og_description)$
     <meta property="og:url" content="$root$$url$" />
     <meta property="og:title" content="$title$" />
