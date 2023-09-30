@@ -3,7 +3,7 @@
     font-style: normal;
     font-weight: normal;
     font-stretch: normal;
-    src: url('../fonts/droid-sans-mono.woff2') format('woff2');
+    src: url('../fonts/droid_sans_mono.woff2') format('woff2');
 }
 
 @font-face {
