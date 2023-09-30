@@ -19,34 +19,31 @@ Again, not that I really needed a new HTPC. But my birthday was also closing in 
 
 No point in trying to feel better about splurging, so here's a list of my requirements:
 
-* Since the HTPC was going to be in my living room, it has got to be **silent**.
-
-  My wife was pretty adamant on this. It should be silent enough to be indistinguishable from ambient noise while playing media (easy) and idling (a bit harder).
+* Since the HTPC was going to be in my living room, it has got to be
+  **silent**. My wife was pretty adamant on this. It should be silent enough to
+  be indistinguishable from ambient noise while playing media (easy) and idling
+  (a bit harder).
 
 * It needs to run as efficiently as possible, so **low power usage** is a must.
-
   I did decide to replace a ~5W RPi with a full-fledged PC. I did not have a
   specific target at that time, but I knew laptop chargers deliver ~100W, so
   anything lower than that would be fine. Much lower than that when idling.
 
-* It needs to be able to do **4K @ 60fps**, meaning HDMI 2.0 at least.
-
-  This is supposed to be an *upgrade* over RPi. The fact that I don't own a 4K TV doesn't matter right now. Non pertinent. Irrelevant.
+* It needs to be able to do **4K @ 60fps**, meaning HDMI 2.0 at least. This is
+  supposed to be an *upgrade* over RPi. The fact that I don't own a 4K TV
+  doesn't matter right now. Non pertinent. Irrelevant.
 
 * **Small form factor** that fits in my [Fjällbo TV unit](https://www.ikea.com/us/en/p/fjaellbo-tv-unit-black-90339290/).
-
   This translates to mini-ITX motherboards, and very small cases.
 
-* Better **data redundancy**.
-
-  I've always wanted to build a RAID setup. I don't even need a lot of space,
+* Better **data redundancy**. I've always wanted to build a RAID setup. I don't
+  even need a lot of space,
   1 TB would be more than enough. This will serve for cold storage mostly, so
-  HDDs running at 5400 RPM are just fine - more silent and less power hungry than
-  7200 RPM drives.
+  HDDs running at 5400 RPM are just fine - more silent and less power hungry
+  than 7200 RPM drives.
 
-* **Fast startup time** and **responsive OS**.
-
-  This requires an SSD drive for root and boot partitions.
+* **Fast startup time** and **responsive OS**. This requires an SSD drive for
+  root and boot partitions.
 
 As far as everything else goes, optimize for lower price first, upgradability
 second. I was aware of [the global chip shortage](https://en.wikipedia.org/wiki/2020%E2%80%932022_global_chip_shortage) back in October 2021, but I kinda thought that I was going for a niche build

@@ -169,6 +169,10 @@ ul {
     list-style: circle
 }
 
+ul p {
+    margin: 0;
+}
+
 ul ul {
     list-style: disc
 }
