@@ -55,7 +55,7 @@ Before I list the values, I have to give a shoutout to [this great
 article](https://sff.life/how-to-undervolt-ryzen-cpu/) on Ryzen CPU
 undervolting. I took the advice on PPT tweaking and it worked great.
 
-## Baseline: No underclocking
+# Baseline: No underclocking
 
 ```txt
 no underclocking
@@ -75,7 +75,7 @@ However, CPU temperature is unacceptably high during stress testing. Max power
 draw was also uncomfortably close to my acceptable limit.
 
 
-## Take one: Undervolting and frequency limiting
+# Take one: Undervolting and frequency limiting
 
 ```txt
 2000 Mhz max freq, 0.95 VID
@@ -92,7 +92,7 @@ over performance. Both power draw and CPU temperature fall well within
 acceptable limits, but performance is very hindered. It still works for Kodi
 and editing, but falls short when it comes to compiling.
 
-## Take two: PPT 20 W
+# Take two: PPT 20 W
 
 ```txt
 PPT 20W
@@ -111,7 +111,7 @@ Ghz which made a big difference in performance.
 At this point, I became a bit greedy, and wanted to see if I could squeeze a
 bit more out of this.
 
-## Final take: PPT 25W
+# Final take: PPT 25W
 
 ```txt
 PPT 25W
@@ -129,7 +129,7 @@ pretty efficient as well. Adjusting PPT for +5W resulted in about ~10% time
 savings when doing intensive cpp compilation, when compared to PPT = 20W.
 
 
-## Closing remarks
+# Closing remarks
 
 * This tiny PC is remarkably efficient. Even if it was running at full load
   during the entire month, it would contribute ~1 EUR to my electricity bill.

@@ -14,7 +14,7 @@
     "nixfiles": {
         "branch": "main",
         "description": "My nixfiles",
-        "homepage": null,
+        "homepage": "https://github.com/dimitrijer/nixfiles",
         "owner": "dimitrijer",
         "repo": "nixfiles",
         "rev": "4b24f55bb3ad33e621ebb8b3e46883338cb44a18",

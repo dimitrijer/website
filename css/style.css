@@ -7,11 +7,15 @@
  * - blockquote fg: #7e846b (Artichoke)
  * - blockquote bg: #f5f6f4 (Cultured)
  */
+hmtl {
+    text-rendering: optimizeLegibility;
+}
+
 body {
-    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif;
-    font-size: 1.1em;
-    line-height: 1.5em;
-    max-width: 42em;
+    font-family: charter;
+    font-size: 1.4em;
+    line-height: 1.4em;
+    max-width: 38em;
     margin: auto;
     padding: 0 2%;
     overflow-wrap: break-word;
@@ -24,6 +28,11 @@ a[href^="http"]:after {
     display: inline-block;
 }
 
+li {
+    padding-left: .25em;
+    padding-bottom: .25em;
+}
+
 /* Add a bit of space below header. */
 header {
     margin-bottom: 2em;
@@ -32,11 +41,11 @@ header {
 nav {
     margin-top: 1em;
     margin-bottom: 1em;
+    text-transform: lowercase;
 }
 
 nav a,
 nav span {
-    font-size: medium;
     margin-right: 1em;
 }
 
@@ -61,10 +70,6 @@ strong {
     color: #902000;
 }
 
-section:first-child h1 article header h1 {
-    font-size: xx-large;
-}
-
 /* Add a bit of space below article title. */
 article header {
     margin-bottom: 1.5em;
@@ -77,32 +82,44 @@ article header h3 {
 }
 
 article header h2 {
-    margin-top: 0.5em;
-    font-size: large;
+    /* Keep close to title. */
+    margin-top: 0.2em;
+    font-size: 1em;
 }
 
 article header h3 {
-    font-size: medium;
+    font-size: 1em;
     font-style: italic;
     font-weight: normal;
 }
 
 article section h1 {
-    font-size: x-large;
-    text-decoration: underline;
-    text-decoration-color: #902000;
-    text-decoration-skip-ink: auto;
+    font-size: 1.5em;
 }
 
 article section h2 {
-    font-size: medium;
+    font-size: 1.3em;
+}
+
+article section h1,
+article section h2 {
+    margin-top: 1.5em;
+    margin-bottom: 1em;
 }
 
 footer {
-    font-size: medium;
+    font-size: 0.8em;
     margin-top: 1em;
     margin-bottom: 1em;
     line-height: 1em;
+}
+
+code {
+    font-family: droid-sans-mono;
+    font-size: 1rem;
+    line-height: 1rem;
+    white-space: nowrap;
+    background-color: #ffffd6;
 }
 
 pre {
@@ -119,11 +136,9 @@ pre code {
 }
 
 blockquote {
-    background-color: #f5f6f4;
-    margin-left: 0em;
-    margin-right: 0em;
+    margin-left: 1em;
+    margin-right: 1em;
     padding: 0.5em 1em 0.5em 1em;
-    border-left: 2.5px solid #7e846b;
 }
 
 blockquote p {
@@ -133,9 +148,29 @@ blockquote p {
     color: #7e846b;
 }
 
-code {
-    white-space: nowrap;
-    background-color: #ffffd6;
+aside {
+    float: right;
+    position: absolute;
+    width: 20%;
+    left: 70%;
+    padding-left: 2rem;
+    font-size: .875em;
+}
+
+aside blockquote {
+    margin-left: 0;
+    margin-right: 0;
+    margin-top: 0;
+    margin-bottom: 0;
+    padding: 0;
+}
+
+ul {
+    list-style: circle
+}
+
+ul ul {
+    list-style: disc
 }
 
 /* Desktops/laptops */
@@ -154,6 +189,17 @@ code {
 
 /* Tablet */
 @media all and (min-width: 480px) and (max-width: 768px) {
+
+    body {
+        font-size: 1.2em;
+    }
+
+    nav a,
+    nav span {
+        /* I should be using a flexbox to space items in nav. */
+        margin-right: 0.5em;
+    }
+
     .hero {
         flex-flow: column-reverse nowrap;
     }
@@ -161,12 +207,53 @@ code {
     .hero figure {
         margin-bottom: -0.5em;
     }
+
+    aside {
+        float: none;
+        position: relative;
+        width: 100%;
+        left: auto;
+        padding-left: 0;
+        font-size: 1.2em;
+    }
+
+    aside blockquote {
+        margin-left: 1em;
+        margin-right: 1em;
+        padding: 0.5em 1em 0.5em 1em;
+    }
 }
 
 /* Phone */
 @media all and (max-width: 480px) {
+
+    body {
+        font-size: 1.2em;
+    }
+
+    nav a,
+    nav span {
+        /* I should be using a flexbox to space items in nav. */
+        margin-right: 0.5em;
+    }
+
     .hero {
         flex-flow: column-reverse nowrap;
+    }
+
+    aside {
+        float: none;
+        position: relative;
+        width: 100%;
+        left: auto;
+        padding-left: 0;
+        font-size: 1.2em;
+    }
+
+    aside blockquote {
+        margin-left: 1em;
+        margin-right: 1em;
+        padding: 0.5em 1em 0.5em 1em;
     }
 }
 
@@ -178,6 +265,7 @@ code {
 /* Get rid of extra vertical space caused by nesting on the main page. */
 .hero h1 {
     margin-top: 0;
+    font-size: 1.5em;
 }
 
 .hero figure {
@@ -189,10 +277,6 @@ main img {
     max-width: 100%;
     display: block;
     margin: .75em auto;
-}
-
-section {
-    margin-bottom: 2em;
 }
 
 body,
@@ -256,8 +340,29 @@ a:active {
     color: #03f;
 }
 
+footer address {
+    font-style: normal;
+}
+
+.footnote-ref {
+    text-decoration: none;
+    font-variant-numeric: tabular-nums
+}
+
+.footnote-ref sup {
+    line-height: 0
+}
+
+.footnote-ref sup:before {
+    content: "["
+}
+
+.footnote-ref sup:after {
+    content: "]"
+}
+
 .footnotes {
-    font-size: smaller;
+    font-size: 0.8em;
 }
 
 .footnotes hr {
@@ -272,6 +377,7 @@ a:active {
     display: inline;
 }
 
-footer address {
-    font-style: normal;
+.footnotes p {
+    margin-top: 0;
+    margin-bottom: 0.5em;
 }

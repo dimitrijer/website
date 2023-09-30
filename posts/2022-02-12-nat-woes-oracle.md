@@ -66,7 +66,7 @@ Let's get started, then.
 
 # Setting up frontend instance for NAT
 
-### Infrastructure changes
+## Infrastructure changes
 
 I am using [Terraform](https://www.terraform.io/) to manage my tiny
 cloud.  Changing the infrastructure boils down to making changes to
@@ -171,7 +171,7 @@ resource "oci_core_security_list" "public" {
 After applying these changes, I can move on to configuring the frontend
 instance.
 
-### Enabling NAT on the frontend instance
+## Enabling NAT on the frontend instance
 
 First of all, IP forwarding needs to be enabled on the frontend instance:
 
@@ -217,7 +217,7 @@ firewall-cmd --reload
 
 Phew, I think this is it. Time to test it out.
 
-### Almost there, but not quite yet
+## Almost there, but not quite yet
 
 I SSH to one of backend instances, and run `ping www.google.com`.
 
