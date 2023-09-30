@@ -87,6 +87,10 @@ runHakyll sm =
       route idRoute
       compile copyFileCompiler
 
+    match "fonts/*" $ do
+      route idRoute
+      compile copyFileCompiler
+
     create ["css/syntax.css"] $ do
       route idRoute
       compile $ do
