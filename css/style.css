@@ -88,7 +88,8 @@ article header h2 {
 }
 
 article header h3 {
-    font-size: 1em;
+    /* Used for date. */
+    font-size: .875em;
     font-style: italic;
     font-weight: normal;
 }
@@ -125,8 +126,6 @@ code {
 pre {
     display: flex;
     overflow: auto;
-    /* Reduce spacing between pre lines. */
-    line-height: 1.5em;
     border-left: 2.5px solid black;
     background-color: #ffffd6;
 }
@@ -289,6 +288,15 @@ main img {
     display: block;
     margin: .75em auto;
 }
+
+main figure figcaption {
+    text-align: center;
+    font-style: italic;
+    color: #7e846b;
+    font-size: .875em;
+    margin: 0;
+}
+
 
 body,
 h1 a:link,
