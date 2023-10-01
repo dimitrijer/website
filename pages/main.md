@@ -6,7 +6,7 @@
 
 # Hi there!
 
-My name is Dimitrije[^1], and I'm a backend engineer.
+My name is Dimitrije[^1]. I'm a backend engineer.
 
 I have 11 years of professional experience in designing, building, deploying
 and maintaining backend services. I currently work at Jane Street as Linux
@@ -26,7 +26,7 @@ Mochiko.
 
 # Posts
 
-I write a bit, rarely though.
+I write a bit, albeit rarely.
 $partial("templates/post-recent-list.html")$
 
 # Profiles
@@ -38,4 +38,4 @@ I hang out at various places online.
 - [LinkedIn](https://www.linkedin.com/in/dimitrijer/)
 - [Reddit](https://www.reddit.com/user/dimitrijer89)
 
-[^1]: as in _dim-it-rhee-ye_
+[^1]: As in _dim-it-rhee-ye_. People also call me Dimi --- _dee-me_ --- for short.
