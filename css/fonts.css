@@ -53,3 +53,17 @@
     font-stretch: normal;
     src: url('../fonts/charter_bold_small_caps.woff2') format('woff2');
 }
+
+@font-face {
+    font-family: fira-mono;
+    src: url("../fonts/firamono_regular.woff2") format("woff2");
+    font-weight: 400;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: fira-mono;
+    src: url("../fonts/firamono_bold.woff2") format("woff2");
+    font-weight: 600;
+    font-style: normal;
+}
