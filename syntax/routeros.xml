@@ -13,16 +13,6 @@
 	      license="LGPL">
 <highlighting>
 	<list name="path">
-		<item>/</item>
-		<item>ip</item>
-		<item>caps-man</item>
-		<item>system</item>
-		<item>hotspot</item>
-		<item>snmp</item>
-		<item>radius</item>
-		<item>tool</item>
-		<item>interface</item>
-		<item>user</item>
 		<item>aaa</item>
 		<item>access-list</item>
 		<item>accounting</item>
@@ -33,7 +23,9 @@
 		<item>bandwidth-server</item>
 		<item>bfd</item>
 		<item>bgp</item>
+		<item>bridge-</item>
 		<item>bridge</item>
+		<item>caps-man</item>
 		<item>caps-man</item>
 		<item>client</item>
 		<item>clock</item>
@@ -43,6 +35,7 @@
 		<item>connection</item>
 		<item>console</item>
 		<item>customer</item>
+		<item>debug</item>
 		<item>default</item>
 		<item>dhcp-client</item>
 		<item>dhcp-server</item>
@@ -50,7 +43,9 @@
 		<item>dns</item>
 		<item>e-mail</item>
 		<item>ethernet</item>
+		<item>eth-</item>
 		<item>fetch</item>
+		<item>file</item>
 		<item>filter</item>
 		<item>firewall</item>
 		<item>firmware</item>
@@ -60,25 +55,32 @@
 		<item>hardware</item>
 		<item>health</item>
 		<item>hotspot</item>
+		<item>hotspot</item>
 		<item>identity</item>
 		<item>igmp-proxy</item>
 		<item>incoming</item>
 		<item>instance</item>
 		<item>interface0</item>
+		<item>interface</item>
+		<item>ip</item>
 		<item>ip</item>
 		<item>ipsec</item>
 		<item>ipv6</item>
 		<item>irq</item>
+		<item>/</item>
 		<item>l2tp-server</item>
+		<item>lan</item>
+		<item>layer7-protocol</item>
 		<item>lcd</item>
 		<item>ldp</item>
 		<item>logging</item>
 		<item>mac-server</item>
 		<item>mac-winbox</item>
+		<item>manager</item>
 		<item>mangle</item>
 		<item>manual</item>
+		<item>matcher</item>
 		<item>mirror</item>
-		<item>manager</item>
 		<item>mme</item>
 		<item>mpls</item>
 		<item>nat</item>
@@ -87,50 +89,59 @@
 		<item>network</item>
 		<item>note</item>
 		<item>ntp</item>
+		<item>option</item>
 		<item>ospf</item>
 		<item>ospf-v3</item>
 		<item>ovpn-server</item>
 		<item>package</item>
-		<item>pages</item>
 		<item>page</item>
+		<item>pages</item>
 		<item>peer</item>
+		<item>peers</item>
 		<item>pim</item>
 		<item>policy</item>
 		<item>pool</item>
 		<item>port</item>
 		<item>ppp</item>
 		<item>pppoe-client</item>
+		<item>pppoe</item>
+		<item>pptp</item>
 		<item>pptp-server</item>
 		<item>prefix</item>
 		<item>profile</item>
 		<item>proposal</item>
-		<item>proxy</item>
 		<item>provisioning</item>
+		<item>proxy</item>
 		<item>queue</item>
+		<item>radius</item>
 		<item>radius</item>
 		<item>resource</item>
 		<item>rip</item>
 		<item>ripng</item>
 		<item>route</item>
 		<item>routing</item>
+		<item>scheduler</item>
 		<item>screen</item>
 		<item>script</item>
 		<item>security-profiles</item>
 		<item>server</item>
 		<item>service</item>
 		<item>service-port</item>
+		<item>sets</item>
 		<item>settings</item>
 		<item>shares</item>
 		<item>smb</item>
 		<item>sms</item>
 		<item>sniffer</item>
 		<item>snmp</item>
+		<item>snmp</item>
 		<item>snooper</item>
 		<item>socks</item>
-		<item>scheduler</item>
 		<item>sstp-client</item>
 		<item>sstp-server</item>
 		<item>system</item>
+		<item>system</item>
+		<item>tool</item>
 		<item>tool</item>
 		<item>tracking</item>
 		<item>traffic-flow</item>
@@ -138,58 +149,50 @@
 		<item>type</item>
 		<item>upgrade</item>
 		<item>upnp</item>
-		<item>user</item>
 		<item>ups</item>
+		<item>user</item>
+		<item>user</item>
 		<item>user-manager</item>
 		<item>users</item>
 		<item>vlan</item>
 		<item>vrrp</item>
+		<item>wan</item>
 		<item>watchdog</item>
 		<item>web-access</item>
-		<item>wireless</item>
-		<item>pptp</item>
-		<item>pppoe</item>
-		<item>lan</item>
-		<item>wan</item>
-		<item>layer7-protocol</item>
-		<item>eth-</item>
-		<item>wlan-</item>
-		<item>bridge-</item>
-		<item>debug</item>
 		<item>wireguard</item>
-		<item>peers</item>
+		<item>wireless</item>
+		<item>wlan-</item>
 	</list>
 	<list name="parameter">
-		<item>count</item>
-		<item>listen-port</item>
-		<item>endpoint-port</item>
-		<item>public-key</item>
-		<item>allowed-address</item>
-		<item>endpoint-address</item>
-		<item>ac-name</item>
 		<item>accept</item>
 		<item>accessible-via-web</item>
-		<item>account-local-traffic</item>
 		<item>accounting</item>
+		<item>account-local-traffic</item>
+		<item>ac-name</item>
 		<item>action</item>
 		<item>active-flow-timeout</item>
 		<item>active-mode</item>
+		<item>adaptive-noise-immunity</item>
 		<item>add-default-route</item>
+		<item>add-mac-cookie</item>
+		<item>addresses</item>
+		<item>addresses-per-mac</item>
+		<item>address</item>
 		<item>address-list</item>
 		<item>address-pool</item>
-		<item>address</item>
-		<item>addresses-per-mac</item>
 		<item>admin-mac</item>
 		<item>advertise-dns</item>
 		<item>advertise-mac-address</item>
 		<item>ageing-time</item>
 		<item>allocate-udp-ports-from</item>
 		<item>allow-disable-external-interface</item>
+		<item>allowed-address</item>
+		<item>allowed-number</item>
 		<item>allow-guests</item>
-		<item>allow-remote-requests</item>
 		<item>allow</item>
 		<item>allow-remote-requests</item>
-		<item>allowed-number</item>
+		<item>allow-remote-requests</item>
+		<item>always-broadcast</item>
 		<item>always-from-cache</item>
 		<item>area-id</item>
 		<item>area</item>
@@ -199,74 +202,93 @@
 		<item>audio-min</item>
 		<item>audio-monitor</item>
 		<item>auth-algorithms</item>
-		<item>auth-method</item>
-		<item>auth</item>
 		<item>authenticate</item>
+		<item>authentication</item>
 		<item>authentication-password</item>
 		<item>authentication-protocol</item>
 		<item>authentication-types</item>
-		<item>authentication</item>
+		<item>auth</item>
+		<item>auth-method</item>
 		<item>authoritative</item>
 		<item>auto-mac</item>
-		<item>auto-negotiation</item>
-		<item>auto-send-supout</item>
 		<item>automatic-supout</item>
+		<item>auto-negotiation</item>
 		<item>autonomous</item>
+		<item>auto-send-supout</item>
 		<item>backlight-timeout</item>
 		<item>backup-allowed</item>
+		<item>band</item>
 		<item>baud-rate</item>
 		<item>bidirectional-timeout</item>
 		<item>blank-interval</item>
 		<item>body</item>
 		<item>bootp-support</item>
-		<item>bridge-mode</item>
 		<item>bridge</item>
+		<item>bridge-mode</item>
 		<item>broadcast-addresses</item>
 		<item>broadcast</item>
 		<item>bsd-syslog</item>
+		<item>burst-limit</item>
+		<item>burst-threshold</item>
+		<item>burst-time</item>
 		<item>cable-settings</item>
 		<item>cache-administrator</item>
 		<item>cache-entries</item>
 		<item>cache-hit-dscp</item>
 		<item>cache-max-ttl</item>
 		<item>cache-on-disk</item>
+		<item>cache-path</item>
 		<item>cache-size</item>
-		<item>cc</item>
 		<item>caps-man-addresses</item>
+		<item>cc</item>
 		<item>certificate</item>
 		<item>chain</item>
 		<item>change-tcp-mss</item>
-		<item>channel-time</item>
+		<item>channel.band</item>
+		<item>channel.extension-channel</item>
 		<item>channel</item>
-		<item>check-interval</item>
+		<item>channel-time</item>
+		<item>channel.width</item>
 		<item>check-gateway</item>
+		<item>check-interval</item>
 		<item>cipher</item>
 		<item>client-to-client-reflection</item>
+		<item>code</item>
 		<item>comment</item>
+		<item>compression</item>
 		<item>connection-bytes</item>
 		<item>connection-idle-timeout</item>
 		<item>connection-mark</item>
 		<item>connection-state</item>
+		<item>connect-to</item>
 		<item>contact</item>
 		<item>contrast</item>
+		<item>count</item>
+		<item>country</item>
 		<item>cpu</item>
 		<item>data-bits</item>
+		<item>datapath.bridge</item>
+		<item>datapath.client-to-client-forwarding</item>
+		<item>datapath</item>
+		<item>datapath.local-forwarding</item>
 		<item>default-ap-tx-limit</item>
 		<item>default-authentication</item>
 		<item>default-client-tx-limit</item>
 		<item>default-forwarding</item>
 		<item>default-group</item>
+		<item>default</item>
+		<item>default-name</item>
 		<item>default-profile</item>
 		<item>default-route-distance</item>
 		<item>default-screen</item>
-		<item>default</item>
-		<item>dh-group</item>
 		<item>dhcp-option</item>
+		<item>dhcp-option-set</item>
 		<item>dhcp-options</item>
+		<item>dh-group</item>
 		<item>dial-on-demand</item>
 		<item>directory</item>
-		<item>disable-running-check</item>
 		<item>disabled</item>
+		<item>disable-running-check</item>
 		<item>discovery-interfaces</item>
 		<item>disk-file-count</item>
 		<item>disk-file-name</item>
@@ -281,21 +303,26 @@
 		<item>domain</item>
 		<item>dpd-interval</item>
 		<item>dpd-maximum-failures</item>
-		<item>dst-address-list</item>
 		<item>dst-address</item>
+		<item>dst-address-list</item>
 		<item>dst-delta</item>
 		<item>dst-end</item>
+		<item>dst-host</item>
+		<item>dst-port</item>
 		<item>dst-port</item>
 		<item>dst-start</item>
 		<item>dynamic-label-range</item>
-		<item>e</item>
 		<item>eap-methods</item>
+		<item>e</item>
 		<item>enabled</item>
 		<item>enc-algorithm</item>
 		<item>enc-algorithms</item>
 		<item>encryption</item>
 		<item>encryption-password</item>
+		<item>encryption-password</item>
 		<item>encryption-protocol</item>
+		<item>endpoint-address</item>
+		<item>endpoint-port</item>
 		<item>engine-id</item>
 		<item>exchange-mode</item>
 		<item>exclude-groups</item>
@@ -305,24 +332,26 @@
 		<item>filter-ip-address</item>
 		<item>filter-ip-protocol</item>
 		<item>filter-mac-address</item>
-		<item>filter-mac-protocol</item>
 		<item>filter-mac</item>
+		<item>filter-mac-protocol</item>
 		<item>filter-port</item>
 		<item>filter-stream</item>
 		<item>flow-control</item>
 		<item>forward-delay</item>
 		<item>frame-size</item>
 		<item>frames-per-second</item>
+		<item>frequency</item>
 		<item>from</item>
 		<item>full-duplex</item>
 		<item>garbage-timer</item>
 		<item>gateway-class</item>
+		<item>gateway</item>
 		<item>gateway-keepalive</item>
 		<item>gateway-selection</item>
-		<item>gateway</item>
 		<item>generate-policy</item>
 		<item>generic-timeout</item>
 		<item>group-ciphers</item>
+		<item>group-encryption</item>
 		<item>group-key-update</item>
 		<item>hash-algorithm</item>
 		<item>hide-ssid</item>
@@ -331,13 +360,14 @@
 		<item>html-directory</item>
 		<item>http-cookie-lifetime</item>
 		<item>http-proxy</item>
-		<item>i</item>
+		<item>hw-retries</item>
 		<item>icmp-timeout</item>
 		<item>idle-timeout</item>
 		<item>ignore-as-path-len</item>
+		<item>i</item>
+		<item>inactive-flow-timeout</item>
 		<item>in-filter</item>
 		<item>in-interface</item>
-		<item>inactive-flow-timeout</item>
 		<item>instance</item>
 		<item>interface</item>
 		<item>interfaces</item>
@@ -345,8 +375,8 @@
 		<item>interval</item>
 		<item>ipsec-protocols</item>
 		<item>jump-target</item>
-		<item>keep-max-sms</item>
 		<item>keepalive-timeout</item>
+		<item>keep-max-sms</item>
 		<item>kind</item>
 		<item>l2mtu</item>
 		<item>latency-distribution-scale</item>
@@ -354,25 +384,30 @@
 		<item>level</item>
 		<item>lifebytes</item>
 		<item>lifetime</item>
+		<item>limit-at</item>
 		<item>line-count</item>
+		<item>listen-port</item>
 		<item>list</item>
 		<item>local-address</item>
 		<item>location</item>
-		<item>log-prefix</item>
 		<item>login-by</item>
 		<item>login</item>
+		<item>log-prefix</item>
 		<item>loop-detect</item>
 		<item>lsr-id</item>
 		<item>mac-address</item>
+		<item>mac-cookie-timeout</item>
 		<item>managed-address-configuration</item>
-		<item>management-protection-key</item>
 		<item>management-protection</item>
+		<item>management-protection-key</item>
 		<item>manycast</item>
 		<item>master-configuration</item>
+		<item>master-interface</item>
 		<item>max-cache-size</item>
 		<item>max-client-connections</item>
 		<item>max-connections</item>
 		<item>max-fresh-time</item>
+		<item>max-limit</item>
 		<item>max-message-age</item>
 		<item>max-mru</item>
 		<item>max-mtu</item>
@@ -391,20 +426,20 @@
 		<item>metric-other-ospf</item>
 		<item>metric-rip</item>
 		<item>metric-static</item>
-		<item>min-rx</item>
 		<item>min-runtime</item>
+		<item>min-rx</item>
 		<item>mode</item>
 		<item>mpls-mtu</item>
 		<item>mq-pfifo-limit</item>
 		<item>mrru</item>
 		<item>mtu</item>
-		<item>multi-cpu</item>
 		<item>multicast</item>
+		<item>multi-cpu</item>
 		<item>multiple-channels</item>
 		<item>multiplier</item>
 		<item>my-id-user-fqdn</item>
-		<item>name</item>
 		<item>name-format</item>
+		<item>name</item>
 		<item>nat-traversal</item>
 		<item>netmask</item>
 		<item>network</item>
@@ -415,21 +450,28 @@
 		<item>no-ping-delay</item>
 		<item>note</item>
 		<item>ntp-server</item>
+		<item>number</item>
 		<item>on-backup</item>
-		<item>on-master</item>
+		<item>on-event</item>
 		<item>only-headers</item>
 		<item>only-one</item>
+		<item>on-master</item>
+		<item>option</item>
+		<item>option-set</item>
+	    <item>options</item>
 		<item>origination-interval</item>
 		<item>other-configuration</item>
 		<item>out-filter</item>
 		<item>out-interface</item>
 		<item>owner</item>
-		<item>page-refresh</item>
 		<item>package-path</item>
-		<item>parent-proxy-port</item>
-		<item>parent-proxy</item>
+		<item>packet-mark</item>
+		<item>page-refresh</item>
 		<item>parent</item>
+		<item>parent-proxy</item>
+		<item>parent-proxy-port</item>
 		<item>parity</item>
+		<item>passphrase</item>
 		<item>passthrough</item>
 		<item>password</item>
 		<item>path-vector-limit</item>
@@ -449,29 +491,36 @@
 		<item>primary-ntp</item>
 		<item>primary-server</item>
 		<item>priority</item>
+		<item>priority</item>
 		<item>profile</item>
 		<item>propagate-ttl</item>
 		<item>proplist</item>
 		<item>proposal-check</item>
 		<item>proposal</item>
 		<item>proprietary-extensions</item>
-		<item>protocol-mode</item>
+		<item>protected-routerboot</item>			
 		<item>protocol</item>
+		<item>protocol-mode</item>
+		<item>public-key</item>
 		<item>query-interval</item>
 		<item>query-response-interval</item>
 		<item>queue</item>
+		<item>queue</item>
 		<item>quick-leave</item>
 		<item>ra-delay</item>
-		<item>ra-interval</item>
-		<item>ra-lifetime</item>
+		<item>radio-mac</item>
 		<item>radius-eap-accounting</item>
+		<item>radius-interim-update</item>
 		<item>radius-mac-accounting</item>
 		<item>radius-mac-authentication</item>
 		<item>radius-mac-caching</item>
 		<item>radius-mac-format</item>
 		<item>radius-mac-mode</item>
+		<item>ra-interval</item>
+		<item>ra-lifetime</item>
 		<item>ranges</item>
 		<item>rate-limit</item>
+		<item>rate-selection</item>
 		<item>reachable-time</item>
 		<item>read-access</item>
 		<item>read-only</item>
@@ -480,9 +529,7 @@
 		<item>receive-errors</item>
 		<item>red-avg-packet</item>
 		<item>red-burst</item>
-		<item>red-limit</item>
-		<item>red-max-threshold</item>
-		<item>red-min-threshold</item>
+		<item>redirect-to</item>
 		<item>redistribute-bgp</item>
 		<item>redistribute-connected</item>
 		<item>redistribute-ospf</item>
@@ -490,51 +537,65 @@
 		<item>redistribute-other-ospf</item>
 		<item>redistribute-rip</item>
 		<item>redistribute-static</item>
+		<item>red-limit</item>
+		<item>red-max-threshold</item>
+		<item>red-min-threshold</item>
+		<item>reject</item>
+		<item>reject-with</item>
 		<item>remember</item>
 		<item>remote-address</item>
 		<item>remote-ipv6-prefix-pool</item>
-		<item>remote-port</item>
 		<item>remote</item>
-		<item>reject</item>
-		<item>reject-with</item>
+		<item>remote-port</item>
 		<item>require-client-certificate</item>
 		<item>retransmit-interval</item>
 		<item>router-id</item>
 		<item>routing-mark</item>
 		<item>routing-table</item>
+		<item>run</item>
+		<item>rx-chains</item>
 		<item>sa-dst-address</item>
 		<item>sa-src-address</item>
+		<item>scan-list</item>
 		<item>scope</item>
 		<item>secondary-ntp</item>
 		<item>secondary-server</item>
 		<item>secret</item>
-		<item>security-profile</item>
+		<item>security.authentication-types</item>
+		<item>security.encryption</item>
+		<item>security.group-encryption</item>
 		<item>security</item>
-		<item>send</item>
+		<item>security.passphrase</item>
+		<item>security-profile</item>
 		<item>send-initial-contact</item>
+		<item>send</item>
 		<item>serialize-connections</item>
+		<item>server</item>
 		<item>servers</item>
 		<item>service-name</item>
 		<item>set-system-time</item>
-		<item>signal-range</item>
 		<item>sfq-allot</item>
 		<item>sfq-perturb</item>
 		<item>shared-users</item>
 		<item>show-at-login</item>
 		<item>show-dummy-rule</item>
+		<item>signal-range</item>
 		<item>signup-allowed</item>
 		<item>sip-direct-media</item>
 		<item>skin</item>
+		<item>slave-configurations</item>
 		<item>smtp-server</item>
 		<item>source</item>
 		<item>speed</item>
-		<item>slave-configurations</item>
 		<item>split-user-domain</item>
-		<item>src-address-list</item>
 		<item>src-address</item>
+		<item>src-address-list</item>
 		<item>src-port</item>
 		<item>ssid-all</item>
 		<item>ssid</item>
+		<item>start-date</item>
+		<item>start-time</item>
+		<item>start-tls</item>
 		<item>state-after-reboot</item>
 		<item>static-algo-0</item>
 		<item>static-algo-1</item>
@@ -548,23 +609,23 @@
 		<item>static-sta-private-key</item>
 		<item>static-transmit-key</item>
 		<item>status-autorefresh</item>
-		<item>start-tls</item>
 		<item>stop-bits</item>
 		<item>store-every</item>
 		<item>store-leases-disk</item>
 		<item>streaming-enabled</item>
 		<item>streaming-max-rate</item>
 		<item>streaming-server</item>
-		<item>supplicant-identity</item>
 		<item>subject</item>
+		<item>supplicant-identity</item>
 		<item>switch-to-spt-bytes</item>
 		<item>switch-to-spt-interval</item>
 		<item>switch-to-spt</item>
 		<item>syslog-facility</item>
 		<item>syslog-severity</item>
 		<item>table</item>
-		<item>target-scope</item>
+		<item>target-addresses</item>
 		<item>target</item>
+		<item>target-scope</item>
 		<item>tcp-close-timeout</item>
 		<item>tcp-close-wait-timeout</item>
 		<item>tcp-established-timeout</item>
@@ -572,38 +633,46 @@
 		<item>tcp-flags</item>
 		<item>tcp-last-ack-timeout</item>
 		<item>tcp-mss</item>
+		<item>tcp-syncookie</item>
 		<item>tcp-syn-received-timeout</item>
 		<item>tcp-syn-sent-timeout</item>
-		<item>tcp-syncookie</item>
 		<item>tcp-time-wait-timeout</item>
 		<item>term</item>
+		<item>terse</item>
 		<item>test-id</item>
 		<item>threshold</item>
-		<item>time-zone-name</item>
-		<item>time-zone</item>
-		<item>timeout-timer</item>
 		<item>timeout</item>
+		<item>timeout-timer</item>
+		<item>time-zone-autodetect</item>
+		<item>time-zone</item>
+		<item>time-zone-name</item>
 		<item>tls-certificate</item>
 		<item>tls-mode</item>
-		<item>to</item>
 		<item>to-addresses</item>
+		<item>to</item>
 		<item>topics</item>
 		<item>touch-screen</item>
 		<item>transmit-hold-count</item>
 		<item>transparent-proxy</item>
 		<item>transport-address</item>
+		<item>trap-community</item>
 		<item>trap-generators</item>
 		<item>trap-target</item>
 		<item>trap-version</item>
+		<item>tree</item>
+		<item>trial-uptime-reset</item>
+		<item>trial-user-profile</item>
 		<item>ttl</item>
 		<item>tunnel</item>
+		<item>tx-chains</item>
 		<item>type</item>
 		<item>udp-stream-timeout</item>
-		<item>upgrade-policy</item>
 		<item>udp-timeout</item>
 		<item>unicast-ciphers</item>
 		<item>update-stats-interval</item>
 		<item>update-timer</item>
+		<item>upgrade-policy</item>
+		<item>url</item>
 		<item>use-compression</item>
 		<item>use-encryption</item>
 		<item>use-explicit-null</item>
@@ -615,13 +684,15 @@
 		<item>use-peer-dns</item>
 		<item>use-peer-ntp</item>
 		<item>use-radius</item>
+		<item>user</item>
 		<item>use-service-tag</item>
 		<item>use-vj-compression</item>
-		<item>user</item>
-		<item>url</item>
 		<item>v3-protocol</item>
 		<item>valid-lifetime</item>
+		<item>value</item>
+		<item>value-name</item>
 		<item>vcno</item>
+		<item>verbose</item>
 		<item>verify-client-certificate</item>
 		<item>version</item>
 		<item>vlan-id</item>
@@ -635,120 +706,59 @@
 		<item>wds-mode</item>
 		<item>wins-server</item>
 		<item>wmm-support</item>
-		<item>wpa-pre-shared-key</item>
 		<item>wpa2-pre-shared-key</item>
+		<item>wpa-pre-shared-key</item>
 		<item>write-access</item>
-		<item>burst-limit</item>
-		<item>burst-threshold</item>
-		<item>burst-time</item>
-		<item>limit-at</item>
-		<item>priority</item>
-		<item>max-limit</item>
-		<item>tree</item>
-		<item>packet-mark</item>
-		<item>value</item>
-		<item>option</item>
-		<item>target-addresses</item>
-		<item>queue</item>
-		<item>encryption-password</item>
-		<item>always-broadcast</item>
-		<item>connect-to</item>
-		<item>adaptive-noise-immunity</item>
-		<item>compression</item>
-		<item>band</item>
-		<item>country</item>
-		<item>frequency</item>
-		<item>hw-retries</item>
-		<item>rate-selection</item>
-		<item>scan-list</item>
-		<item>datapath</item>
-		<item>datapath.bridge</item>
-		<item>datapath.client-to-client-forwarding</item>
-		<item>datapath.local-forwarding</item>
-		<item>security.authentication-types</item>
-		<item>security.encryption</item>
-		<item>security.group-encryption</item>
-		<item>security.passphrase</item>
-		<item>time-zone-autodetect</item>
-		<item>addresses</item>
-		<item>trap-community</item>
-		<item>default-name</item>
-		<item>value-name</item>
-		<item>run</item>
-		<item>number</item>
-		<item>on-event</item>
-		<item>start-date</item>
-		<item>start-time</item>
-		<item>dst-host</item>
-		<item>dst-port</item>
-		<item>radius-interim-update</item>
-		<item>trial-uptime-reset</item>
-		<item>trial-user-profile</item>
-		<item>mac-cookie-timeout</item>
-		<item>add-mac-cookie</item>
-		<item>redirect-to</item>
-		<item>cache-path</item>
-		<item>rx-chains</item>
-		<item>tx-chains</item>
-		<item>channel.band</item>
-		<item>channel.extension-channel</item>
-		<item>channel.width</item>
-		<item>group-encryption</item>
-		<item>passphrase</item>
-		<item>radio-mac</item>
-		<item>master-interface</item>
-		<item>protected-routerboot</item>			
 	</list>
 	<list name="command">
-		<item>set</item>
 		<item>add</item>
+		<item>beep</item>
+		<item>critical</item>			
 		<item>delay</item>
+		<item>detail</item>
 		<item>do</item>
 		<item>else</item>
 		<item>error</item>
 		<item>execute</item>
+		<item>export</item>
 		<item>find</item>
-		<item>for</item>
 		<item>foreach</item>
+		<item>for</item>
+		<item>get</item>
 		<item>global</item>
 		<item>if</item>
+		<item>import</item>
+		<item>info</item>
+		<item>led</item>
 		<item>len</item>
 		<item>local</item>
+		<item>log</item>
 		<item>nothing</item>
 		<item>parse</item>
+		<item>password</item>
 		<item>pick</item>
+		<item>ping</item>
+		<item>print</item>
 		<item>put</item>
+		<item>quit</item>
+		<item>redo</item>
 		<item>resolve</item>
 		<item>set</item>
+		<item>set</item>
+		<item>setup</item>
 		<item>time</item>
 		<item>toarray</item>
 		<item>tobool</item>
 		<item>toid</item>
-		<item>toip</item>
 		<item>toip6</item>
+		<item>toip</item>
 		<item>tonum</item>
 		<item>tostr</item>
 		<item>totime</item>
 		<item>typeof</item>
-		<item>while</item>
-		<item>beep</item>
-		<item>export</item>
-		<item>import</item>
-		<item>led</item>
-		<item>password</item>
-		<item>ping</item>
-		<item>quit</item>
-		<item>redo</item>
-		<item>setup</item>
 		<item>undo</item>
-		<item>print</item>
-		<item>detail</item>
-		<item>file</item>
-		<item>log</item>
-		<item>info</item>
-		<item>get</item>
 		<item>warning</item>
-		<item>critical</item>			
+		<item>while</item>
 	</list>
 	<contexts>
 		<context name="Normal Text" attribute="Normal Text" lineEndContext="#stay">
