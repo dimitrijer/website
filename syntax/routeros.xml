@@ -453,6 +453,7 @@
 		<item>number</item>
 		<item>on-backup</item>
 		<item>on-event</item>
+		<item>once</item>
 		<item>only-headers</item>
 		<item>only-one</item>
 		<item>on-master</item>
@@ -735,6 +736,7 @@
 		<item>len</item>
 		<item>local</item>
 		<item>log</item>
+		<item>monitor</item>
 		<item>nothing</item>
 		<item>parse</item>
 		<item>password</item>
