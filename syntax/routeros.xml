@@ -524,6 +524,7 @@
 		<item>reachable-time</item>
 		<item>read-access</item>
 		<item>read-only</item>
+		<item>real-filename</item>
 		<item>receive-all</item>
 		<item>receive-enabled</item>
 		<item>receive-errors</item>
@@ -548,6 +549,7 @@
 		<item>remote</item>
 		<item>remote-port</item>
 		<item>require-client-certificate</item>
+		<item>req-filename</item>
 		<item>retransmit-interval</item>
 		<item>router-id</item>
 		<item>routing-mark</item>
