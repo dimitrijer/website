@@ -254,15 +254,18 @@ RouterOS sadly doesn't provide HTTP server out of the box. However, some MikroTi
 
 To have iPXE download files over HTTP, the only change I needed to make to the script was:
 
-<div class="sourceCode"><pre class="sourceCode txt"><code class="sourceCode default"><span style="color:#880000">------ </span><span style="font-weight:bold">nixos.ipxe.tftp 2024-03-19 21:07:52.141593Z</span>
-<span style="color:#008800">++++++ </span><span style="font-weight:bold">nixos.ipxe.http 2024-03-19 21:07:27.028053Z</span>
-<span style="color:#000000"><span style="background-color:#c0c0c0">@|</span></span><span style="font-weight:bold">-1,5 +1,5</span> ============================================================
-<span style="color:#000000"><span style="background-color:#c0c0c0"> |</span></span>#!ipxe
-<span style="color:#000000"><span style="background-color:#c0c0c0"> |</span></span>set initscript /nix/store/2ll6swqhsg0mpby6kbffz2s8hqar40zr-nixos-system-nixos-23.11beta-420383.gfedcba/init
-<span style="color:#000000"><span style="background-color:#888800">!|</span></span>kernel<span style="color:#008800"> http://10.1.100.1/nixos/</span>bzImage init=${initscript} initrd=initrd nohibernate loglevel=4
-<span style="color:#000000"><span style="background-color:#888800">!|</span></span>initrd<span style="color:#008800"> http://10.1.100.1/nixos/</span>initrd
-<span style="color:#000000"><span style="background-color:#c0c0c0"> |</span></span>boot
-</code></pre></div>
+```diff
+--- ./nixos.ipxe.tftp   2024-03-19 07:58:09.099708089 +0100
++++ ./nixos.ipxe.http   2024-03-19 07:58:56.446997779 +0100
+@@ -1,5 +1,5 @@
+ #!ipxe
+ set initscript /nix/store/2ll6swqhsg0mpby6kbffz2s8hqar40zr-nixos-system-nixos-23.11beta-420383.gfedcba/init
+-kernel bzImage init=${initscript} initrd=initrd nohibernate loglevel=4
+-initrd initrd
++kernel http://10.1.100.1/nixos/bzImage init=${initscript} initrd=initrd nohibernate loglevel=4
++initrd http://10.1.100.1/nixos/initrd
+ boot
+ ```
 
 Now things should be blazing fast, right? Not quite.
 
