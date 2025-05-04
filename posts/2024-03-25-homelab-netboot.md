@@ -316,7 +316,7 @@ However, on the Dell side, after booting NixOS:
         <span>Supports Wake-on: pumbg</span>
         <span>Wake-on: g</span>
         <span>Current message level: 0x00000007 (7)</span>
-                               </span>drv probe link</span>
+        <span>drv probe link</span>
         <span>Link detected: yes</span>
 </code></pre></div>
 
