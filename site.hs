@@ -73,7 +73,7 @@ rssFeedConfiguration =
 
 beautifyHTML :: Item String -> Compiler (Item String)
 beautifyHTML item = do
-  output <- recompilingUnsafeCompiler (readProcess "js-beautify" ["-f", "-", "--type", "html"] (itemBody item))
+  output <- recompilingUnsafeCompiler (readProcess "prettier" ["--no-config", "--print-width", "120", "--parser", "html"] (itemBody item))
   return $ fmap (const output) item
 
 runHakyll :: T.SyntaxMap -> IO ()
@@ -111,6 +111,7 @@ runHakyll sm =
           >>= saveSnapshot "content"
           >>= loadAndApplyTemplate "templates/default.html" postCtx
           >>= relativizeUrls
+          >>= beautifyHTML
 
     create ["archive.html"] $ do
       route idRoute
