@@ -3,14 +3,15 @@
 
 <language name="RouterOS"
 	      section="Sources"
-	      version="1"
+	      version="2"
 	      kateversion="5.0"
           indenter="normal"
 	      extensions="*.rsc"
 	      mimetype="text/ROS"
 	      priority="1"
 	      author="Vitaliy Stepanchenko"
-	      license="LGPL">
+	      license="LGPL"
+	      casesensitive="1">
 <highlighting>
 	<list name="path">
 		<item>aaa</item>
@@ -19,31 +20,41 @@
 		<item>address</item>
 		<item>address-list</item>
 		<item>align</item>
+		<item>apn</item>
 		<item>area</item>
 		<item>bandwidth-server</item>
+		<item>bandwidth-test</item>
 		<item>bfd</item>
 		<item>bgp</item>
-		<item>bridge-</item>
+		<item>bonding</item>
 		<item>bridge</item>
+		<item>bridge-</item>
 		<item>caps-man</item>
-		<item>caps-man</item>
+		<item>certificate</item>
+		<item>channel</item>
 		<item>client</item>
 		<item>clock</item>
+		<item>cloud</item>
 		<item>community</item>
 		<item>config</item>
 		<item>configuration</item>
 		<item>connection</item>
 		<item>console</item>
+		<item>container</item>
 		<item>customer</item>
+		<item>datapath</item>
 		<item>debug</item>
 		<item>default</item>
+		<item>device-mode</item>
 		<item>dhcp-client</item>
 		<item>dhcp-server</item>
 		<item>discovery</item>
 		<item>dns</item>
 		<item>e-mail</item>
-		<item>ethernet</item>
+		<item>eoip</item>
+		<item>eoipv6</item>
 		<item>eth-</item>
+		<item>ethernet</item>
 		<item>fetch</item>
 		<item>file</item>
 		<item>filter</item>
@@ -51,29 +62,36 @@
 		<item>firmware</item>
 		<item>gps</item>
 		<item>graphing</item>
+		<item>gre</item>
 		<item>group</item>
 		<item>hardware</item>
 		<item>health</item>
+		<item>history</item>
 		<item>hotspot</item>
-		<item>hotspot</item>
+		<item>id</item>
 		<item>identity</item>
 		<item>igmp-proxy</item>
 		<item>incoming</item>
 		<item>instance</item>
-		<item>interface0</item>
 		<item>interface</item>
+		<item>interface-template</item>
+		<item>interface0</item>
 		<item>ip</item>
-		<item>ip</item>
+		<item>ipip</item>
 		<item>ipsec</item>
 		<item>ipv6</item>
 		<item>irq</item>
 		<item>/</item>
+		<item>l2tp-client</item>
 		<item>l2tp-server</item>
 		<item>lan</item>
 		<item>layer7-protocol</item>
 		<item>lcd</item>
 		<item>ldp</item>
+		<item>list</item>
+		<item>log</item>
 		<item>logging</item>
+		<item>lte</item>
 		<item>mac-server</item>
 		<item>mac-winbox</item>
 		<item>manager</item>
@@ -86,12 +104,14 @@
 		<item>nat</item>
 		<item>nd</item>
 		<item>neighbor</item>
+		<item>netwatch</item>
 		<item>network</item>
 		<item>note</item>
 		<item>ntp</item>
 		<item>option</item>
 		<item>ospf</item>
 		<item>ospf-v3</item>
+		<item>ovpn-client</item>
 		<item>ovpn-server</item>
 		<item>package</item>
 		<item>page</item>
@@ -99,13 +119,16 @@
 		<item>peer</item>
 		<item>peers</item>
 		<item>pim</item>
+		<item>pimsm</item>
+		<item>ping</item>
 		<item>policy</item>
 		<item>pool</item>
 		<item>port</item>
 		<item>ppp</item>
-		<item>pppoe-client</item>
 		<item>pppoe</item>
+		<item>pppoe-client</item>
 		<item>pptp</item>
+		<item>pptp-client</item>
 		<item>pptp-server</item>
 		<item>prefix</item>
 		<item>profile</item>
@@ -113,52 +136,67 @@
 		<item>provisioning</item>
 		<item>proxy</item>
 		<item>queue</item>
+		<item>radio</item>
 		<item>radius</item>
-		<item>radius</item>
+		<item>registration-table</item>
+		<item>reset-configuration</item>
 		<item>resource</item>
 		<item>rip</item>
 		<item>ripng</item>
 		<item>route</item>
+		<item>routerboard</item>
 		<item>routing</item>
+		<item>rule</item>
+		<item>scan</item>
 		<item>scheduler</item>
 		<item>screen</item>
 		<item>script</item>
+		<item>security</item>
 		<item>security-profiles</item>
 		<item>server</item>
 		<item>service</item>
 		<item>service-port</item>
+		<item>session</item>
 		<item>sets</item>
 		<item>settings</item>
 		<item>shares</item>
+		<item>simple</item>
 		<item>smb</item>
 		<item>sms</item>
 		<item>sniffer</item>
-		<item>snmp</item>
 		<item>snmp</item>
 		<item>snooper</item>
 		<item>socks</item>
 		<item>sstp-client</item>
 		<item>sstp-server</item>
+		<item>stats</item>
 		<item>system</item>
+		<item>table</item>
+		<item>template</item>
 		<item>tftp</item>
 		<item>tool</item>
-		<item>tool</item>
+		<item>torch</item>
+		<item>traceroute</item>
 		<item>tracking</item>
 		<item>traffic-flow</item>
 		<item>traffic-generator</item>
+		<item>tree</item>
 		<item>type</item>
 		<item>upgrade</item>
 		<item>upnp</item>
 		<item>ups</item>
 		<item>user</item>
-		<item>user</item>
 		<item>user-manager</item>
 		<item>users</item>
+		<item>veth</item>
 		<item>vlan</item>
 		<item>vrrp</item>
+		<item>vtx</item>
 		<item>wan</item>
 		<item>watchdog</item>
 		<item>web-access</item>
+		<item>wifi</item>
+		<item>wifiwave2</item>
 		<item>wireguard</item>
 		<item>wireless</item>
 		<item>wlan-</item>
@@ -712,32 +750,155 @@
 		<item>wpa2-pre-shared-key</item>
 		<item>wpa-pre-shared-key</item>
 		<item>write-access</item>
+		<item>wpa3-psk</item>
+		<item>wpa3-eap</item>
+		<item>sae</item>
+		<item>owe</item>
+		<item>802.3ad</item>
+		<item>active-lacp</item>
+		<item>balance-xor</item>
+		<item>vlan-filtering</item>
+		<item>frame-types</item>
+		<item>ingress-filtering</item>
+		<item>pvid</item>
+		<item>tagged</item>
+		<item>untagged</item>
+		<item>use-doh-server</item>
+		<item>verify-doh-cert</item>
+		<item>max-udp-packet-size</item>
+		<item>router-id</item>
+		<item>vrf</item>
+		<item>routing-table</item>
+		<item>lookup-only-in-table</item>
+		<item>unreachable</item>
+		<item>blackhole</item>
+		<item>suppress-hw-offload</item>
+		<item>fast-path</item>
+		<item>hw-offload</item>
+		<item>fasttrack-connection</item>
+		<item>listen-port</item>
+		<item>mtu</item>
+		<item>private-key</item>
+		<item>public-key</item>
+		<item>endpoint-address</item>
+		<item>endpoint-port</item>
+		<item>allowed-address</item>
+		<item>persistent-keepalive</item>
+		<item>preshared-key</item>
+		<item>current-endpoint-address</item>
+		<item>current-endpoint-port</item>
+		<item>last-handshake</item>
+		<item>rx</item>
+		<item>tx</item>
+		<item>band</item>
+		<item>width</item>
+		<item>frequency</item>
+		<item>secondary-frequency</item>
+		<item>skip-dfs-channels</item>
+		<item>tx-power</item>
+		<item>tx-power-mode</item>
+		<item>country</item>
+		<item>installation</item>
+		<item>client-to-client-forwarding</item>
+		<item>local-forwarding</item>
+		<item>vlan-id</item>
+		<item>service-tag</item>
+		<item>customer-tag</item>
+		<item>outer-vlan</item>
+		<item>inner-vlan</item>
+		<item>dot1q-tunnel</item>
+		<item>master-configuration</item>
+		<item>slave-configurations</item>
+		<item>area-id</item>
+		<item>instance-id</item>
+		<item>router-id</item>
+		<item>redistribute-connected</item>
+		<item>redistribute-static</item>
+		<item>redistribute-bgp</item>
+		<item>redistribute-ospf</item>
+		<item>networks</item>
+		<item>passive</item>
+		<item>cost</item>
+		<item>priority</item>
+		<item>local-as</item>
+		<item>remote-as</item>
+		<item>nexthop-choice</item>
+		<item>router-id</item>
+		<item>confederation</item>
+		<item>add-path-out</item>
+		<item>add-path-in</item>
+		<item>cluster-id</item>
+		<item>templates</item>
+		<item>fib</item>
+		<item>dst-address</item>
+		<item>src-address</item>
+		<item>routing-mark</item>
+		<item>action</item>
+		<item>lookup-only-in-table</item>
+		<item>suppress-hw-offload</item>
+		<item>pref-src</item>
+		<item>scope</item>
+		<item>target-scope</item>
+		<item>arp-timeout</item>
+		<item>min-advertisement-interval</item>
+		<item>container</item>
+		<item>logging</item>
+		<item>registry-url</item>
+		<item>tmpdir</item>
+		<item>ram-high</item>
+		<item>root-dir</item>
+		<item>hostname</item>
+		<item>envlist</item>
+		<item>dns</item>
+		<item>mounts</item>
+		<item>cmd</item>
+		<item>logging</item>
+		<item>workdir</item>
+		<item>interface</item>
+		<item>check-for-updates</item>
+		<item>install</item>
+		<item>download</item>
+		<item>uninstall</item>
 	</list>
 	<list name="command">
 		<item>add</item>
 		<item>beep</item>
-		<item>critical</item>			
+		<item>blink</item>
+		<item>cancel</item>
+		<item>comment</item>
+		<item>critical</item>
+		<item>debug</item>
 		<item>delay</item>
+		<item>deserialize</item>
 		<item>detail</item>
+		<item>disable</item>
 		<item>do</item>
+		<item>edit</item>
 		<item>else</item>
+		<item>enable</item>
+		<item>environment</item>
 		<item>error</item>
 		<item>execute</item>
 		<item>export</item>
+		<item>fetch</item>
 		<item>find</item>
-		<item>foreach</item>
 		<item>for</item>
+		<item>foreach</item>
 		<item>get</item>
+		<item>getall</item>
 		<item>global</item>
 		<item>if</item>
 		<item>import</item>
 		<item>info</item>
+		<item>jobname</item>
 		<item>led</item>
 		<item>len</item>
 		<item>local</item>
 		<item>log</item>
 		<item>monitor</item>
+		<item>move</item>
 		<item>nothing</item>
+		<item>on-error</item>
 		<item>parse</item>
 		<item>password</item>
 		<item>pick</item>
@@ -746,45 +907,118 @@
 		<item>put</item>
 		<item>quit</item>
 		<item>redo</item>
+		<item>remove</item>
+		<item>reset</item>
 		<item>resolve</item>
-		<item>set</item>
+		<item>return</item>
+		<item>run</item>
+		<item>serialize</item>
 		<item>set</item>
 		<item>setup</item>
+		<item>terminal</item>
 		<item>time</item>
 		<item>toarray</item>
 		<item>tobool</item>
+		<item>tocrlf</item>
 		<item>toid</item>
-		<item>toip6</item>
 		<item>toip</item>
+		<item>toip6</item>
+		<item>tolf</item>
 		<item>tonum</item>
+		<item>tonsec</item>
+		<item>tonstr</item>
 		<item>tostr</item>
 		<item>totime</item>
+		<item>torch</item>
+		<item>traceroute</item>
 		<item>typeof</item>
 		<item>undo</item>
+		<item>unset</item>
 		<item>warning</item>
 		<item>while</item>
 	</list>
+	<list name="keyword">
+		<item>and</item>
+		<item>or</item>
+		<item>not</item>
+		<item>in</item>
+		<item>any</item>
+		<item>from</item>
+		<item>to</item>
+		<item>step</item>
+		<item>until</item>
+		<item>true</item>
+		<item>false</item>
+		<item>yes</item>
+		<item>no</item>
+		<item>nil</item>
+	</list>
 	<contexts>
 		<context name="Normal Text" attribute="Normal Text" lineEndContext="#stay">
+			<DetectChar attribute="Comment" char="#" context="Comment"/>
+			<DetectChar attribute="Operator" char=":" context="Command Prefix"/>
 			<keyword String="path" attribute="Path" context="#stay"/>
 			<keyword String="command" attribute="Command" context="Command Context"/>
-			<DetectChar attribute="Comment" char="#" context="Comment"/>
+			<keyword String="keyword" attribute="Keyword" context="#stay"/>
+			<DetectChar attribute="String" context="Double Quoted String" char="&quot;"/>
+			<RegExpr attribute="Number" String="0x[0-9A-Fa-f]+"/>
+			<RegExpr attribute="Number" String="[0-9]+\.[0-9]+\.[0-9]+\.[0-9]+(\/[0-9]+)?"/>
+			<RegExpr attribute="Number" String="[0-9a-fA-F:]+::[0-9a-fA-F:]*(\/[0-9]+)?"/>
+			<RegExpr attribute="Number" String="[0-9]+[KMG]?"/>
+			<RegExpr attribute="Variable" String="\$[a-zA-Z_][a-zA-Z0-9_\-]*"/>
+			<DetectChar attribute="Operator" char="(" context="#stay"/>
+			<DetectChar attribute="Operator" char=")" context="#stay"/>
+			<DetectChar attribute="Operator" char="[" context="#stay"/>
+			<DetectChar attribute="Operator" char="]" context="#stay"/>
+			<DetectChar attribute="Operator" char="{" context="#stay"/>
+			<DetectChar attribute="Operator" char="}" context="#stay"/>
+			<DetectChar attribute="Operator" char=";" context="#stay"/>
+			<DetectChar attribute="Operator" char="/" context="Path Context"/>
+		</context>
+
+		<context name="Command Prefix" attribute="Command" lineEndContext="#pop">
+			<keyword String="command" attribute="Command" context="Command Context"/>
+			<DetectIdentifier attribute="Command" context="Command Context"/>
+		</context>
+
+		<context name="Path Context" attribute="Path" lineEndContext="#pop">
+			<keyword String="path" attribute="Path" context="#stay"/>
+			<DetectChar attribute="Operator" char="/" context="#stay"/>
+			<DetectChar attribute="Normal Text" char=" " context="#pop"/>
+			<DetectIdentifier attribute="Path" context="#stay"/>
 		</context>
 
 		<context name="Command Context" attribute="Normal Text" lineEndContext="#pop">
+			<DetectChar attribute="Comment" char="#" context="Comment"/>
 			<keyword String="parameter" attribute="Parameter" context="Key Value"/>
+			<keyword String="keyword" attribute="Keyword" context="#stay"/>
+			<DetectChar attribute="String" context="Double Quoted String" char="&quot;"/>
+			<RegExpr attribute="Variable" String="\$[a-zA-Z_][a-zA-Z0-9_\-]*"/>
 			<DetectChar char="\" context="Consume Newline"/>
+			<DetectChar attribute="Operator" char="[" context="Normal Text"/>
+			<DetectChar attribute="Operator" char="(" context="Normal Text"/>
+			<DetectChar attribute="Operator" char="{" context="Normal Text"/>
 		</context>
 
-		<context name="Double Quoted String" attribute="String" lineEndContext="#pop">
+		<context name="Double Quoted String" attribute="String" lineEndContext="#stay">
 			<DetectChar attribute="String" context="#pop" char="&quot;"/>
+			<RegExpr attribute="Special Char" String="\\[&quot;\\nrt$]"/>
+			<RegExpr attribute="Variable" String="\$[a-zA-Z_][a-zA-Z0-9_\-]*"/>
 		</context>
 
 		<context name="Key Value" attribute="Normal Text" lineEndContext="#pop">
-			<DetectChar attribute="String" context="#stay" char="="/>
+			<DetectChar attribute="Operator" context="#stay" char="="/>
 			<DetectChar attribute="String" context="Double Quoted String" char="&quot;"/>
+			<RegExpr attribute="Number" String="0x[0-9A-Fa-f]+"/>
+			<RegExpr attribute="Number" String="[0-9]+\.[0-9]+\.[0-9]+\.[0-9]+(\/[0-9]+)?"/>
+			<RegExpr attribute="Number" String="[0-9a-fA-F:]+::[0-9a-fA-F:]*(\/[0-9]+)?"/>
+			<RegExpr attribute="Number" String="[0-9]+[KMG]?"/>
+			<RegExpr attribute="Variable" String="\$[a-zA-Z_][a-zA-Z0-9_\-]*"/>
+			<keyword String="keyword" attribute="Keyword" context="#stay"/>
 			<DetectChar char="\" context="Consume Newline"/>
 			<DetectChar char=" " context="#pop"/>
+			<DetectChar attribute="Operator" char=";" context="#pop"/>
+			<DetectChar attribute="Operator" char="[" context="Normal Text"/>
 		</context>
 
 		<context name="Consume Newline" attribute="Normal Text" lineEndContext="#stay">
@@ -804,6 +1038,11 @@
 		<itemData name="Command" defStyleNum="dsFunction"/>
 		<itemData name="Comment" defStyleNum="dsComment"/>
 		<itemData name="String" defStyleNum="dsString"/>
+		<itemData name="Keyword" defStyleNum="dsKeyword"/>
+		<itemData name="Operator" defStyleNum="dsOperator"/>
+		<itemData name="Variable" defStyleNum="dsVariable"/>
+		<itemData name="Number" defStyleNum="dsDecVal"/>
+		<itemData name="Special Char" defStyleNum="dsSpecialChar"/>
 	</itemDatas>
 </highlighting>
 <general>
