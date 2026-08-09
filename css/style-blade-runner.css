@@ -1,0 +1,452 @@
+/* Blade Runner crawl palette, adapted from the opening-crawl demo:
+ * - bg:     #0d0d0d (near-black)
+ * - fg:     #e7e2d3 (warm cream)
+ * - emph:   #c1502e (rust -- brightened from the site's #902000 Kobe,
+ *            which is ~2:1 contrast on this bg and unreadable at text size)
+ * - link:   #e8a33d (amber)
+ * - code:   #1a1613 bg / #e8a33d fg / #902000 border (demo's "variant A")
+ */
+hmtl {
+    text-rendering: optimizeLegibility;
+}
+
+body {
+    font-family: crimson-text;
+    font-size: 1.4em;
+    line-height: 1.4em;
+    max-width: 38em;
+    margin: auto;
+    padding: 0 2%;
+    overflow-wrap: break-word;
+    background-color: #0d0d0d;
+    color: #e7e2d3;
+}
+
+/* Toggle on <body> or any element to preview it. */
+.crimson {
+    font-family: crimson-text;
+}
+
+/* Sourced from the original skosch/Crimson OTF release rather than Google
+ * Fonts' "Crimson Text" webfont build, which strips the smcp/c2sc OpenType
+ * tables -- so font-variant-caps here renders real small-cap glyphs. */
+.crimson-smallcaps {
+    font-family: crimson-text;
+    font-variant-caps: small-caps;
+}
+
+a[href^="http"]:after {
+    content: '⤴';
+    '⇗';
+    display: inline-block;
+}
+
+li {
+    padding-left: .25em;
+    padding-bottom: .25em;
+}
+
+/* Add a bit of space below header. */
+header {
+    margin-bottom: 2em;
+}
+
+nav {
+    margin-top: 1em;
+    margin-bottom: 1em;
+    text-transform: lowercase;
+}
+
+nav a,
+nav span {
+    margin-right: 1em;
+}
+
+nav a:first-child {
+    font-weight: bold;
+}
+
+nav a:last-child {
+    margin-right: 0;
+}
+
+hr {
+    margin: 1em auto;
+    border: 0;
+    border-bottom: thin solid #33291f;
+}
+
+/* Emph color */
+section:first-child h1,
+article header h1,
+strong {
+    color: #c1502e;
+}
+
+/* Add a bit of space below article title. */
+article header {
+    margin-bottom: 1.5em;
+}
+
+article header h1,
+article header h2,
+article header h3 {
+    margin-bottom: 0;
+}
+
+article header h2 {
+    /* Keep close to title. */
+    margin-top: 0.2em;
+    font-size: 1em;
+}
+
+article header h3 {
+    /* Used for date. */
+    font-size: .875em;
+    font-style: italic;
+    font-weight: normal;
+}
+
+article section h1 {
+    font-size: 1.5em;
+}
+
+article section h2 {
+    font-size: 1.3em;
+}
+
+article section h1,
+article section h2 {
+    margin-top: 1.5em;
+    margin-bottom: 1em;
+}
+
+footer {
+    font-size: 0.8em;
+    margin-top: 1em;
+    margin-bottom: 1em;
+    line-height: 1em;
+}
+
+code {
+    font-family: courier-prime;
+    font-size: 1rem;
+    line-height: 1rem;
+    white-space: nowrap;
+    padding: 0.2em 0.4em;
+    background-color: #1a1613;
+    color: #e8a33d;
+    border: 1px solid #902000;
+    border-radius: 2px;
+}
+
+pre {
+    display: flex;
+    overflow: auto;
+    border-left: 2.5px solid #902000;
+    background-color: #1a1613;
+}
+
+pre code {
+    padding: 0.5em 0.5em 0.5em 1em;
+    /* pre already provides the frame; don't double it up on the code block. */
+    border: none;
+    background-color: transparent;
+}
+
+blockquote {
+    margin-left: 1em;
+    margin-right: 1em;
+    padding: 0.5em 1em 0.5em 1em;
+}
+
+blockquote p {
+    margin-top: 0;
+    margin-bottom: 0;
+    font-style: italic;
+    color: #a8ad95;
+}
+
+aside {
+    float: none;
+    /* right */
+    position: relative;
+    /* absolute */
+    width: 100%;
+    /* 20% */
+    left: auto;
+    /* 70% */
+    padding-left: 0;
+    /* 2rem */
+    font-size: 1em;
+    /* .875em */
+}
+
+aside blockquote {
+    margin-left: 1em;
+    margin-right: 1em;
+    padding: 0.5em 1em 0.5em 1em;
+    /*  margin: 0;
+    padding: 0; */
+}
+
+ul {
+    list-style: circle
+}
+
+ul ul {
+    list-style: disc
+}
+
+ul p,
+ol p {
+    margin: 0;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+th,
+td {
+    padding: 8px;
+    border: 1px solid #902000;
+}
+
+th {
+    color: #ffffff;
+    background-color: #902000;
+}
+
+tr.even {
+    background-color: #17130f;
+}
+
+/* Desktops/laptops */
+@media all and (min-width: 1024px) and (max-width: 1280px) {
+    .hero {
+        flex-flow: row nowrap;
+    }
+}
+
+/* Tablet landscape */
+@media all and (min-width: 768px) and (max-width: 1024px) {
+    .hero {
+        flex-flow: row nowrap;
+    }
+}
+
+/* Tablet */
+@media all and (min-width: 480px) and (max-width: 768px) {
+
+    body {
+        font-size: 1.2em;
+    }
+
+    nav a,
+    nav span {
+        /* I should be using a flexbox to space items in nav. */
+        margin-right: 0.5em;
+    }
+
+    .hero {
+        flex-flow: column-reverse nowrap;
+    }
+
+    .hero figure {
+        margin-bottom: -0.5em;
+    }
+
+    aside {
+        float: none;
+        position: relative;
+        width: 100%;
+        left: auto;
+        padding-left: 0;
+        font-size: 1.2em;
+    }
+
+    aside blockquote {
+        margin-left: 1em;
+        margin-right: 1em;
+        padding: 0.5em 1em 0.5em 1em;
+    }
+}
+
+/* Phone */
+@media all and (max-width: 480px) {
+
+    body {
+        font-size: 1.2em;
+    }
+
+    nav a,
+    nav span {
+        /* I should be using a flexbox to space items in nav. */
+        margin-right: 0.5em;
+    }
+
+    .hero {
+        flex-flow: column-reverse nowrap;
+    }
+
+    aside {
+        float: none;
+        position: relative;
+        width: 100%;
+        left: auto;
+        padding-left: 0;
+        font-size: 1.2em;
+    }
+
+    aside blockquote {
+        margin-left: 1em;
+        margin-right: 1em;
+        padding: 0.5em 1em 0.5em 1em;
+    }
+}
+
+.hero {
+    display: flex;
+    align-items: center;
+}
+
+/* Get rid of extra vertical space caused by nesting on the main page. */
+.hero h1 {
+    margin-top: 0;
+    font-size: 1.5em;
+}
+
+.hero figure {
+    max-width: 30%;
+    min-width: 200px;
+}
+
+/* portrait-transparent.png is dark pencil strokes on a transparent "paper" --
+ * tuned to sit on a light page. On this dark background the dark strokes
+ * vanish into the bg and only the light highlights stay visible, inverting
+ * the intended contrast. Flip it back with a filter instead of shipping a
+ * second image asset; alpha is untouched by invert(), so transparency still
+ * works the same. */
+.hero figure img {
+    filter: invert(1);
+}
+
+main img {
+    max-width: 100%;
+    display: block;
+    margin: .75em auto;
+}
+
+main figure figcaption {
+    text-align: center;
+    font-style: italic;
+    color: #a8ad95;
+    font-size: .875em;
+    margin: 0;
+}
+
+
+body,
+h1 a:link,
+h1 a:visited,
+h2 a:link,
+h2 a:visited,
+h3 a:link,
+h3 a:visited,
+h4 a:link,
+h4 a:visited,
+h5 a:link,
+h5 a:visited,
+h6 a:link,
+h6 a:visited,
+.license a:link,
+.license a:visited,
+nav a:first-child:link,
+nav a:first-child:visited {
+    color: #e7e2d3;
+}
+
+h1 a:hover,
+h1 a:active,
+h2 a:hover,
+h2 a:active,
+h3 a:hover,
+h3 a:active,
+h4 a:hover,
+h4 a:active,
+h5 a:hover,
+h5 a:active,
+h6 a:hover,
+h6 a:active,
+.pgp a:hover,
+.pgp a:active,
+.license a:hover,
+.license a:active,
+nav a:first-child:hover,
+nav a:first-child:active {
+    color: #e8a33d;
+}
+
+a:link,
+a:visited {
+    text-decoration: none
+}
+
+a:hover,
+a:active {
+    text-decoration: underline
+}
+
+a:link,
+a:visited {
+    color: #e8a33d;
+}
+
+a:hover,
+a:active {
+    color: #f2c078;
+}
+
+footer address {
+    font-style: normal;
+}
+
+.footnote-ref {
+    text-decoration: none;
+    font-variant-numeric: tabular-nums
+}
+
+.footnote-ref sup {
+    line-height: 0
+}
+
+.footnote-ref sup:before {
+    content: "["
+}
+
+.footnote-ref sup:after {
+    content: "]"
+}
+
+.footnotes {
+    font-size: 0.8em;
+}
+
+.footnotes hr {
+    border: 0;
+    text-align: center;
+    font-size: medium;
+}
+
+.footnotes hr:after {
+    content: "⁂";
+    color: #e7e2d3;
+    display: inline;
+}
+
+.footnotes p {
+    margin-top: 0;
+    margin-bottom: 0.5em;
+}

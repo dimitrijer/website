@@ -9,7 +9,14 @@
 
     <link rel="me" href="mailto:me@dimitrije.website">
     <link rel="stylesheet" type="text/css" href="/css/fonts.css" />
-    <link rel="stylesheet" type="text/css" href="/css/style.css" />
+    <link rel="stylesheet" type="text/css" href="/css/style.css" id="theme-stylesheet" />
+    <script>
+        (function () {
+            if (localStorage.getItem('theme') === 'dark') {
+                document.getElementById('theme-stylesheet').href = '/css/style-blade-runner.css';
+            }
+        })();
+    </script>
     <link rel="stylesheet" type="text/css" href="/css/syntax.css" />
     <link rel="canonical" href="$root$$url$" />
     <link rel="alternate" type="application/rss+xml" title="Dimitrije's Website" href="$root$/rss.xml">
@@ -53,6 +60,35 @@
     <footer>
         $partial("templates/footer.html")$
     </footer>
+
+    <script>
+        (function () {
+            var link = document.getElementById('theme-stylesheet');
+            var toggle = document.getElementById('theme-toggle');
+
+            function isDark() {
+                return link.getAttribute('href').indexOf('blade-runner') !== -1;
+            }
+
+            function updateLabel() {
+                toggle.textContent = isDark() ? 'light' : 'dark';
+            }
+
+            updateLabel();
+
+            toggle.addEventListener('click', function (e) {
+                e.preventDefault();
+                if (isDark()) {
+                    link.href = '/css/style.css';
+                    localStorage.setItem('theme', 'light');
+                } else {
+                    link.href = '/css/style-blade-runner.css';
+                    localStorage.setItem('theme', 'dark');
+                }
+                updateLabel();
+            });
+        })();
+    </script>
 </body>
 
 </html>
