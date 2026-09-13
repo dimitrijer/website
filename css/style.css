@@ -23,6 +23,7 @@
     --code-padding: 0;
     --code-color: inherit;
     --code-radius: 0;
+    color-scheme: light;
 }
 
 /* Blade Runner crawl palette, adapted from the opening-crawl demo. Toggled by
@@ -43,6 +44,7 @@ html[data-theme="dark"] {
     --code-padding: 0.2em 0.4em;
     --code-color: var(--color-fg);
     --code-radius: 2px;
+    color-scheme: dark;
 }
 
 /* Dark-only structural tweaks the palette alone can't express. */
@@ -73,10 +75,10 @@ hmtl {
     text-rendering: optimizeLegibility;
 }
 
-/* Body text previously used charter; switched to crimson-text to match the
- * dark theme. */
+/* Body text uses the original Charter face (pre-dark-mode); see .crimson to
+ * preview crimson-text. */
 body {
-    font-family: crimson-text;
+    font-family: charter;
     font-size: 1.4em;
     line-height: 1.4em;
     max-width: 38em;
@@ -183,10 +185,9 @@ footer {
     line-height: 1em;
 }
 
-/* Code previously used fira-mono; switched to courier-prime to match the dark
- * theme's pre/code font. */
+/* Code uses the original Fira Mono face (pre-dark-mode). */
 code {
-    font-family: courier-prime;
+    font-family: fira-mono;
     font-size: 0.8em;
     line-height: 1em;
     white-space: nowrap;
@@ -426,6 +427,7 @@ main li code {
     font-weight: bold;
     font-size: 5.2em;
     height: 0.538em;
+    font-family: crimson-text;
     font-variant-caps: all-small-caps;
     background: var(--color-emph);
     color: var(--color-bg);

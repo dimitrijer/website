@@ -1,12 +1,4 @@
 @font-face {
-    font-family: droid-sans-mono;
-    font-style: normal;
-    font-weight: normal;
-    font-stretch: normal;
-    src: url('../fonts/droid_sans_mono.woff2') format('woff2');
-}
-
-@font-face {
     font-family: charter;
     font-style: normal;
     font-weight: normal;
@@ -36,22 +28,6 @@
     font-weight: bold;
     font-stretch: normal;
     src: url('../fonts/charter_bold_italic.woff2') format('woff2');
-}
-
-@font-face {
-    font-family: charter-smallcaps;
-    font-style: normal;
-    font-weight: normal;
-    font-stretch: normal;
-    src: url('../fonts/charter_regular_small_caps.woff2') format('woff2');
-}
-
-@font-face {
-    font-family: charter-smallcaps;
-    font-style: normal;
-    font-weight: bold;
-    font-stretch: normal;
-    src: url('../fonts/charter_bold_small_caps.woff2') format('woff2');
 }
 
 @font-face {
@@ -90,20 +66,4 @@
     font-weight: bold;
     font-stretch: normal;
     src: url('../fonts/crimson_bold.woff2') format('woff2');
-}
-
-@font-face {
-    font-family: courier-prime;
-    font-style: normal;
-    font-weight: normal;
-    font-stretch: normal;
-    src: url('../fonts/courierprime_regular.woff2') format('woff2');
-}
-
-@font-face {
-    font-family: courier-prime;
-    font-style: normal;
-    font-weight: bold;
-    font-stretch: normal;
-    src: url('../fonts/courierprime_bold.woff2') format('woff2');
 }

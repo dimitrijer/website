@@ -13,7 +13,9 @@
     <link rel="stylesheet" type="text/css" href="/css/syntax.css" id="syntax-stylesheet" />
     <script>
         (function () {
-            if (localStorage.getItem('theme') === 'dark') {
+            var saved = localStorage.getItem('theme');
+            var dark = saved ? saved === 'dark' : window.matchMedia('(prefers-color-scheme: dark)').matches;
+            if (dark) {
                 document.documentElement.setAttribute('data-theme', 'dark');
                 document.getElementById('syntax-stylesheet').href = '/css/syntax-dark.css';
             }
@@ -67,29 +69,36 @@
             var root = document.documentElement;
             var syntaxLink = document.getElementById('syntax-stylesheet');
             var toggle = document.getElementById('theme-toggle');
+            var media = window.matchMedia('(prefers-color-scheme: dark)');
 
             function isDark() {
                 return root.getAttribute('data-theme') === 'dark';
             }
 
-            function updateLabel() {
-                toggle.textContent = isDark() ? 'light' : 'dark';
+            function apply(dark) {
+                if (dark) {
+                    root.setAttribute('data-theme', 'dark');
+                    syntaxLink.href = '/css/syntax-dark.css';
+                } else {
+                    root.removeAttribute('data-theme');
+                    syntaxLink.href = '/css/syntax.css';
+                }
+                toggle.textContent = dark ? 'light' : 'dark';
             }
 
-            updateLabel();
+            apply(isDark());
 
             toggle.addEventListener('click', function (e) {
                 e.preventDefault();
-                if (isDark()) {
-                    root.removeAttribute('data-theme');
-                    syntaxLink.href = '/css/syntax.css';
-                    localStorage.setItem('theme', 'light');
-                } else {
-                    root.setAttribute('data-theme', 'dark');
-                    syntaxLink.href = '/css/syntax-dark.css';
-                    localStorage.setItem('theme', 'dark');
+                var dark = !isDark();
+                apply(dark);
+                localStorage.setItem('theme', dark ? 'dark' : 'light');
+            });
+
+            media.addEventListener('change', function (e) {
+                if (!localStorage.getItem('theme')) {
+                    apply(e.matches);
                 }
-                updateLabel();
             });
         })();
     </script>
