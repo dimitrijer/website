@@ -297,6 +297,7 @@ postCtx :: Context String
 postCtx =
   constField "root" root
     `mappend` dateField "date" "%Y-%m-%d"
+    `mappend` dateField "dateLong" "%-d %B %Y"
     `mappend` defaultContext
 
 singlePageCtx :: Context String

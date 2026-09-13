@@ -147,6 +147,7 @@ article header h3 {
 }
 
 article header h1 {
+    margin-top: 0;
     line-height: 1.2;
 }
 
@@ -156,12 +157,15 @@ article header h2 {
     font-size: 1em;
 }
 
-article header h3 {
-    /* Used for date. */
-    font-size: .875em;
-    font-style: italic;
+.eyebrow {
+    /* Dateline above the post title. */
+    font-size: 0.72em;
+    font-style: normal;
     font-weight: normal;
-    text-align: right;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--color-muted);
+    margin: 0 0 0.3em;
 }
 
 article section h1 {
