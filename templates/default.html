@@ -9,12 +9,12 @@
 
     <link rel="me" href="mailto:me@dimitrije.website">
     <link rel="stylesheet" type="text/css" href="/css/fonts.css" />
-    <link rel="stylesheet" type="text/css" href="/css/style.css" id="theme-stylesheet" />
+    <link rel="stylesheet" type="text/css" href="/css/style.css" />
     <link rel="stylesheet" type="text/css" href="/css/syntax.css" id="syntax-stylesheet" />
     <script>
         (function () {
             if (localStorage.getItem('theme') === 'dark') {
-                document.getElementById('theme-stylesheet').href = '/css/style-blade-runner.css';
+                document.documentElement.setAttribute('data-theme', 'dark');
                 document.getElementById('syntax-stylesheet').href = '/css/syntax-dark.css';
             }
         })();
@@ -64,12 +64,12 @@
 
     <script>
         (function () {
-            var link = document.getElementById('theme-stylesheet');
+            var root = document.documentElement;
             var syntaxLink = document.getElementById('syntax-stylesheet');
             var toggle = document.getElementById('theme-toggle');
 
             function isDark() {
-                return link.getAttribute('href').indexOf('blade-runner') !== -1;
+                return root.getAttribute('data-theme') === 'dark';
             }
 
             function updateLabel() {
@@ -81,11 +81,11 @@
             toggle.addEventListener('click', function (e) {
                 e.preventDefault();
                 if (isDark()) {
-                    link.href = '/css/style.css';
+                    root.removeAttribute('data-theme');
                     syntaxLink.href = '/css/syntax.css';
                     localStorage.setItem('theme', 'light');
                 } else {
-                    link.href = '/css/style-blade-runner.css';
+                    root.setAttribute('data-theme', 'dark');
                     syntaxLink.href = '/css/syntax-dark.css';
                     localStorage.setItem('theme', 'dark');
                 }

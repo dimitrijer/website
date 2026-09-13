@@ -20,6 +20,53 @@
     --color-accent: #902000;
     --color-accent-fg: #ffffff;
     --color-pre-border: #000;
+    --code-padding: 0;
+    --code-color: inherit;
+    --code-radius: 0;
+}
+
+/* Blade Runner crawl palette, adapted from the opening-crawl demo. Toggled by
+ * setting data-theme="dark" on <html>. */
+html[data-theme="dark"] {
+    --color-bg: #0d0d0d;
+    --color-fg: #e7e2d3;
+    --color-emph: #c1502e;
+    --color-link: #e8a33d;
+    --color-link-hover: #f2c078;
+    --color-muted: #a8ad95;
+    --color-divider: #33291f;
+    --color-surface: #2a231b;
+    --color-surface-alt: #17130f;
+    --color-accent: #902000;
+    --color-accent-fg: #ffffff;
+    --color-pre-border: var(--color-accent);
+    --code-padding: 0.2em 0.4em;
+    --code-color: var(--color-fg);
+    --code-radius: 2px;
+}
+
+/* Dark-only structural tweaks the palette alone can't express. */
+html[data-theme="dark"] body {
+    color: var(--color-fg);
+}
+
+html[data-theme="dark"] pre code {
+    border: none;
+    background-color: transparent;
+}
+
+html[data-theme="dark"] .hero figure img {
+    filter: invert(1);
+}
+
+/* Utility classes to force the Crimson face / real small caps on any element. */
+.crimson {
+    font-family: crimson-text;
+}
+
+.crimson-smallcaps {
+    font-family: crimson-text;
+    font-variant-caps: small-caps;
 }
 
 hmtl {
@@ -140,10 +187,13 @@ footer {
  * theme's pre/code font. */
 code {
     font-family: courier-prime;
-    font-size: 1rem;
-    line-height: 1rem;
+    font-size: 0.8em;
+    line-height: 1em;
     white-space: nowrap;
+    padding: var(--code-padding);
     background-color: var(--color-surface);
+    color: var(--code-color);
+    border-radius: var(--code-radius);
 }
 
 pre {
