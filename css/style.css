@@ -7,25 +7,41 @@
  * - blockquote fg: #7e846b (Artichoke)
  * - blockquote bg: #f5f6f4 (Cultured)
  */
+:root {
+    --color-bg: #fffff5;
+    --color-fg: #333;
+    --color-emph: #902000;
+    --color-link: #0033cc;
+    --color-link-hover: #0033ff;
+    --color-muted: #7e846b;
+    --color-divider: #ccc;
+    --color-surface: #ffffd6;
+    --color-surface-alt: #f5f6f4;
+    --color-accent: #902000;
+    --color-accent-fg: #ffffff;
+    --color-pre-border: #000;
+}
+
 hmtl {
     text-rendering: optimizeLegibility;
 }
 
+/* Body text previously used charter; switched to crimson-text to match the
+ * dark theme. */
 body {
-    font-family: charter;
+    font-family: crimson-text;
     font-size: 1.4em;
     line-height: 1.4em;
     max-width: 38em;
     margin: auto;
     padding: 0 2%;
     overflow-wrap: break-word;
-    background-color: #fffff5;
+    background-color: var(--color-bg);
 }
 
 a[href^="http"]:after {
-    content: '⤴';
-    '⇗';
-    display: inline-block;
+    content: '\2060 ⤴';
+    display: inline;
 }
 
 li {
@@ -60,14 +76,14 @@ nav a:last-child {
 hr {
     margin: 1em auto;
     border: 0;
-    border-bottom: thin solid #ccc;
+    border-bottom: thin solid var(--color-divider);
 }
 
 /* Emph color */
 section:first-child h1,
 article header h1,
 strong {
-    color: #902000;
+    color: var(--color-emph);
 }
 
 /* Add a bit of space below article title. */
@@ -81,6 +97,10 @@ article header h3 {
     margin-bottom: 0;
 }
 
+article header h1 {
+    line-height: 1.2;
+}
+
 article header h2 {
     /* Keep close to title. */
     margin-top: 0.2em;
@@ -92,6 +112,7 @@ article header h3 {
     font-size: .875em;
     font-style: italic;
     font-weight: normal;
+    text-align: right;
 }
 
 article section h1 {
@@ -115,19 +136,21 @@ footer {
     line-height: 1em;
 }
 
+/* Code previously used fira-mono; switched to courier-prime to match the dark
+ * theme's pre/code font. */
 code {
-    font-family: fira-mono;
+    font-family: courier-prime;
     font-size: 1rem;
     line-height: 1rem;
     white-space: nowrap;
-    background-color: #ffffd6;
+    background-color: var(--color-surface);
 }
 
 pre {
     display: flex;
     overflow: auto;
-    border-left: 2.5px solid black;
-    background-color: #ffffd6;
+    border-left: 2.5px solid var(--color-pre-border);
+    background-color: var(--color-surface);
 }
 
 pre code {
@@ -144,7 +167,7 @@ blockquote p {
     margin-top: 0;
     margin-bottom: 0;
     font-style: italic;
-    color: #7e846b;
+    color: var(--color-muted);
 }
 
 aside {
@@ -191,16 +214,16 @@ table {
 th,
 td {
     padding: 8px;
-    border: 1px solid #902000;
+    border: 1px solid var(--color-accent);
 }
 
 th {
-    color: #ffffff;
-    background-color: #902000;
+    color: var(--color-accent-fg);
+    background-color: var(--color-accent);
 }
 
 tr.even {
-    background-color: #f5f6f4;
+    background-color: var(--color-surface-alt);
 }
 
 /* Desktops/laptops */
@@ -312,9 +335,61 @@ main img {
 main figure figcaption {
     text-align: center;
     font-style: italic;
-    color: #7e846b;
+    color: var(--color-muted);
     font-size: .875em;
     margin: 0;
+}
+
+main p,
+main li {
+    text-align: justify;
+    -webkit-hyphens: auto;
+    hyphens: auto;
+}
+
+/* Inline code is normally nowrap, but in justified text an unbreakable token
+ * pushes a line's last word to the next line and leaves a large gap. Allow
+ * arbitrary breaks so justification has somewhere to expand. */
+main p code,
+main li code {
+    white-space: normal;
+    overflow-wrap: anywhere;
+}
+
+.smallcaps {
+    font-variant-caps: small-caps;
+    font-size: 1.8em;
+    line-height: 1;
+    font-weight: bold;
+}
+
+.intro .smallcaps {
+    font-size: 1em;
+}
+
+.dropcap {
+    float: left;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-sizing: border-box;
+    font-weight: bold;
+    font-size: 5.2em;
+    height: 0.538em;
+    font-variant-caps: all-small-caps;
+    background: var(--color-emph);
+    color: var(--color-bg);
+    padding: 0 0.03em 0.16em;
+    border-radius: 3px;
+    margin: 0 -0.01em 0 0;
+    transform: scaleX(0.85);
+    transform-origin: left center;
+}
+
+.footnotes p,
+.footnotes li {
+    text-align: left;
+    hyphens: none;
 }
 
 
@@ -335,7 +410,7 @@ h6 a:visited,
 .license a:visited,
 nav a:first-child:link,
 nav a:first-child:visited {
-    color: #333;
+    color: var(--color-fg);
 }
 
 h1 a:hover,
@@ -356,7 +431,7 @@ h6 a:active,
 .license a:active,
 nav a:first-child:hover,
 nav a:first-child:active {
-    color: #555;
+    color: var(--color-link);
 }
 
 a:link,
@@ -371,12 +446,12 @@ a:active {
 
 a:link,
 a:visited {
-    color: #03c;
+    color: var(--color-link);
 }
 
 a:hover,
 a:active {
-    color: #03f;
+    color: var(--color-link-hover);
 }
 
 footer address {
@@ -401,7 +476,7 @@ footer address {
 }
 
 .footnotes {
-    font-size: 0.8em;
+    font-size: 0.75em;
 }
 
 .footnotes hr {
@@ -412,11 +487,70 @@ footer address {
 
 .footnotes hr:after {
     content: "⁂";
-    color: #333;
+    color: var(--color-fg);
     display: inline;
 }
 
 .footnotes p {
     margin-top: 0;
     margin-bottom: 0.5em;
+}
+
+.sidenote code,
+.footnotes code {
+    font-size: 0.75em;
+    line-height: inherit;
+    white-space: normal;
+}
+
+/* Each footnote is duplicated inline as a sidenote. It is hidden by default so
+ * the native end-of-document footnotes are shown. On wide screens the two swap
+ * and the note is floated into the right margin. */
+.sidenote {
+    display: none;
+}
+
+@media all and (min-width: 1320px) {
+    body {
+        max-width: 30em;
+        margin-left: 10%;
+        margin-right: auto;
+        counter-reset: sidenote;
+    }
+
+    #footnotes {
+        display: none;
+    }
+
+    .sidenote {
+        display: block;
+        float: right;
+        clear: right;
+        width: 20.5em;
+        margin: 0 -27em 0.75em 0;
+        font-size: 0.75em;
+        line-height: 1.35;
+        color: var(--color-muted);
+        font-style: italic;
+        text-align: left;
+    }
+
+    .sidenote::before {
+        counter-increment: sidenote;
+        content: "[" counter(sidenote) "] ";
+    }
+
+    body:has(#hi) {
+        max-width: 38em;
+        margin: auto;
+        counter-reset: none;
+    }
+
+    body:has(#hi) #footnotes {
+        display: block;
+    }
+
+    body:has(#hi) .sidenote {
+        display: none;
+    }
 }

@@ -1,16 +1,19 @@
 --------------------------------------------------------------------------------
 {-# LANGUAGE OverloadedStrings #-}
 
+import Data.List (intercalate)
 import qualified Data.Map as M
 import Data.Monoid (mappend)
+import qualified Data.Text as DT
 import Data.Time
 import Hakyll
 import Skylighting.Loader (loadSyntaxesFromDir)
 import Skylighting.Syntax (defaultSyntaxMap)
-import qualified Skylighting.Types as T
+import qualified Skylighting.Types as ST
 import System.Process (readProcess)
 import Text.Pandoc
 import Text.Pandoc.Highlighting
+import Text.Pandoc.Walk (walk)
 
 --------------------------------------------------------------------------------
 root :: String
@@ -24,32 +27,47 @@ config =
       previewPort = 8082
     }
 
-colorIvory = T.RGB 255 255 245
+colorIvory = ST.RGB 255 255 245
 
-colorArtichoke = T.RGB 126 132 107
+colorArtichoke = ST.RGB 126 132 107
 
-colorKobe = T.RGB 144 32 0
+colorKobe = ST.RGB 144 32 0
 
-colorPersianBlue = T.RGB 0 51 204
+colorPersianBlue = ST.RGB 0 51 204
 
-colorBlack = T.RGB 0 0 0
+colorBlack = ST.RGB 0 0 0
 
 pandocHighlightStyle :: Style
 pandocHighlightStyle =
   kate
-    { T.defaultColor = Just colorBlack,
-      T.backgroundColor = Just colorIvory,
-      T.lineNumberBackgroundColor = Just colorIvory,
-      T.tokenStyles = customTokenStyles
+    { ST.defaultColor = Just colorBlack,
+      ST.backgroundColor = Just colorIvory,
+      ST.lineNumberBackgroundColor = Just colorIvory,
+      ST.tokenStyles = customTokenStyles
     }
   where
     customTokenStyles =
       M.fromList
-        [ (T.CommentTok, T.defStyle {T.tokenColor = Just colorArtichoke}),
-          (T.DataTypeTok, T.defStyle {T.tokenColor = Just colorPersianBlue}),
-          (T.StringTok, T.defStyle {T.tokenColor = Just colorKobe})
+        [ (ST.CommentTok, ST.defStyle {ST.tokenColor = Just colorArtichoke}),
+          (ST.DataTypeTok, ST.defStyle {ST.tokenColor = Just colorPersianBlue}),
+          (ST.StringTok, ST.defStyle {ST.tokenColor = Just colorKobe})
         ]
-        `mappend` T.tokenStyles kate
+        `mappend` ST.tokenStyles kate
+
+colorCream = ST.RGB 231 226 211
+
+colorSurfaceDark = ST.RGB 42 35 27
+
+colorMuted = ST.RGB 168 173 149
+
+pandocHighlightStyleDark :: Style
+pandocHighlightStyleDark =
+  breezeDark
+    { ST.defaultColor = Just colorCream,
+      ST.backgroundColor = Just colorSurfaceDark,
+      ST.lineNumberColor = Just colorMuted,
+      ST.lineNumberBackgroundColor = Just colorSurfaceDark
+    }
 
 html5WriterOptions :: WriterOptions
 html5WriterOptions =
@@ -76,7 +94,58 @@ beautifyHTML item = do
   output <- recompilingUnsafeCompiler (readProcess "prettier" ["--no-config", "--print-width", "120", "--parser", "html"] (itemBody item))
   return $ fmap (const output) item
 
-runHakyll :: T.SyntaxMap -> IO ()
+-- Duplicate each footnote inline as a sidenote, while leaving Pandoc's native
+-- end-of-document footnotes untouched. CSS shows one or the other depending on
+-- whether there is room in the margin.
+sidenoteTransform :: Pandoc -> Pandoc
+sidenoteTransform = walk toSidenote
+  where
+    toSidenote :: Inline -> Inline
+    toSidenote (Note blocks) =
+      Span
+        ("", [], [])
+        [ Note blocks,
+          Span ("", ["sidenote"], []) (concatBlockInlines blocks)
+        ]
+    toSidenote inline = inline
+
+    concatBlockInlines :: [Block] -> [Inline]
+    concatBlockInlines = intercalate [Space] . map blockInlines
+
+    blockInlines :: Block -> [Inline]
+    blockInlines (Plain ils) = ils
+    blockInlines (Para ils) = ils
+    blockInlines (LineBlock lss) = intercalate [LineBreak] lss
+    blockInlines (Header _ _ ils) = ils
+    blockInlines (CodeBlock _ t) = [Code ("", [], []) t]
+    blockInlines (RawBlock _ t) = [RawInline "html" t]
+    blockInlines (BlockQuote bs) = concatBlockInlines bs
+    blockInlines (OrderedList _ items) = concatBlockInlines (concat items)
+    blockInlines (BulletList items) = concatBlockInlines (concat items)
+    blockInlines (DefinitionList items) = concatBlockInlines (concatMap (\(termInlines, defs) -> Para termInlines : concat defs) items)
+    blockInlines (Div _ bs) = concatBlockInlines bs
+    blockInlines _ = []
+
+-- Wrap the first letter of a piece's opening paragraph so it can be styled as
+-- a drop cap.
+leadTransform :: Pandoc -> Pandoc
+leadTransform (Pandoc meta blocks) = Pandoc meta (go blocks)
+  where
+    go (Para ils : rest) = Div ("", ["lead"], []) [Para (dropCapFirstLetter ils)] : rest
+    go (block : rest) = block : go rest
+    go [] = []
+
+    dropCapFirstLetter :: [Inline] -> [Inline]
+    dropCapFirstLetter (Str word : rest) =
+      case DT.uncons word of
+        Nothing -> Str word : rest
+        Just (initial, remainder) ->
+          Span ("", ["dropcap"], []) [Str (DT.singleton initial)]
+            : [Str remainder | not (DT.null remainder)]
+            ++ rest
+    dropCapFirstLetter ils = ils
+
+runHakyll :: ST.SyntaxMap -> IO ()
 runHakyll sm =
   hakyllWith config $ do
     match "images/*" $ do
@@ -95,6 +164,11 @@ runHakyll sm =
       route idRoute
       compile $ do
         makeItem $ compressCss . styleToCss $ pandocHighlightStyle
+
+    create ["css/syntax-dark.css"] $ do
+      route idRoute
+      compile $ do
+        makeItem $ compressCss . styleToCss $ pandocHighlightStyleDark
 
     match "css/*" $ do
       route idRoute
@@ -140,6 +214,7 @@ runHakyll sm =
         bib <- load $ fromFilePath "bib/refs.bib"
         getResourceBody
           >>= readPandocBiblio defaultHakyllReaderOptions csl bib
+          >>= return . fmap sidenoteTransform
           >>= return . writePandocWith html5WriterOptions
           >>= loadAndApplyTemplate "templates/default.html" (singlePageCtx `mappend` constField "htmltitle" "Curriculum Vitae")
           >>= relativizeUrls
@@ -148,7 +223,7 @@ runHakyll sm =
     match "pages/contact.md" $ do
       route $ constRoute "contact.html"
       compile $
-        pandocCompilerWith defaultHakyllReaderOptions html5WriterOptions
+        pandocCompilerWithTransform defaultHakyllReaderOptions html5WriterOptions sidenoteTransform
           >>= loadAndApplyTemplate "templates/default.html" (singlePageCtx `mappend` constField "htmltitle" "Contact")
           >>= relativizeUrls
           >>= beautifyHTML
@@ -168,6 +243,7 @@ runHakyll sm =
         getResourceBody
           >>= applyAsTemplate indexCtx
           >>= readPandocWith defaultHakyllReaderOptions
+          >>= return . fmap sidenoteTransform
           >>= return . writePandocWith html5WriterOptions
           >>= loadAndApplyTemplate "templates/default.html" indexCtx
           >>= relativizeUrls
@@ -205,7 +281,13 @@ runHakyll sm =
 
     match "templates/*" $ compile templateCompiler
   where
-    customPandocCompiler = pandocCompilerWith defaultHakyllReaderOptions html5WriterOptions {writerSyntaxMap = defaultSyntaxMap `mappend` sm}
+    customPandocCompiler = pandocCompilerWithTransform
+      defaultHakyllReaderOptions
+      html5WriterOptions
+      { writerSyntaxMap = defaultSyntaxMap `mappend` sm
+      , writerCiteMethod = Citeproc
+      }
+      (sidenoteTransform . leadTransform)
 
 main :: IO ()
 main = loadSyntaxesFromDir "syntax" >>= either fail runHakyll

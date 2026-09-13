@@ -19,6 +19,7 @@ executable site
                       containers >= 0.6,
                       hakyll >= 4.13,
                       pandoc >= 2.7,
+                      pandoc-types >= 1.22,
                       skylighting >= 0.10,
                       skylighting-core >= 0.10,
                       text >= 1.2,

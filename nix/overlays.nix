@@ -5,6 +5,7 @@ self: super: {
   ghc = self.haskellPackages.ghcWithPackages (
     ps: with ps; [
       pandoc
+      pandoc-types
       hakyll
       time
       text

@@ -1,11 +1,30 @@
-/* Blade Runner crawl palette, adapted from the opening-crawl demo:
- * - bg:     #0d0d0d (near-black)
- * - fg:     #e7e2d3 (warm cream)
- * - emph:   #c1502e (rust -- brightened from the site's #902000 Kobe,
- *            which is ~2:1 contrast on this bg and unreadable at text size)
- * - link:   #e8a33d (amber)
- * - code:   #1a1613 bg / #e8a33d fg / #902000 border (demo's "variant A")
- */
+/* Blade Runner crawl palette, adapted from the opening-crawl demo. */
+:root {
+    --color-bg: #0d0d0d;
+    /* near-black */
+    --color-fg: #e7e2d3;
+    /* warm cream */
+    --color-emph: #c1502e;
+    /* rust -- brightened from the site's #902000 Kobe, which is ~2:1
+       contrast on this bg and unreadable at text size */
+    --color-link: #e8a33d;
+    /* amber */
+    --color-link-hover: #f2c078;
+    /* light amber */
+    --color-muted: #a8ad95;
+    /* blockquotes, figcaptions */
+    --color-divider: #33291f;
+    /* hr */
+    --color-surface: #2a231b;
+    /* code/pre and inline code background */
+    --color-surface-alt: #17130f;
+    /* table zebra striping */
+    --color-accent: #902000;
+    /* Kobe red -- borders, table header fill */
+    --color-accent-fg: #ffffff;
+    /* text on --color-accent */
+}
+
 hmtl {
     text-rendering: optimizeLegibility;
 }
@@ -18,8 +37,8 @@ body {
     margin: auto;
     padding: 0 2%;
     overflow-wrap: break-word;
-    background-color: #0d0d0d;
-    color: #e7e2d3;
+    background-color: var(--color-bg);
+    color: var(--color-fg);
 }
 
 /* Toggle on <body> or any element to preview it. */
@@ -36,9 +55,8 @@ body {
 }
 
 a[href^="http"]:after {
-    content: '⤴';
-    '⇗';
-    display: inline-block;
+    content: '\2060 ⤴';
+    display: inline;
 }
 
 li {
@@ -73,14 +91,14 @@ nav a:last-child {
 hr {
     margin: 1em auto;
     border: 0;
-    border-bottom: thin solid #33291f;
+    border-bottom: thin solid var(--color-divider);
 }
 
 /* Emph color */
 section:first-child h1,
 article header h1,
 strong {
-    color: #c1502e;
+    color: var(--color-emph);
 }
 
 /* Add a bit of space below article title. */
@@ -94,6 +112,10 @@ article header h3 {
     margin-bottom: 0;
 }
 
+article header h1 {
+    line-height: 1.2;
+}
+
 article header h2 {
     /* Keep close to title. */
     margin-top: 0.2em;
@@ -105,6 +127,7 @@ article header h3 {
     font-size: .875em;
     font-style: italic;
     font-weight: normal;
+    text-align: right;
 }
 
 article section h1 {
@@ -134,17 +157,16 @@ code {
     line-height: 1rem;
     white-space: nowrap;
     padding: 0.2em 0.4em;
-    background-color: #1a1613;
-    color: #e8a33d;
-    border: 1px solid #902000;
+    background-color: var(--color-surface);
+    color: var(--color-fg);
     border-radius: 2px;
 }
 
 pre {
     display: flex;
     overflow: auto;
-    border-left: 2.5px solid #902000;
-    background-color: #1a1613;
+    border-left: 2.5px solid var(--color-accent);
+    background-color: var(--color-surface);
 }
 
 pre code {
@@ -164,7 +186,7 @@ blockquote p {
     margin-top: 0;
     margin-bottom: 0;
     font-style: italic;
-    color: #a8ad95;
+    color: var(--color-muted);
 }
 
 aside {
@@ -211,16 +233,16 @@ table {
 th,
 td {
     padding: 8px;
-    border: 1px solid #902000;
+    border: 1px solid var(--color-accent);
 }
 
 th {
-    color: #ffffff;
-    background-color: #902000;
+    color: var(--color-accent-fg);
+    background-color: var(--color-accent);
 }
 
 tr.even {
-    background-color: #17130f;
+    background-color: var(--color-surface-alt);
 }
 
 /* Desktops/laptops */
@@ -342,9 +364,61 @@ main img {
 main figure figcaption {
     text-align: center;
     font-style: italic;
-    color: #a8ad95;
+    color: var(--color-muted);
     font-size: .875em;
     margin: 0;
+}
+
+main p,
+main li {
+    text-align: justify;
+    -webkit-hyphens: auto;
+    hyphens: auto;
+}
+
+/* Inline code is normally nowrap, but in justified text an unbreakable token
+ * pushes a line's last word to the next line and leaves a large gap. Allow
+ * arbitrary breaks so justification has somewhere to expand. */
+main p code,
+main li code {
+    white-space: normal;
+    overflow-wrap: anywhere;
+}
+
+.smallcaps {
+    font-variant-caps: small-caps;
+    font-size: 1.8em;
+    line-height: 1;
+    font-weight: bold;
+}
+
+.intro .smallcaps {
+    font-size: 1em;
+}
+
+.dropcap {
+    float: left;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-sizing: border-box;
+    font-weight: bold;
+    font-size: 5.2em;
+    height: 0.538em;
+    font-variant-caps: all-small-caps;
+    background: var(--color-emph);
+    color: var(--color-bg);
+    padding: 0 0.03em 0.16em;
+    border-radius: 3px;
+    margin: 0 -0.01em 0 0;
+    transform: scaleX(0.85);
+    transform-origin: left center;
+}
+
+.footnotes p,
+.footnotes li {
+    text-align: left;
+    hyphens: none;
 }
 
 
@@ -365,7 +439,7 @@ h6 a:visited,
 .license a:visited,
 nav a:first-child:link,
 nav a:first-child:visited {
-    color: #e7e2d3;
+    color: var(--color-fg);
 }
 
 h1 a:hover,
@@ -386,7 +460,7 @@ h6 a:active,
 .license a:active,
 nav a:first-child:hover,
 nav a:first-child:active {
-    color: #e8a33d;
+    color: var(--color-link);
 }
 
 a:link,
@@ -401,12 +475,12 @@ a:active {
 
 a:link,
 a:visited {
-    color: #e8a33d;
+    color: var(--color-link);
 }
 
 a:hover,
 a:active {
-    color: #f2c078;
+    color: var(--color-link-hover);
 }
 
 footer address {
@@ -431,7 +505,7 @@ footer address {
 }
 
 .footnotes {
-    font-size: 0.8em;
+    font-size: 0.75em;
 }
 
 .footnotes hr {
@@ -442,11 +516,67 @@ footer address {
 
 .footnotes hr:after {
     content: "⁂";
-    color: #e7e2d3;
+    color: var(--color-fg);
     display: inline;
 }
 
 .footnotes p {
     margin-top: 0;
     margin-bottom: 0.5em;
+}
+
+.sidenote code,
+.footnotes code {
+    font-size: 0.75em;
+    line-height: inherit;
+    white-space: normal;
+}
+
+.sidenote {
+    display: none;
+}
+
+@media all and (min-width: 1320px) {
+    body {
+        max-width: 30em;
+        margin-left: 10%;
+        margin-right: auto;
+        counter-reset: sidenote;
+    }
+
+    #footnotes {
+        display: none;
+    }
+
+    .sidenote {
+        display: block;
+        float: right;
+        clear: right;
+        width: 20.5em;
+        margin: 0 -27em 0.75em 0;
+        font-size: 0.75em;
+        line-height: 1.35;
+        color: var(--color-muted);
+        font-style: italic;
+        text-align: left;
+    }
+
+    .sidenote::before {
+        counter-increment: sidenote;
+        content: "[" counter(sidenote) "] ";
+    }
+
+    body:has(#hi) {
+        max-width: 38em;
+        margin: auto;
+        counter-reset: none;
+    }
+
+    body:has(#hi) #footnotes {
+        display: block;
+    }
+
+    body:has(#hi) .sidenote {
+        display: none;
+    }
 }
