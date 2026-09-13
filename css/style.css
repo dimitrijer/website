@@ -424,18 +424,18 @@ main li code {
 
 .dropcap {
     float: left;
-    display: flex;
-    align-items: center;
-    justify-content: center;
     box-sizing: border-box;
     font-weight: bold;
     font-size: 5.2em;
+    /* Two body lines (2 x 1.4em). line-height equals the box height so the
+     * single line box fills it */
+    line-height: 0.538em;
     height: 0.538em;
-    font-family: crimson-text;
+    font-family: crimson-dropcap;
     font-variant-caps: all-small-caps;
     background: var(--color-emph);
     color: var(--color-bg);
-    padding: 0 0.03em 0.16em;
+    padding: 0 0.03em;
     border-radius: 3px;
     margin: 0 -0.01em 0 0;
     transform: scaleX(0.85);

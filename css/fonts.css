@@ -67,3 +67,14 @@
     font-stretch: normal;
     src: url('../fonts/crimson_bold.woff2') format('woff2');
 }
+
+/* Dedicated face for the drop cap. Centered vertically, see .dropcap. */
+@font-face {
+    font-family: crimson-dropcap;
+    font-style: normal;
+    font-weight: bold;
+    src: url('../fonts/crimson_bold.woff2') format('woff2');
+    ascent-override: 44.3%;
+    descent-override: 0%;
+    line-gap-override: 0%;
+}
