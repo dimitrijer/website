@@ -33,3 +33,4 @@ _site
 
 ### CV templating ###
 cv-template.tex_subst
+.texlive_path

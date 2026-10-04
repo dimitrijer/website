@@ -35,7 +35,9 @@ pkgs.mkShell {
     nixpkgs-fmt
     haskellPackages.ormolu
     ripgrep
-    nodePackages.prettier
+    prettier
+    # For generating the PDF CV
+    pandoc
   ] ++
   [
     neovim

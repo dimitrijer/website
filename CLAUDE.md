@@ -27,8 +27,8 @@ This file provides comprehensive guidance for working with the dimitrije.website
 
 ### Core Technologies
 - **Haskell**: Site generation logic (site.hs - 224 lines)
-- **Hakyll 4.13+**: Static site generator framework
-- **Pandoc 2.7+**: Markdown → HTML conversion, document processing
+- **Hakyll 4.17**: Static site generator framework
+- **Pandoc 3.7**: Markdown → HTML conversion, document processing
 - **Skylighting**: Syntax highlighting with custom language definitions
 - **Nix**: Reproducible build environment and dependency management
 - **Cabal 3.4+**: Haskell package management
@@ -172,7 +172,7 @@ All development happens inside `nix-shell`:
 nix-shell
 # Provides: ghc, cabal, haskell-language-server, ormolu,
 #           nixpkgs-fmt, prettier, ripgrep, imagemagick,
-#           neovim, latex/xetex
+#           neovim, latex/xetex, pandoc
 ```
 
 **Shell aliases available**:
@@ -279,8 +279,9 @@ make all
 make cv
 ```
 
-**Process** (Makefile:32-45):
-1. Substitute TEXLIVE_PATH in LaTeX template
+**Process** (Makefile:35-50):
+1. Substitute TEXLIVE_PATH in LaTeX template (re-run automatically when the
+   Texlive store path changes, tracked via `templates/.texlive_path`)
 2. Run Pandoc with:
    - Markdown input: `pages/cv.md`
    - Template: `templates/cv-template.tex`
@@ -294,6 +295,11 @@ make cv
 - IEEE citation style
 - Professional typography
 - Automatic bibliography
+
+**Note**: the `$if(csl-refs)$` block in `templates/cv-template.tex` is copied
+from pandoc's default LaTeX template (currently pandoc 3.7). If a pandoc upgrade
+breaks bibliography rendering (e.g. "Lonely \item"), refresh it from the output
+of `pandoc -s -t latex --citeproc ...` with the default template.
 
 ### Deployment
 
@@ -626,9 +632,12 @@ nix-collect-garbage -d
 ### Pinned Dependencies
 
 **Current pins** (nix/sources.json):
-- **nixpkgs**: 24.11 branch
+- **nixpkgs**: `nixos-26.05` channel branch
 - **nixfiles**: Custom Neovim config
 - **niv**: Dependency manager itself
+
+`nix/default.nix` allows the unfree `vim-highlightedyank` plugin (pulled in by
+the nixfiles Neovim config) via `allowUnfreePredicate`.
 
 All pins include SHA256 hashes for reproducibility.
 
@@ -748,7 +757,7 @@ optipng -o7 image.png
 
 ---
 
-**Last Updated**: 2025-11-23
-**Hakyll Version**: 4.13+
-**Nixpkgs**: 24.11
+**Last Updated**: 2026-10-04
+**Hakyll Version**: 4.17
+**Nixpkgs**: 26.05
 **Cabal Version**: 3.4

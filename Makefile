@@ -1,4 +1,4 @@
-.PHONY: all watch build rebuild deploy clean
+.PHONY: all watch build rebuild deploy clean FORCE
 
 CV  := pages/cv.md
 PDF := files/CV_Dimitrije_Radojevic.pdf
@@ -9,6 +9,9 @@ TPL := templates/cv-template.tex
 # the CV template.
 LATEX_PATH := $(shell which latex)
 TEXLIVE_PATH := $(shell nix-store --query $(LATEX_PATH))
+# Records the Texlive path, so the CV is rebuilt when it changes (e.g. after a
+# nixpkgs bump). Only touched when the path actually differs.
+TEXLIVE_STAMP := templates/.texlive_path
 
 all: clean cv build
 
@@ -27,9 +30,12 @@ deploy:
 
 clean:
 	site clean
-	rm -f "$(PDF)" "$(TPL)_subst"
+	rm -f "$(PDF)" "$(TPL)_subst" "$(TEXLIVE_STAMP)"
 
-$(TPL)_subst: $(TPL)
+$(TEXLIVE_STAMP): FORCE
+	@echo "$(TEXLIVE_PATH)" | cmp -s - $@ || echo "$(TEXLIVE_PATH)" >$@
+
+$(TPL)_subst: $(TPL) $(TEXLIVE_STAMP)
 	sed "s#TEXLIVE_PATH#$(TEXLIVE_PATH)#" $(TPL) >$(TPL)_subst
 
 $(PDF): $(CV) $(CSL) $(BIB) $(TPL)_subst
